@@ -20,7 +20,7 @@ function fizzbuzz(num) {
 	let count = 1;
 	let result = [];
 	while(count <= num) {
-		if(count%3 === 0 && count%5 === 0) {
+		if(count%15 === 0) {
 			result.push('fizzbuzz');
 		} else if (count%3 === 0) {
 			result.push('fizz');
