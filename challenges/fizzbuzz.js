@@ -18,6 +18,23 @@
 
 function fizzbuzz(num) {
 
-}
+        // let loop = [1,2,3]
+    let bucket = []
+    for(let loop = 1  ; loop <= num; loop++){
+        if(loop % 3 === 0 ){
+    bucket.push('fizz')
+        }
+        if(loop % 5 === 0){
+            bucket.push('buzz')
+        }
+        bucket.push(loop)
+        if (loop % 3 === 0 && loop % 5 === 0){
+            bucket.push('fizzbuzz')
+        }
+    }
+    return bucket
+    }
+    
+fizzbuzz(17)
 
 module.exports = fizzbuzz;
