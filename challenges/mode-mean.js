@@ -29,7 +29,7 @@ function modemean(array) {
       mode = num;
     }
   }
-  if (mode === mean) { return true; }
+  if (mode == mean) { return true; }
   return false;
 }
   
