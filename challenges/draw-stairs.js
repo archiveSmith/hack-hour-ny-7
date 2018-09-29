@@ -25,7 +25,7 @@ function drawStairs(n) {
         spaces--;
         stars += '*';
     }
-    }
+}
 
 
 module.exports = drawStairs;
