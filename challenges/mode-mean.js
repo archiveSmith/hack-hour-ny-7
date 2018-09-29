@@ -13,23 +13,36 @@
 function modemean(array) {
     let len = array.length;
     let dupCache = [];
-    let modes = [];
+    let modes = {};
+    let count = 0;
     let mean;
     let mode;
   
-    mean = array.reduce((acc, cur, idx) => {
+    mean = array.reduce((acc, cur) => {
       return acc + cur;
-    })
+    });
   
     array.reduce((acc, cur, idx) => {
       acc = array[idx -1];
       dupCache.push(acc)
+      console.log(cur)
       if (dupCache.includes(cur)) {
-        modes.push(cur)
+        console.log('match!')
+        modes[cur] = count++;
       }
-    })
+    });
   
-    mode = Math.max(...modes);
+    Object.keys(modes).reduce((acc, cur) => {
+      if(modes[acc] > modes[cur]) {
+        mode = acc
+      } else if (modes[acc] < modes[cur]){
+        mode = cur;
+      } else {
+        mode = Math.max(...modes);
+      }
+  
+    });
+  
     mean = mean / len;
   
     if (mean === mode) {
