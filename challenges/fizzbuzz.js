@@ -38,6 +38,10 @@ function fizzbuzz(num) {
     
   }
 
+  arr.forEach((element) => {
+  	console.log(element);
+  });
+  
   return arr;
 }
 
