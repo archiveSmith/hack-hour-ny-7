@@ -10,6 +10,7 @@
  */
 
 
+
 function modemean(array) {
     let len = array.length;
     let dupCache = [];
@@ -18,29 +19,26 @@ function modemean(array) {
     let mean;
     let mode;
   
-    mean = array.reduce((acc, cur) => {
+    mean = array.reduce((acc, cur, idx) => {
       return acc + cur;
-    });
+    })
   
     array.reduce((acc, cur, idx) => {
       acc = array[idx -1];
       dupCache.push(acc)
-      console.log(cur)
       if (dupCache.includes(cur)) {
-        console.log('match!')
         modes[cur] = count++;
       }
-    });
+    })
   
     Object.keys(modes).reduce((acc, cur) => {
       if(modes[acc] > modes[cur]) {
         mode = acc
       } else if (modes[acc] < modes[cur]){
         mode = cur;
-      } else {
-        mode = Math.max(...modes);
+      } else if (modes[acc] === modes [cur]) {
+        mode = Math.max(...dupCache);
       }
-  
     });
   
     mean = mean / len;
