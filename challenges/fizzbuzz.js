@@ -17,7 +17,22 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
-}
+    let one2Num = [];
+  
+    for (let i = 1; i <= num; i++) {
+      if (i % 3 === 0 && i % 5 === 0) {
+        one2Num.push('fizzbuzz');
+      } else
+        if (i % 3 === 0) {
+          one2Num.push('fizz')
+        } else if (i % 5 === 0) {
+          one2Num.push('buzz');
+        } else {
+          one2Num.push(i);
+        }
+    }
+    return one2Num;
+  }
+  
 
 module.exports = fizzbuzz;
