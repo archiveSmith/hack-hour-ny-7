@@ -29,7 +29,7 @@ function modemean(array) {
     acc += curr;
     return acc;
   });
-  mean = mean / array.length;
+  mean = Math.floor(mean / array.length);
   console.log(mode);
   console.log(mean);
 
