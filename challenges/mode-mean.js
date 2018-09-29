@@ -26,9 +26,7 @@ function modemean(array) {
     array.reduce((acc, cur, idx) => {
       acc = array[idx -1];
       dupCache.push(acc)
-      console.log(cur)
       if (dupCache.includes(cur)) {
-        console.log('match!')
         modes[cur] = count++;
       }
     })
@@ -39,7 +37,7 @@ function modemean(array) {
       } else if (modes[acc] < modes[cur]){
         mode = cur;
       } else if (modes[acc] === modes [cur]) {
-        mode = Math.max(...modes);
+        mode = Math.max(...dupCache);
       }
     });
   
