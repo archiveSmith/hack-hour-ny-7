@@ -12,31 +12,33 @@
 // mode is repeated more than any other
 
 function modemean(array) {
-if (mean === mode) {
-  return true
+  return (mean(array) === mode(array));
 }
+
 function mean(array){
-  value = array.reduce(function(a, b) {
-    return a + b
-  }) / array.length
-  mean = Math.floor(value);
+value = array.reduce(function(a, b) {
+  return a + b
+}) / array.length
+return Math.floor(value);
 }
+
 function mode(array) {
-  var numList = {};
-  for(var i = 0; i < array.length; i++){
-      if(numList[array[i]] === undefined){
-          numList[array[i]] = 0;
-      }        
-          numList[array[i]] += 1;
-  }
+var numList = {};
+for(var i = 0; i < array.length; i++){
+    if(numList[array[i]] === undefined){
+        numList[array[i]] = 0;
+    }        
+        numList[array[i]] += 1;
+}
 mostFreq = 0;
 mode;
 for (prop in numList) {
-  if (numList[prop] > mostFreq) {
-    mostFreq = numList[prop];
-    mode = prop;
-  }
+if (numList[prop] > mostFreq) {
+  mostFreq = numList[prop];
+  mode = prop;
 }
+}
+return parseInt(mode)
 }
 
 
