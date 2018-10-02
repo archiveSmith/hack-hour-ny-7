@@ -18,4 +18,25 @@ function drawStairs(n) {
 }
 
 
+function drawStairs(n) {
+  for (let i = 1; i <= n; i++) {
+    let string = '';
+    for (let k = 0; k < n - i; k++) {
+      string += ' ';
+    }
+    for (let p = 0; p < i; p++) {
+      string += '*'
+    }
+    console.log(string);
+  }
+}
+
+function drawStairs(n) {
+  for (var i = 1; i <= n; i++) {
+    var spaces = ' '.repeat(n - i);
+    var splats = '*'.repeat(i);
+    console.log(spaces + splats);
+  }
+}
+
 module.exports = drawStairs;
