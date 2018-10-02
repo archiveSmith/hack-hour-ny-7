@@ -35,11 +35,12 @@ function len (node){
 
 function kthToLastNode(k, head) {
   let counter = len(head) - k;
+  if (counter < 0 || k < 0) return undefined;
   let currentNode = head;
   for (let i = 0; i < counter; i++){
-    currentNode = currentNode.next || undefined;
+    currentNode = currentNode.next;
   }
-  return currentNode.value || undefined;
+  return currentNode.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
