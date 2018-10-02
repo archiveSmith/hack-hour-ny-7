@@ -29,12 +29,16 @@ function kthToLastNode(k, head) {
     count++;
     current = current.next;
   }
+  if (k > count - k)
   current = head;
   const index = count - k;
   for (let i = 0; i < index; i++) {
     current = current.next;
   }
-  return current.value;
+  if(current.value) {
+    return current.value;
+  }
+  return undefined;
 }
 
 
