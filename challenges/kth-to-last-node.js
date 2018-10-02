@@ -22,7 +22,14 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
-}
+// We need to iterate through our list until we reach the node of integer provided
+  nodeArray = [];
+  while (head !== null) {
+    nodeArray.push(head.value);
+    head = head.next;
+  }
+  // pull out the value from that node 
+  return nodeArray[nodeArray.length - k]
+  }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
