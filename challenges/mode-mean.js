@@ -12,11 +12,34 @@
 // mode is repeated more than any other
 
 function modemean(array) {
-function mean (){
-  return array.reduce(function(a, b) {
-    return a + b
-  }) / array.length
+  return (mean(array) === mode(array));
+}
+
+function mean(array){
+value = array.reduce(function(a, b) {
+  return a + b
+}) / array.length
+return Math.floor(value);
+}
+
+function mode(array) {
+var numList = {};
+for(var i = 0; i < array.length; i++){
+    if(numList[array[i]] === undefined){
+        numList[array[i]] = 0;
+    }        
+        numList[array[i]] += 1;
+}
+mostFreq = 0;
+mode;
+for (prop in numList) {
+if (numList[prop] > mostFreq) {
+  mostFreq = numList[prop];
+  mode = prop;
 }
 }
+return parseInt(mode)
+}
+
 
 module.exports = modemean;
