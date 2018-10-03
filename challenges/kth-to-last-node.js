@@ -22,7 +22,45 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+  let count = 0;
+  while(head !== null) {
+    head = head.next;
+    count++;
+    if(head === null) {
+    count = count - k;
+    return head[count][value];
+    }
+  }
 }
 
+/*
+while (!curr)
+curr = curr.next
+OR
+we can use constant space complexity, and compare "follow" or previous to current.
+LEAD AND FOLLOW.
+Lead.next = follow, follow.next
+use a counter up to K.
+*/
+
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
