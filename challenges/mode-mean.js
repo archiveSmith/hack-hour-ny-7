@@ -11,6 +11,7 @@
 
 
 function modemean(array) {
+<<<<<<< HEAD
     let modeObj = {};
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
@@ -36,4 +37,9 @@ function modemean(array) {
 
 console.log(modemean([2, 5, 3, 12, 4, 5, 3, 2, 6, 7, 1, 2, 3, 4, 3]));
 
+=======
+
+}
+
+>>>>>>> bd20c3745dc75bcc5f040e4f3daaab2988ebeebb
 module.exports = modemean;
