@@ -3,7 +3,7 @@
  */
 
 function pow(base, power) {
-  if (power < 0) return undefined;
+  if (power < 0) {return undefined};
   if (power === 0) return 1;
   if (power === 1) return base;
 
@@ -14,12 +14,16 @@ function pow(base, power) {
     console.log('calc running');
     total = current * base;
     console.log(total);
+    console.log(count);
     count++;
     if (count < power) {
        return calculate(total);
     }
+    return total;
   }
   return calculate(total);
 }
+
+console.log(pow(2, 3));
 
 module.exports = pow;
