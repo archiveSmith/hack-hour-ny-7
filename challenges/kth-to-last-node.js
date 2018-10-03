@@ -21,6 +21,18 @@ function Node(val) {
   this.next = null;
 }
 
+// Short solution 
+//function kthToLastNode(k, head) {
+//   let currentNode = head;
+//   let target = `currentNode${'.next'.repeat(k)}`
+//   console.log(target)
+//   while (eval(target) !== null) {
+//     console.log(currentNode.next.next)
+//     currentNode = currentNode.next;
+//   }
+//   return currentNode.value;
+// }
+
 function kthToLastNode(k, head) {
   //console.log(k, head) 
   // Step 1. Reset head value to index 
@@ -32,17 +44,17 @@ function kthToLastNode(k, head) {
 
   // Step 3. If no head exists return a response
   if (searchIdx === null) {
-    return 'No linked list was created';
+    return 'undefined';
   }
 
   // Step 4. While index does not equal null traverse the linked list and increment the counter
   while (searchIdx !== null) {
-    console.log(searchIdx, idxPos)
+    console.log(searchIdx, idxPos);
     searchIdx = searchIdx.next;
     idxPos++;
     // Step 5. Loop again while idxPos < idxPos - k
     if (idxPos === (idxPos - k)) {
-      console.log('/////sub', idxPos - k)
+      console.log('/////sub', idxPos - k);
       searchIdx = searchIdx.next;
 
       // Step 6. Stop when the idxPos does equal idxPos - k and return value
