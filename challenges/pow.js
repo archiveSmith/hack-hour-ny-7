@@ -3,7 +3,14 @@
  */
 
 function pow(base, power) {
-
+  let product=1;
+  let count = 0;
+  
+  while (count !== power) {
+    product = base*product;
+    count++;
+  }
+  return product; 
 }
 
 module.exports = pow;
