@@ -24,11 +24,11 @@ function Node(val) {
 function kthToLastNode(k, head) {
   let counterArr = [];
   let currNode = head;
-  while (currNode.next !== null) {
+  while (currNode !== null) {
     counterArr.push(currNode.value);
     currNode = currNode.next;
   }
-  return counterArr[counterArr.length-k+1];
+  return counterArr[counterArr.length-k-1];
 }
 
  const a = new Node('A');
@@ -46,6 +46,6 @@ function kthToLastNode(k, head) {
 //  e.next = f;
 //  f.next = g;
 
- console.log(kthToLastNode(2, a));
+console.log(kthToLastNode(2, a));
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
