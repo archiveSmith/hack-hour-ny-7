@@ -13,8 +13,17 @@
 
 */
 
-function drawStairs(n) {
-
+function drawStairs(n, originalN = n) {
+    if(n === 0) return;
+    let str = ''
+    for(let i = 0; i <= n; i++) {
+        str += ' '
+    }
+    for(let i = 0; i <= originalN - n; i++) {
+        str += '*';
+    }
+    console.log(str);
+    return drawStairs(n-1 , originalN)
 }
 
 
