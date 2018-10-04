@@ -55,7 +55,7 @@ function kthToLastNode(k, head) {
 
   // Step 5. Loop again while idxPos < idxPos - k
   if (nodeArr[nodeArr.length - k].value === undefined) {
-    return
+    return undefined;
   } else {
     // Step 6. Stop when the idxPos does equal idxPos - k and return value
     return nodeArr[nodeArr.length - k].value;
