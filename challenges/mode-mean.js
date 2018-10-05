@@ -45,4 +45,4 @@ function modemean(array) {
 let test = [1, 1, 2, 2, 0, 0]
 console.log(modemean(test))
 
-// module.exports = modemean;
+module.exports = modemean;
