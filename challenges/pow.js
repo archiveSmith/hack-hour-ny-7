@@ -11,10 +11,7 @@ function pow(base, power) {
   let total = base;
   
   function calculate(current) {
-    console.log('calc running');
     total = current * base;
-    console.log(total);
-    console.log(count);
     count++;
     if (count < power) {
        return calculate(total);
@@ -23,6 +20,13 @@ function pow(base, power) {
   }
   return calculate(total);
 }
+
+// CODESMITH SOLUTION
+
+// function pow(base, power) {
+//   if (power === 0) return 1;
+//   return base * pow(base, power - 1);
+// }
 
 console.log(pow(2, 3));
 
