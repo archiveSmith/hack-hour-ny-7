@@ -2,16 +2,26 @@
  * Use recursion!
  */
 
-function pow(base, power) {
+pow = (base, power) => {
   let product = 1;
-  for (let i = 1; i <= Math.abs(power); i++) {
-    product = product * base;
+  let absPower = Math.abs(power)
+  while (absPower--) {
+    product *= base;
   }
-  if (power < 0) {
-    return 1 / product;
-  } else {
-    return product;
-  }
+  return power > 0 ? product : 1 / product;
+
+  // let product = 1;
+  // for (let i = 1; i <= Math.abs(power); i++){
+  //   product = product * base;
+  // }
+  // if (power < 0) {
+  //   return 1 / product;
+  // } else {
+  //   return product;
+  // }
+
+  // return power === 0 ? 1 : base * pow(base, --power);
+  // return power === 0 ? 1 : base * pow(base, power - 1);
 }
 
 module.exports = pow;
