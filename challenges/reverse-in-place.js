@@ -13,8 +13,17 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+ // Create two variables an index and a reverse index sort through the array moving forward and backward
 
+const reverseInPlace = array => {
+    for (let i = 0 ; i < array.length/2; i++) {
+        let left = array[i];
+        let right = array[array.length -1 - i];
+
+        array[i] = right;
+        array[array.length - 1 - i] = left;
+    }
+    return array;
 }
 
 module.exports = reverseInPlace;
