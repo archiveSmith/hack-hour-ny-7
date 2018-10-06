@@ -13,8 +13,6 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
- //let test = ['a', 'b', 'c', 'd'] 
-//reverseInPlace(test) // ['d', 'c', 'b', 'a']
 function reverseInPlace(array) {
   let n = array.length;
   for (let i=n-1; i>=0; i--) {
@@ -23,5 +21,7 @@ function reverseInPlace(array) {
   array.splice(0, n);
   return array;
 }
+//let test = ['a', 'b', 'c', 'd'] 
+//reverseInPlace(test) // ['d', 'c', 'b', 'a']
 
 module.exports = reverseInPlace;
