@@ -23,4 +23,16 @@ function reverseInPlace(array) {
   return array;
 }
 
+//SOLUTION FROM REVIEW
+
+function reverseInPlace2(array) {
+  for (let i=0; i< arrray.length / 2; i++) {
+    let left = array[i];
+    let right = array[array.length -1 -i];
+    array[i] = right;
+    array[array.length -1 -i] = left;
+  }
+  return array;
+}
+
 module.exports = reverseInPlace;
