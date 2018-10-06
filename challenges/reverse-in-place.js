@@ -13,8 +13,21 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+// function reverseInPlace(array) {
+//   let arr = [];
+//   for (let i = array.length-1; i >= 0; i--) {
+//     console.log(array[i]);
+//     arr.push(array[i]);
+//   }
+//   return arr.join('');
+// }
 
+//iterate through array and compare first and last.
+function reverseInPlace(array) {
+  for (let i = array.length-1; i >= 0; i--) {
+    let last = array.length-1;
+    let first = array[0];
+  }
 }
 
 module.exports = reverseInPlace;
