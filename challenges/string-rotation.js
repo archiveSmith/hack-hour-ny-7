@@ -24,7 +24,7 @@ function stringRotation(s1, s2) {
   for (let i = 0; i < s2.indexOf(firstChar); i++) {
     final += s2[i];
   }
-  return s1 === s2;
+  return s1 === final;
 }
 
 module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };
