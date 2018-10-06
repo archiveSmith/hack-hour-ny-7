@@ -21,6 +21,18 @@ function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
+
+
+// Shorter approach
+// function stringRotation(s1, s2) {
+//   let s1Doubled = s1.concat(s1);
+//   if (s1.length === s2.length && s1Doubled.includes(s2)) {return true}
+//   else return false;
+// }
+
+
+
+
 function stringRotation(s1, s2) {
   let subStringFunc = isSubstring(s1, s2);
   let s1Arr = s1.split(' ');
@@ -30,10 +42,8 @@ function stringRotation(s1, s2) {
   if (s2 === s1) {
     return true;
   }
-
   if (s1.length === s2.length) {
     let rotated = [];
-
     for (let i = 0; i < s2.length; i++) {
       if (s2[i] === s1First) {
         for (let z = i; z < s2.length; z++) {
@@ -46,7 +56,7 @@ function stringRotation(s1, s2) {
         }
       }
     }
-    let rotatedString = rotated.join('')
+    let rotatedString = rotated.join('');
     if (s1 === rotatedString) {
       return true;
     } 
