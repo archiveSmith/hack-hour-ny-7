@@ -12,9 +12,30 @@
  */
 
 function isSubstring(s1, s2) {
-  return s1.indexOf(s2) >= 0;
+  return s1.indexOf(s2) >= 0; //s2 is found otherwise would be -1
 }
 
-function stringRotation(s1, s2) {}
+// function stringRotation(s1, s2) {
+//   if (isSubstring(s1, s2) && s1.length === s2.length) {
+//     return true;
+//   }
 
+//   let ind = s2.indexOf(s1[0]); //returns 3
+//   let str = "";
+
+//   for (let i = ind; i < s2.length; i++) {
+//     str += s2[i];
+//   }
+//   for (let i = 0; i < ind; i++) {
+//     str += s2[i];
+//   }
+//   return str === s1;
+// }
+
+function stringRotation(s1, s2) {
+  //llohe
+  //llohellohe
+  let str = s2.concat(s2);
+  return isSubstring(str, s1);
+}
 module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };
