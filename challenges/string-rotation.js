@@ -17,23 +17,30 @@ function isSubstring(s1, s2) {
 
 /* It's very early and I over engineered this but should work, no? */
 
+function isSubstring(s1, s2) {
+  return s1.indexOf(s2) >= 0;
+}
+
 function stringRotation(s1, s2) {
   let subStringFunc = isSubstring(s1, s2);
   let s1Arr = s1.split(' ');
   let s2Arr = s2.split(' ');
   let s1First = s1[0];
 
+  if (s2 === s1) {
+    return true;
+  }
+
   if (s1.length === s2.length) {
-    let rotated = []
+    let rotated = [];
 
     for (let i = 0; i < s2.length; i++) {
       if (s2[i] === s1First) {
         for (let z = i; z < s2.length; z++) {
-          rotated.push(s2[z])
+          rotated.push(s2[z]);
           if (z === s2.length - 1) {
             for (let x = 0; x < s2.length - i + 1; x++) {
-              rotated.push(s2[x])
-              console.log(rotated)
+              rotated.push(s2[x]);
             }
           }
         }
@@ -47,11 +54,8 @@ function stringRotation(s1, s2) {
       return false;
     }
   }
-  else if (s2 === s1) {
-    return true;
-  }
   else {
-    return false
+    return false;
   }
 }
 
