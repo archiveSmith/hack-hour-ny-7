@@ -22,7 +22,30 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  //return if head empty
+  if(!head || !head.value) {
+    return false;
+  }
 
+  //set up: attempt to get the kth node, starting from the head
+  let currentNode = head;
+  for(i = 1; i < k; i++){
+    //if anywhere along the way of initial set up, node.next is null, then return error since the linked list is shorter than k
+    if(currentNode.next == null){
+      return false;
+    }
+    currentNode = currentNode.next;
+  }
+
+  //iterate until endNode is at the end.
+  let startNode = head;
+  let endNode = currentNode;
+  while(endNode.next !== null){
+    startNode = startNode.next;
+    endNode = endNode.next;
+  }
+
+  return startNode.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};

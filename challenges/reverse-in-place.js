@@ -14,7 +14,26 @@
  */
 
 function reverseInPlace(array) {
+    
+    if(array.length === 0){
+        return undefined;
+    } 
+        
+    let startIndex = 0;
+    let endIndex = array.length-1;
+    return reverseInPlaceRecursive(array, startIndex, endIndex);
+    
+    function reverseInPlaceRecursive(array, startIndex, endIndex){
+        if(endIndex <= startIndex){
+            return array;
+        }
 
+        let tempElement = array[startIndex];
+        array[startIndex] = array[endIndex];
+        array[endIndex] = tempElement;
+
+        return reverseInPlaceRecursive(array, startIndex + 1, endIndex - 1);
+    }
 }
 
 module.exports = reverseInPlace;
