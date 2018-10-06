@@ -14,7 +14,9 @@
  */
 
 function reverseInPlace(array) {
-
+  return array.reduce((acc, curr) => {
+    
+  }, array);
 }
-
+console.log(reverseInPlace(['a', 'b', 'c']));
 module.exports = reverseInPlace;
