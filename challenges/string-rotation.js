@@ -24,49 +24,49 @@ function isSubstring(s1, s2) {
 
 
 // Shorter approach
-// function stringRotation(s1, s2) {
-//   let s1Doubled = s1.concat(s1);
-//   if (s1.length === s2.length && s1Doubled.includes(s2)) {return true}
-//   else return false;
-// }
-
-
-
-
 function stringRotation(s1, s2) {
-  let subStringFunc = isSubstring(s1, s2);
-  let s1Arr = s1.split(' ');
-  let s2Arr = s2.split(' ');
-  let s1First = s1[0];
-
-  if (s2 === s1) {
-    return true;
-  }
-  if (s1.length === s2.length) {
-    let rotated = [];
-    for (let i = 0; i < s2.length; i++) {
-      if (s2[i] === s1First) {
-        for (let z = i; z < s2.length; z++) {
-          rotated.push(s2[z]);
-          if (z === s2.length - 1) {
-            for (let x = 0; x < s2.length - i + 1; x++) {
-              rotated.push(s2[x]);
-            }
-          }
-        }
-      }
-    }
-    let rotatedString = rotated.join('');
-    if (s1 === rotatedString) {
-      return true;
-    } 
-    else {
-      return false;
-    }
-  }
-  else {
-    return false;
-  }
+  let s1Doubled = s1.concat(s1);
+  if (s1.length === s2.length && s1Doubled.includes(s2)) {return true}
+  else return false;
 }
+
+
+
+
+// function stringRotation(s1, s2) {
+//   let subStringFunc = isSubstring(s1, s2);
+//   let s1Arr = s1.split(' ');
+//   let s2Arr = s2.split(' ');
+//   let s1First = s1[0];
+
+//   if (s2 === s1) {
+//     return true;
+//   }
+//   if (s1.length === s2.length) {
+//     let rotated = [];
+//     for (let i = 0; i < s2.length; i++) {
+//       if (s2[i] === s1First) {
+//         for (let z = i; z < s2.length; z++) {
+//           rotated.push(s2[z]);
+//           if (z === s2.length - 1) {
+//             for (let x = 0; x < s2.length - i + 1; x++) {
+//               rotated.push(s2[x]);
+//             }
+//           }
+//         }
+//       }
+//     }
+//     let rotatedString = rotated.join('');
+//     if (s1 === rotatedString) {
+//       return true;
+//     } 
+//     else {
+//       return false;
+//     }
+//   }
+//   else {
+//     return false;
+//   }
+// }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
