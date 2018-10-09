@@ -24,9 +24,24 @@
 *
 */
 
+
 function balancedParens(input) {
     let inputI = input.split('');
     let reduceStatus = true;
+  
+    if (inputI.length % 2 != 0) {
+      return false;
+    }
+  
+    if (inputI.length < 1) {
+      return false;
+    }
+  
+    if (inputI[0] === ']' || inputI[0] === '}' || inputI[0] === ')'
+      || inputI[inputI.length] === ']' || inputI[inputI.length] === '}' || inputI[inputI.length] === ')'
+    ) {
+      return false;
+    }
   
     let inputReduce = inputI.reduce((acc, cur, idx) => {
       acc = inputI[idx - 1];
@@ -53,5 +68,6 @@ function balancedParens(input) {
       return false;
     }
   }
+  
 
 module.exports = balancedParens;
