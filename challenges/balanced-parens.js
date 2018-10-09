@@ -26,50 +26,32 @@
 
 function balancedParens(input) {
     let inputI = input.split('');
+    let reduceStatus = true;
   
-    let opener = 0;
-    let closer = 0;
-  
-    let open = false;
-    let close = false;
-  
-    return inputI.reduce((acc, cur, idx) => {
+    let inputReduce = inputI.reduce((acc, cur, idx) => {
       acc = inputI[idx - 1];
-      console.log('cur', cur, 'acc', acc)
   
-      if (cur === '(' || cur === '{' || cur === '[') {
-        open = true;
-        close = false;
-        opener++;
-      }
-      else if (cur === ')' || cur === '}' || cur === ']') {
-        open = false;
-        close = true;
-        closer++;
+      if (acc === '(' && cur === ']' || acc === '(' && cur === '}') {
+        reduceStatus = false;
       }
   
-      if (cur === '(' && acc === ']' || cur === '(' && acc === '}') {
-        return false;
+      if (acc === '[' && cur === ')' || acc === '[' && cur === '}') {
+        reduceStatus = false;
       }
   
-      if (cur === '[' && acc === ')' || cur === '[' && acc === '}') {
-        return false;
+      if (acc === '{' && cur === ')' || acc == '{' && cur == ']') {
+        reduceStatus = false;
       }
   
-      if (cur === '{' && acc === ')' || cur === '{' && acc === ']') {
-        return false;
-      }
+    });
   
-    })
-  
-    if (closer === opener) {
-      return false;
-    }
-    else if (closer !== opener) {
+    if (reduceStatus) {
       return true;
     }
   
+    if (!reduceStatus) {
+      return false;
+    }
   }
-
 
 module.exports = balancedParens;
