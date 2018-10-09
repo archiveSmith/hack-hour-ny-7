@@ -24,22 +24,40 @@
  *
  */
 
+//another solution
+
 function balancedParens(input) {
-  let counterRight = 0
-  let counterLeft = 0
+  let count = 0
   for (let i = 0; i < input.length; i++) {
     if (input[i] === '[' || input[i] === '(' || input[i] === '{') {
-      counterLeft++
+      count++
     }
     if (input[i] === ']' || input[i] === ')' || input[i] === '}') {
-      counterRight++
+      count--
     }
   }
-  if (counterRight === counterLeft) {
+  if (count === 0) {
     return true
   } else {
     return false
   }
 }
+// function balancedParens(input) {
+//   let counterRight = 0
+//   let counterLeft = 0
+//   for (let i = 0; i < input.length; i++) {
+//     if (input[i] === '[' || input[i] === '(' || input[i] === '{') {
+//       counterLeft++
+//     }
+//     if (input[i] === ']' || input[i] === ')' || input[i] === '}') {
+//       counterRight++
+//     }
+//   }
+//   if (counterRight === counterLeft) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
 
 module.exports = balancedParens;
