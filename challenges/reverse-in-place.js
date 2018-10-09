@@ -24,10 +24,12 @@
 
 //iterate through array and compare first and last.
 function reverseInPlace(array) {
-  for (let i = array.length-1; i >= 0; i--) {
-    let last = array.length-1;
-    let first = array[0];
+  let countBack = 0;
+  for (let i = 0; i < array.length; i++) {
+    countBack--;
+    array[i] = array[array.length-countBack];
   }
+  return array;
 }
 
 module.exports = reverseInPlace;
