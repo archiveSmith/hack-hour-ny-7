@@ -13,8 +13,18 @@
 
 */
 
-function drawStairs(n) {
+/* TASK LIST:
+-create a function named "drawStairs" with parameter: number
+	-iterate through 0 to the number parameter
+		-log an asterisks to the console
+	-end of iteration
+-end of "drawStairs" 
+*/	
 
+function drawStairs(n) {
+	for (let i = 0; i < n; i++) {
+		console.log("*");
+	}
 }
 
 
