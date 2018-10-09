@@ -25,7 +25,6 @@
  */
 
 function balancedParens(input) {
-  if (input.length % 2 !== 0) return false;
   let left = input.slice(0, input.length / 2);
   let stack = [];
   let map = {
@@ -48,6 +47,7 @@ function balancedParens(input) {
         return false;
         console.log(input[i]);
       }
+      console.log(stack);
       return true;
     }
   }
