@@ -17,109 +17,20 @@
  * 
  */
 
-function romanNumeral(n) {
-    let roman = '';
-    let times = Math.floor(n/1000);
-    if (times >= 1){
-        roman += 'M'.repeat(times);
-    }
-    let remainder = n % 1000;
-    if (remainder){
-        times = Math.floor(remainder/900);
-        if (times >= 1){
-            roman += 'CM'.repeat(times);
-            remainder = n % 900;
+function romanNumeral(n){
+    let conversions =[['M',1000],['CM',900],['D',500],['CD',400],['C',100],['XC',90],['L',50],['XL',40],['X',10],['IX',9],['V',5],['IV',4],['I',1]]
+    if (n){
+        numerals = ""
+        for (let i = 0; i< conversions.length; i++){
+            while (conversions[i][1] <= n){
+                numerals += conversions[i][0];
+                n -= conversions[i][1];
+            }
         }
+        return numerals
     }
-    if (remainder){
-    times = Math.floor(remainder/500);
-    if (times >= 1){
-        roman += 'D'.repeat(times);
-        remainder = n % 500;
-    }
-}   
+}
     
-if (remainder){
-    times = Math.floor(remainder/400);
-    if (times >= 1){
-        roman += 'CD'.repeat(times);
-        remainder = n % 400;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/100);
-    if (times >= 1){
-        roman += 'C'.repeat(times);
-        remainder = n % 100;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/90);
-    if (times >= 1){
-        roman += 'XC'.repeat(times);
-        remainder = n % 90;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/50);
-    if (times >= 1){
-        roman += 'L'.repeat(times);
-        remainder = n % 50;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/40);
-    if (times >= 1){
-        roman += 'XL'.repeat(times);
-        remainder = n % 50;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/10);
-    if (times >= 1){
-        roman += 'X'.repeat(times);
-        remainder = n % 10;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/9);
-    if (times >= 1){
-        roman += 'IX'.repeat(times);
-        remainder = n % 9;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/5);
-    if (times >= 1){
-        roman += 'V'.repeat(times);
-        remainder = n % 5;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/4);
-    if (times >= 1){
-        roman += 'IV'.repeat(times);
-        remainder = n % 4;
-    }
-}
-
-if (remainder){
-    times = Math.floor(remainder/1);
-    if (times >= 1){
-        roman += 'I'.repeat(times);
-}
-}
-return roman;
-}
-
 
 
 
