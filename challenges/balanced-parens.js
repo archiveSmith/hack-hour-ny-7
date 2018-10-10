@@ -8,7 +8,7 @@ function balancedParens(input){
       // grab character
       let char = input[i];
       // if character is equal to a open paren, push into stack
-      if (matches.hasOwnProperty(char)) { // could use the in operator but would likely be less efficient
+      if (Object.keys(matches).includes(char)) { // could use the in operator but would likely be less efficient
         stack.push(char);
       // if closing paren
       } else if (char === ']' || char === ')' || char === '}'){
