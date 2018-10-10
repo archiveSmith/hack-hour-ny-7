@@ -122,6 +122,6 @@ return roman;
 
 
 
-console.log(romanNumeral(3873));
 
-//module.exports = romanNumeral;
+
+module.exports = romanNumeral;
