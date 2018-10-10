@@ -26,29 +26,26 @@
 
 function balancedParens(input){
     let charArr = [];
-    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
     for(let i = 0; i < input.length; i++) {
-        if(!alphabet.includes(input[i].toLowerCase())) {
-            switch(input[i]) {
-                case '{':
-                    charArr.push('{');
-                    break;
-                case '[':
-                    charArr.push('[');
-                    break;
-                case '(':
-                    charArr.push('(');
-                    break;
-                case '}':
-                    if(charArr.pop() !== '{') return false;
-                    break;
-                case ']':
-                    if(charArr.pop() !== '[') return false;
-                    break;
-                case ')':
-                    if(charArr.pop() !== '(') return false;
-                    break;
-            }
+        switch(input[i]) {
+            case '{':
+                charArr.push('{');
+                break;
+            case '[':
+                charArr.push('[');
+                break;
+            case '(':
+                charArr.push('(');
+                break;
+            case '}':
+                if(charArr.pop() !== '{') return false;
+                break;
+            case ']':
+                if(charArr.pop() !== '[') return false;
+                break;
+            case ')':
+                if(charArr.pop() !== '(') return false;
+                break;
         }
     }
     return charArr.length === 0 ? true : false;
