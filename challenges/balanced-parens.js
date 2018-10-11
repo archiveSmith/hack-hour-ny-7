@@ -29,7 +29,6 @@ function balancedParens(input){
   let parens = 0;
   let brackets = 0;
   let curly = 0;
-  let carrot = 0;
   for (let i = 0; i < input.length; i++) {
     switch (input.charAt(i)) {
       case '(': 
@@ -44,12 +43,6 @@ function balancedParens(input){
       case ']': 
         brackets--;
         break;
-      case '<': 
-        carrot++;
-        break;
-      case '>': 
-        carrot--;
-        break;
       case '{': 
         curly++;
         break;
@@ -58,10 +51,29 @@ function balancedParens(input){
         break
       default: break;
     }
-    if (parens < 0 || brackets < 0 || curly < 0 || carrot < 0) return false;
+    if (parens < 0 || brackets < 0 || curly < 0) return false;
   }
-  if (parens === 0 && brackets === 0 && curly === 0 && carrot === 0) return true;
+  if (parens === 0 && brackets === 0 && curly === 0) return true;
   return false;
+}
+
+function balancedParens2(input) {
+  const parens = {
+    '{': '}',
+    '(': ')',
+    '{': '}'
+  }
+
+  const stack = [];
+
+  for (let i=0; i<input.length; i++){
+    if (parens.hasOwnProperty(input[i])) {
+      stack.push(input[i]);
+    } else if (input[i] === '}' || input[i] === ']' || input[i] === ')') {
+      if (input[i] === parens[stack[stack.length - 1]]) stack.pop()
+    }
+  }
+  return !stack.length;
 }
 
 // // * Example:
@@ -74,14 +86,14 @@ function balancedParens(input){
 // // // make your solution work for all types of brackets
 
 // // //  * Example:
-console.log(balancedParens('[](){}'))
-console.log(balancedParens('[({})]'))  
+// console.log(balancedParens('[](){}'))
+// console.log(balancedParens('[({})]'))  
 console.log(balancedParens('[(]{)}'))
 
 // // // Step 3:
 // // // ignore non-bracket characters
-console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'))
-console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
+// console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'))
+// console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
 
 
 module.exports = balancedParens;
