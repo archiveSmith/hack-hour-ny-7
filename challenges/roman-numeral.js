@@ -18,6 +18,22 @@
  */
 
 function romanNumeral(n) {
+    let digitToString = n.toString();
+    let digitArr = digitToString.split('');
+    let numeralCombos = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM",
+      "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC",
+      "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+    let numeralString = '';
+    let i = 3;
+    while (i--) {
+      console.log('numeralString', numeralString)
+      console.log('numeralCombos', numeralCombos)
+      console.log('digitArr', digitArr)
+      
+      numeralString = (numeralCombos[+digitArr.pop() + (i * 10)] || "") + numeralString;
+    }
+    return Array(+digitArr.join("") + 1).join("M") + numeralString;
+  }
 
 }
 
