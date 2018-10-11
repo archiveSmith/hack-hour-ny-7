@@ -69,20 +69,11 @@ function romanNumeral(n) {
     else {
       for (let i = 0; i < x; i++) {
         output.push('X');
+        num = num - 10
       }
+      console.log(num)
     }
     num = Number(num.toString().split('').slice(-1).join(''));
-  }
-
-  if (num >= 100) {
-    let c = Math.floor(num / 100);
-    if (c === 4) {output.push('CD')}
-    else {
-      for (let i = 0; i < c; i++) {
-        output.push('C');
-      }
-    }
-    num = Number(num.toString().split('').slice(-2).join(''));
   }
 
   if (num >= 5) {
@@ -95,10 +86,18 @@ function romanNumeral(n) {
         output.push('I')
       }
     }
+  } else {
+    if (num === 4) { output.push('IV')}
+    else {
+      for (let i = 0; i < num; i++) {
+        output.push('I')
+      }
+    }
   }
   return output.join('');
 }
 
-console.log(romanNumeral(997));
+
+console.log(romanNumeral(14));
 
 module.exports = romanNumeral;
