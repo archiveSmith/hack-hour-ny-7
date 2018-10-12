@@ -7,7 +7,6 @@
  * subsetSum([8, 2, 4, 12], 13) -> false
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
-
 function subsetSum(array, target) {
   /*create an array for containing all sums */
   let acc = [0];
