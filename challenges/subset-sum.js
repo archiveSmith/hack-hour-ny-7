@@ -8,27 +8,30 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 function subsetSum(array, target) {
-  /*create an array for containing all sums */
-  let acc = [0];
-  /* loop through original array */
-  for (let i = 0; i < array.length; i++) {
-    /* clone the original array */
-    let clone = [...acc]
-    /* loop through clone */
-    for (let j = 0; j < clone.length; j++) {
-      /* create new var with summing the idx of both arrays */
-      let acc2 = array[i] + clone[j];
-      /* conditional */
-
-      if (acc2 === n) {
-        return true;
-      } else if (acc2 < n) {
-        acc.push(acc2)
+    if (array.length === 0) {
+      return false;
+    } else {
+      /*create an array for containing all sums */
+      let acc = [0];
+      /* loop through original array */
+      for (let i = 0; i < array.length; i++) {
+        /* clone the original array */
+        let clone = [...acc]
+        /* loop through clone */
+        for (let j = 0; j < clone.length; j++) {
+          /* create new var with summing the idx of both arrays */
+          let acc2 = array[i] + clone[j];
+          /* conditional */
+  
+          if (acc2 === target) {
+            return true;
+          } else if (acc2 < target) {
+            acc.push(acc2)
+          }
+        }
       }
+      return false
     }
   }
-  return false
-}
-
 
 module.exports = subsetSum;
