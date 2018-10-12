@@ -18,7 +18,22 @@
  */
 
 function romanNumeral(n) {
+  const Numerals = {
+  4: IV,
+  5: V,
+  9: IX,
+  10: X,
+  40: XL
+  }
+  let numeralString = '';
 
+  for(let i = 1; i <= n; i++){
+    
+  }
+
+  return numeralString;
 }
+
+console.log(romanNumeral(15));
 
 module.exports = romanNumeral;
