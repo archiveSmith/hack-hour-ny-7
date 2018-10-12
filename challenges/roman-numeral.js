@@ -97,6 +97,47 @@ function romanNumeral(n) {
   return output.join('');
 }
 
+function fromRoman(rom){
+  let output = 0;
+  let arr = rom.split('')
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 'C' && arr[i+1] === 'M') {
+      output += 900;
+      i+=2;
+    }
+    if (arr[i] === 'M') { output += 1000};
+    if (arr[i] === 'C' && arr[i+1] === 'D') {
+      output += 400;
+      i+=2;
+    }
+    if (arr[i] === 'D') { output += 500}
+    if (arr[i] === 'X' && arr[i+1] === 'C') {
+      output += 90;
+      i+=2;
+    }
+    if (arr[i] === 'C') { output += 100}
+    if (arr[i] === 'X' && arr[i+1] === 'L') {
+      output += 40;
+      i+=2;
+    }
+    if (arr[i] === 'L') { output += 50 };
+    if (arr[i] === 'I' && arr[i+1] === 'X') {
+      output+=9;
+      i+=2;
+    }
+    if(arr[i] === 'X') { output += 10 }
+    if(arr[i] === 'I' && arr[i+1] === 'V') { 
+      output+=4;
+      i+=2;
+    }
+    if(arr[i] === 'V') { output+= 5 }
+    if(arr[i] === 'I') { output+= 1 }
+  }
+  return output;
+}
+
+console.log(fromRoman('MDCLXIX'));
+
 
 console.log(romanNumeral(14));
 
