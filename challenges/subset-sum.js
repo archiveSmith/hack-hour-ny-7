@@ -30,4 +30,5 @@ function subsetSum(array, target) {
   return false
 }
 
+
 module.exports = subsetSum;
