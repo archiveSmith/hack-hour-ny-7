@@ -30,6 +30,7 @@ function subsetSum(array, target) {
         let firstItem = array.shift();
         array.push(firstItem);
     }
+    // console.log(cache);
     for (let i = 0; i < cache.length; i++) {
         let sumTest = 0;
         for (let j = 0; j < cache[i].length; j++) {
@@ -37,14 +38,13 @@ function subsetSum(array, target) {
         }
         if (sumTest === target) return true;
     }
-    console.log(cache);
     return false;
 }
 
-console.log(subsetSum([3, 7, 4, 2], 5)) // - > true, 3 + 2 = 5
-console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)) // -> true, 3 + 12 + 5 + 12 = 32
-console.log(subsetSum([8, 2, 4, 12], 13)) // -> false
-console.log(subsetSum([8, -2, 1, -3], 6)) // -> true, 8 + 1 + (-3) = 6
+// console.log(subsetSum([3, 7, 4, 2], 5)) // - > true, 3 + 2 = 5
+// console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)) // -> true, 3 + 12 + 5 + 12 = 32
+// console.log(subsetSum([8, 2, 4, 12], 13)) // -> false
+// console.log(subsetSum([8, -2, 1, -3], 6)) // -> true, 8 + 1 + (-3) = 6
 
 // console.log(array.slice(0, 4))
 // console.log(array.sort((a, b) => a < b))
