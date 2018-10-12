@@ -9,7 +9,26 @@
  */
 
 function subsetSum(array, target) {
+  /*create an array for containing all sums */
+  let acc = [0];
+  /* loop through original array */
+  for (let i = 0; i < array.length; i++) {
+    /* clone the original array */
+    let clone = [...acc]
+    /* loop through clone */
+    for (let j = 0; j < clone.length; j++) {
+      /* create new var with summing the idx of both arrays */
+      let acc2 = array[i] + clone[j];
+      /* conditional */
 
+      if (acc2 === n) {
+        return true;
+      } else if (acc2 < n) {
+        acc.push(acc2)
+      }
+    }
+  }
+  return false
 }
 
 module.exports = subsetSum;
