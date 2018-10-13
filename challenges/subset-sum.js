@@ -9,6 +9,8 @@
  */
 
 function subsetSum(array, target) {
+  if (array.length === 0) return false;
+
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length; j++) {
       if (array[i] + array[j] === target) { return true }
