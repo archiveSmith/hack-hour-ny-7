@@ -20,6 +20,25 @@ function subsetSum(array, target) {
   return false;
 }
 
+function subsetSum(array, target) {
+  const sets = powerSet(array);
+
+  return sets.reduce(
+    (accum, set) => accum || target === set.reduce((sum, num) => sum + num, 0),
+    false
+  );
+}
+
+function powerSet(array) {
+  if (array.length === 0) return [
+    []
+  ];
+
+  const left = powerSet(array.slice(1));
+  const right = left.map(e => e.concat(array[0]));
+
+  return left.concat(right);
+}
 
 console.log(subsetSum([3, 7, 4, 2], 5)) // - > true, 3 + 2 = 5
 console.log(subsetSum([3, 34, 4, 12, 5, 12], 32)) // -> true, 3 + 12 + 5 + 12 = 32
