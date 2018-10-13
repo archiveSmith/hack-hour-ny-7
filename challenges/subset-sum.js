@@ -9,6 +9,7 @@
  */
 
 function subsetSum(array, target) {
+<<<<<<< HEAD
     // array = array.sort((a, b) => a - b);
     // let testerSum = 0;
     // for (let i = 0; i < array.length-1; i++) {
@@ -48,4 +49,9 @@ function subsetSum(array, target) {
 
 // console.log(array.slice(0, 4))
 // console.log(array.sort((a, b) => a < b))
+=======
+
+}
+
+>>>>>>> c1261e2938665197fdc159f347b8b8a160372814
 module.exports = subsetSum;
