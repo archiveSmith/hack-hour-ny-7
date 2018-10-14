@@ -28,6 +28,18 @@ function binToDec(binary) {
   return output;
 }
 
+function decToBin(decimal) {
+  let dec = decimal;
+  let bin = [];
+  while (dec > 0) {
+    bin.unshift(dec%2);
+    dec = Math.floor(dec/2);
+  }
+  return bin.join('');
+}
+
+console.log(decToBin(357))
+
 console.log(binToDec(101100101));
 
 module.exports = binToDec;
