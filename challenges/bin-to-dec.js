@@ -14,7 +14,20 @@
  */
 
 function binToDec(binary) {
-
+  let value = 1;
+  let output = 0;
+  let arr = binary.toString().split('');
+  for (let i = arr.length - 1; i >=0; i--) {
+    if (arr[i] == 1) {
+      output += value;
+      value = value * 2;
+    } else {
+      value = value * 2;
+    }
+  }
+  return output;
 }
+
+console.log(binToDec(101100101));
 
 module.exports = binToDec;
