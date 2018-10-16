@@ -13,8 +13,25 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
-function binToDec(binary) {
+function pow(el) {
+  return Math.pow(2, el);
+}
 
+function binToDec(num) {
+  let sum = 0;
+  let cNum = num.split('');
+  console.log(cNum);
+  for (let i = cNum.length-1; i >= 0; i--) {
+    // sum += pow([i]);
+    console.log(i)
+    if(cNum[i] === '1') {
+      console.log(cNum[i], 'this is cNum')
+      console.log(i, 'this i hit')
+      sum += pow(i);
+      console.log(sum, 'this is sum')
+    }
+  }
+  return sum;
 }
 
 module.exports = binToDec;

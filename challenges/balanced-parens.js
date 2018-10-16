@@ -76,6 +76,8 @@ function balancedParens(input) {
 //   }
 
 
+
+
 console.log(balancedParens('[][]{}'))
 console.log(balancedParens('[{()}]'))
 console.log(balancedParens('[{](}]'))
