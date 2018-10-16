@@ -12,6 +12,7 @@
 
 function matchWord(str) {
   let output = true
+  if (str.length === 0) { return true };
   // make everything the same case
   let string = str.toLowerCase();
 
