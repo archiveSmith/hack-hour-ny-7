@@ -14,7 +14,7 @@ function subsetSum(array, target) {
     subsetSumRec(array, target, 0);
     return result;
 
-    function subsetSumRec(array, target, currentSum = 0){
+    function subsetSumRec(array, target, currentSum){
         //base cases
         if(currentSum === target) {
             result = true;
@@ -22,7 +22,7 @@ function subsetSum(array, target) {
         if(array.length === 0){
             return;
         }
-        
+
         //go through each element of array, add to current sum and remove from array.
         //if new currentsum is equal to target, return true at any point.
         for (let i = 0; i < array.length; i++) {
