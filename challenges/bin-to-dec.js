@@ -14,6 +14,7 @@
  */
 
 function binToDec(binary) {
+<<<<<<< HEAD
     let result = 0;
     let toBeAdded = 1;
     binary.split('').reverse().forEach(char => {
@@ -95,4 +96,9 @@ function decToHex(decimal){
 console.log(decToHex(100000000000000000));
 
 
+=======
+
+}
+
+>>>>>>> 75c423731ea0a48632dcb022981b4388012a8f08
 module.exports = binToDec;
