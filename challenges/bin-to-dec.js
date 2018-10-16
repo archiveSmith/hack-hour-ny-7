@@ -35,11 +35,17 @@ function decToBin(decimal) {
     bin.unshift(dec%2);
     dec = Math.floor(dec/2);
   }
-  return bin.join('');
+  return Number(bin.join(''));
+}
+
+function decToBinEasy(decimal) {
+  return Number(decimal.toString(2));
 }
 
 console.log(decToBin(357))
 
 console.log(binToDec(101100101));
+
+console.log(decToBinEasy(357));
 
 module.exports = binToDec;
