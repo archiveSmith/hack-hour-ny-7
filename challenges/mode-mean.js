@@ -9,9 +9,31 @@
  *
  */
 
-
 function modemean(array) {
+  //mode
+  let obj = array.reduce(function(acc, curr) {
+    if (acc[curr]) {
+      acc[curr] += 1;
+    } else {
+      acc[curr] = 1;
+    }
+    return acc;
+  }, {});
 
+  let mode = Object.keys(obj).reduce(
+    (acc, curr) => (obj[acc] > obj[curr] ? acc : curr)
+  );
+
+  //mean
+  let mean = array.reduce(function(acc, curr) {
+    acc += curr;
+    return acc;
+  });
+  mean = Math.floor(mean / array.length);
+  console.log(mode);
+  console.log(mean);
+
+  return mode == mean;
 }
 
 module.exports = modemean;
