@@ -3,8 +3,7 @@
  */
 
 function highestProduct(array) {
-    if(array.length === 0) return 0;
-    if(array.length < 4) return array.reduce((acc, ele) => acc * ele);
+    if(array.length < 3 || !Array.isArray(array)) return 0;
     let negatives = [];
     let positives = [];
     for(let index = 0; index < array.length; index++) {
@@ -32,6 +31,7 @@ function highestProduct(array) {
         }
       }
     }
+    if(positives.length === 0) return negatives[negatives.length - 1] * negatives[negatives.length - 2] * negatives[negatives.length - 3];
     return (negatives[0] * negatives[1]) > positives[0] * positives[1] ? negatives[0] * negatives[1] * positives[0] : positives[0] * positives[1] * positives[2];
 }
 
