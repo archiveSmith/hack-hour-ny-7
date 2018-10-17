@@ -3,7 +3,8 @@
  */
 
 function highestProduct(array) {
-    if (array.length < 3) return;
+    if (array.length < 3) return 0;
+    if (!array instanceof Array) return 0;
 
     let sorted = array.sort();
     let trial1 = sorted[0] * sorted[1] * sorted[sorted.length-1];
