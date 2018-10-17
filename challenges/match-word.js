@@ -11,6 +11,7 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+<<<<<<< HEAD
     debugger;
     if (str === '') return true;
     str = str.replace(/[\W_]+/g," ");
@@ -34,6 +35,8 @@ function matchWord(str) {
         }
     }
     return true;
+=======
+>>>>>>> 581f112311fc79d0b3adba3e9d70f662c29fbe1a
 
 }
 
