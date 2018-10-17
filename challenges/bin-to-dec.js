@@ -15,6 +15,7 @@
 function binToDec(binary) {
   return (parseInt(binary, 2));
 }
+
 //ParseInt: 
 
 // console.log(bin_to_dec('110011'));
