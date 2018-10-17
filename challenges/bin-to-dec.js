@@ -34,4 +34,30 @@ function binToDec(num) {
   return sum;
 }
 
+//class solution
+/*
+
+https://cs.stackexchange.com/questions/10318/the-math-behind-converting-from-any-base-to-any-base-without-going-through-base
+
+function binToDec(binary) {
+    let digArr = binary.split('').reverse();
+    let multiplier = 1;
+
+    return digArr.reduce((acc, itm, idx) => {
+      if (itm === '1') {
+        acc += multiplier;
+      }
+      multiplier *= 2;
+      return acc;
+    });
+  }
+*/
+
+
 module.exports = binToDec;
+
+
+
+
+
+
