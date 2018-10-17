@@ -13,37 +13,13 @@
 // }
 
 function highestProduct(array){
-    let n1 = array[0];
-    let n2 = array[0];
-    let p1 = array[0];
-    let p2 = array[0];
-    let p3 = array[0];
-
-    for (let i = 1; i < array.length; i++){
-        if (array[i] > 0){
-            if (array[i] > p1){
-                let temp1 = p1;
-                let temp2 = p2;
-                p3 = temp2;
-                p2= temp1;
-                p1 = array[i]
-
-            } else if (array[i] > p2){
-                p3 = p2;
-                p2 = array[i];
-            } else if (array[i] > p3){
-                p3 = array[i];
-            }
-        } else {
-            if (array[i] < n1){
-            n2 = n1;
-            n1 = array[i]
-            } else if (array[i] < n2){
-            n2 = array[i];
-            }
-        }
+    let sorted;
+    if(array.length > 2){
+        sorted = array.sort();
     }
-    return Math.max((n1*n2*p1), (p1*p2*p3));
+    if (sorted){
+        return Math.max((sorted[0] * sorted[1] * sorted[sorted.length - 1]), (sorted[sorted.length - 1]*sorted[sorted.length - 2]*sorted[sorted.length - 3]))
+    }
 }
 
 
