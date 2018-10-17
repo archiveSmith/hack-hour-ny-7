@@ -3,8 +3,14 @@
  */
 
 function highestProduct(array) {
+  if (array.length <= 3) return array.reduce((acc, cv) => acc * cv, 1);
 
+  array = array.sort((a, b) => a - b)
+  if ((array[0] < 0 && (array[0] * -1) > array[array.length - 1]) && (array[1] < 0 && (array[1] * -1) > array[array.length - 2])) {
+    return array[0] * array[1] * array[array.length - 1];
+  } else {
+    return array[array.length - 1] * array[array.length - 2] * array[array.length - 3]
+  }
 }
-
 
 module.exports = highestProduct;
