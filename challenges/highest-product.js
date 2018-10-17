@@ -4,16 +4,13 @@
 
 function highestProduct(array) {
 
-  if (array.length < 3 || !Array.isArray(array)) return 0;
+  if (!Array.isArray(array)) return 0;
+  if (array.length < 3) return 0;
 
   let sorted = array.slice().sort((a, b) => a - b).reverse();
-  let prod = sorted.slice(0, 3);
-
-  if (array.length > 3 ) prod.push(sorted.pop());
-  if (array.length > 4 ) prod.push(sorted.pop());
-
-  let first = prod[0] * prod[1] * prod[2];
-  let last = prod[0] * prod[prod.length-1] * prod[prod.length-2];
+ 
+  let first = sorted[0] * sorted[1] * sorted[2];
+  let last = sorted[0] * sorted[sorted.length-1] * sorted[sorted.length-2];
 
   if (first > last) return first
   else return last;
