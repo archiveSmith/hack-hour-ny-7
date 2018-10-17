@@ -7,16 +7,16 @@ function highestProduct(array) {
     let lilThree = [];
   
     for (let x = 0; x < 2; x++) {
-      for (let i = 0; i < array.length; i++) {
-        if (array[i] === Math.min(...array)) {
-          lilThree.push(array[i]);
-          array.splice(i, 1);
+      array.forEach( (cur, idx) => {
+        if (cur === Math.min(...array)) {
+          lilThree.push(cur);
+          array.splice(idx, 1);
         }
-        if (array[i] === Math.max(...array)) {
-          bigThree.push(array[i]);
-          array.splice(i, 1);
+        if (cur === Math.max(...array)) {
+          bigThree.push(cur);
+          array.splice(idx, 1);
         }
-      }
+      });
     }
   
     let negProd = lilThree[0] * lilThree[1] * bigThree[0];
@@ -24,13 +24,7 @@ function highestProduct(array) {
       return acc *= cur;
     });
   
-    if (negProd > posProd) {
-      return negProd
-    }
-    else {
-      return posProd;
-    }
+    return negProd > posProd ? negProd : posProd;
   }
-
 
 module.exports = highestProduct;
