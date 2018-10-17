@@ -3,9 +3,18 @@
  */
 
 function highestProduct(array) {
-  let newArr = array.slice().sort((a, b) => a - b).reverse();
-  return newArr[0] * newArr[1] * newArr[2];
+  let sorted = array.slice().sort((a, b) => a - b).reverse();
+  let prod = sorted.slice(0, 3);
+
+  prod.push(sorted.pop());
+  prod.push(sorted.pop());
+
+  let first = prod[0] * prod[1] * prod[2];
+  let last = prod[0] * prod[3] * prod[4];
+
+  if (first > last) return first
+  else return last;
+
 }
 
-// console.log(highestProduct([2, 55, 1, 5, 6, 88, 3, -4]))
 module.exports = highestProduct;
