@@ -3,6 +3,8 @@
  */
 
 function highestProduct(array) {
+    if(!Array.isArray() || !array.length) return 0;
+
     array = array.sort((a, b) => a - b);
     if (array[0] < 0 && array[1] < 0) {
         return array[0] * array[1] * array[array.length-1];
@@ -11,9 +13,6 @@ function highestProduct(array) {
         return lastThree[0] * lastThree[1] * lastThree[2];
     }
 }
-
-console.log(highestProduct([-79, -12, -5, 5, 2, 6, 9, 10]))
-
 
 module.exports = highestProduct;
 
