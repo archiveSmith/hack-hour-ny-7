@@ -20,7 +20,7 @@ function highestProduct(array){
     if (sorted){
         return Math.max((sorted[0] * sorted[1] * sorted[sorted.length - 1]), (sorted[sorted.length - 1]*sorted[sorted.length - 2]*sorted[sorted.length - 3]))
     } else {
-        return 0;
+        return 0;  //wish the edge cases were specified beforehand 
     }
 }
 
