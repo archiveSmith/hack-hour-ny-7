@@ -3,22 +3,37 @@
  */
 
 function highestProduct(array) {
-  let posArr = [];
-  let bigThree = [];
-  let negCount = 0;
-
-  for (let x = 0; x < 2; x++) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] === Math.max(...array)) {
-        bigThree.push(array[i]);
-        array.splice(i, 1);
+    function highestProduct(array) {
+        let posArr = [];
+        let bigThree = [];
+        let lilThree = [];
+        let negCount = 0;
+      
+        for (let x = 0; x < 2; x++) {
+          for (let i = 0; i < array.length; i++) {
+            if (array[i] === Math.min(...array)) {
+              lilThree.push(array[i]);
+              array.splice(i, 1);
+            }
+            if (array[i] === Math.max(...array)) {
+              bigThree.push(array[i]);
+              array.splice(i, 1);
+            }
+          }
+        }
+      
+        let negProd = lilThree[0] * lilThree[1] * bigThree[0];
+        let posProd = bigThree.reduce((acc, cur, idx) => {
+          return acc *= cur;
+        });
+      
+        if (negProd > posProd) {
+          return negProd
+        }
+        else {
+          return posProd;
+        }
       }
-    }
-  }
-
-  return bigThree.reduce((acc, cur, idx) => {
-    return acc *= cur;
-  });
 }
 
 
