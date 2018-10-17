@@ -11,28 +11,18 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-    let charArr = str.split(/[^a-z|^A-Z]+/);
-    let loweredArr = charArr.map(element => {
-        return (element.toLowerCase());
-    })
-    
-    loweredArr.forEach((element,index) => {
-        if (element === ""){
-            loweredArr.splice(index,1);
-        }
-    });
-
     let wordStack = [];
-    loweredArr.forEach(word => {
-       if (wordStack.length === 0){
-           wordStack.push(word);
-       } else if(wordStack[wordStack.length-1] === word.split('').reverse().join('')){
-           wordStack.pop();
-       } else{
-           wordStack.push(word);
-       }
+
+    str.split(/[^a-z|^A-Z]+/)
+    .map(word => word.toLowerCase())
+    .filter(word => word !== "")
+    .forEach(word => {
+       wordStack[wordStack.length-1] === word.split('').reverse().join('') ? wordStack.pop() : wordStack.push(word);
     });
 
     return wordStack.length === 0;
 }
+
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
+
 module.exports = matchWord;
