@@ -18,7 +18,18 @@
  */
 
 function romanNumeral(n) {
-
+    let romanNumerals = {M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1}
+    let result = '';
+    let iterations;
+    for(let i in romanNumerals) {
+        iterations = Math.floor(n/romanNumerals[i]);
+        while(iterations>0) {
+            result += i;
+            iterations -= 1;
+            n -= romanNumerals[i];
+        }
+    }
+    return result;
 }
 
 module.exports = romanNumeral;

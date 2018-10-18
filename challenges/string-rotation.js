@@ -16,7 +16,9 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  if(s1.length !== s2.length) return false;
+  s1 += s1;
+  return isSubstring(s1.toLowerCase(),s2.toLowerCase());
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};

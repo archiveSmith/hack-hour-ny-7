@@ -11,7 +11,25 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
-}
+    if(str.length === 0) return true;
+      strArr = str.toLowerCase().split('');
+      let alphabet = 'abcdefghijklmnopqrstuvwxyz'
+      let word = '';
+      let wordArr = [];
+      for(let index = 0; index < strArr.length; index++) {
+        word = '';
+        while(alphabet.includes(strArr[index])) {
+          word += strArr[index];
+          index++;
+        }
+  
+        if(wordArr[wordArr.length - 1] === word.split('').reverse().join('')) {
+          wordArr.pop();
+        } else if(word) {
+          wordArr.push(word);
+        }
+      }
+      return wordArr.length === 0 ? true : false;
+  }
 
 module.exports = matchWord;
