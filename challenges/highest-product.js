@@ -3,20 +3,22 @@
  */
 
 function highestProduct(array) {
+  if (!Array.isArray(array) || array.length < 3) {
+    return 0;
+  }
+
   let bigThree = [];
   let lilThree = [];
 
   for (let x = 0; x < 2; x++) {
     array.forEach((cur, idx) => {
-      if (cur > 0) {
-        if (cur === Math.min(...array)) {
-          lilThree.push(cur);
-          array.splice(idx, 1);
-        }
-        if (cur === Math.max(...array)) {
-          bigThree.push(cur);
-          array.splice(idx, 1);
-        }
+      if (cur === Math.min(...array)) {
+        lilThree.push(cur);
+        array.splice(idx, 1);
+      }
+      if (cur === Math.max(...array)) {
+        bigThree.push(cur);
+        array.splice(idx, 1);
       }
     });
   }
