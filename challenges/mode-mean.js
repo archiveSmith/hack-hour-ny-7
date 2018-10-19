@@ -36,10 +36,7 @@ function modemean(array) {
 }
 
 
-
 //in class solution
-
-
 function modemean(array) {
   return mean(array) === mode(array);
 }

@@ -11,8 +11,76 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-let half = string.split('')/2;
-console.log(half)
+let symbols = str.replace(/[^a-zA-Z0-9 ]/g,"").toLowerCase();
+console.log(symbols)
+
+let half = str.split('');
+let halfLength = half.length/2;
+let otherHalf = '';
+let endHalf = '';
+
+  for(let i = 0; i < str.length/2; i++){
+    // console.log(str[i])
+    otherHalf += str[i];
+    endHalf += str[str.length-1 -i];
+    console.log(endHalf);
+  }
+
+}
+
+
+
+
+//chris's solution
+function matchWord(str) {
+  if (str.length === 0) return true;
+
+  const stack = [];
+  const words = str
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .split(' ');
+
+  for (let word of words) {
+    const lastItemInStack = stack[stack.length - 1];
+    const reversedWord = word.split('').reverse().join('');
+
+    if (lastItemInStack === reversedWord) {
+      stack.splice(stack.length - 1, 1);
+    } else {
+      stack.push(word);
+    }
+  }
+
+  return stack.length === 0;
+}
+
+function matchWord(str) {
+  const stack = [];
+  let word = '';
+
+  for (let i = 0; i <= str.length; i++) {
+    const char = str[i];
+
+    if (char && char.match(/[A-Za-z0-9]/)) {
+      word += char.toLowerCase();
+    } else if (word.length > 0) {
+      const reversedWord = word.split('').reverse().join('');
+      const lastItemInStack = stack[stack.length - 1];
+
+      if (lastItemInStack === reversedWord) {
+        stack.splice(stack.length - 1, 1);
+      } else {
+        stack.push(word);
+      }
+
+      word = '';
+    }
+  }
+
+  return stack.length === 0;
 }
 
 module.exports = matchWord;
