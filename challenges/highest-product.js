@@ -3,17 +3,26 @@
  */
 
 function highestProduct(array) {
+    if(!Array.isArray(array) || !array.length) return 0;
+
     array = array.sort((a, b) => a - b);
+    let arrayNeg = 0;
+    let arrayPos = 0;
+    console.log(array);
+
     if (array[0] < 0 && array[1] < 0) {
-        return array[0] * array[1] * array[array.length-1];
+        arrayNeg = array[0] * array[1] * array[array.length-1];
+    } 
+
+    let lastThree = array.slice(-3);
+    arrayPos = lastThree[0] * lastThree[1] * lastThree[2];
+
+    if (arrayNeg > arrayPos) 
+        return arrayNeg;
     } else {
-        let lastThree = array.slice(-3);
-        return lastThree[0] * lastThree[1] * lastThree[2];
+        return arrayPos;
     }
 }
-
-console.log(highestProduct([-79, -12, -5, 5, 2, 6, 9, 10]))
-
 
 module.exports = highestProduct;
 
