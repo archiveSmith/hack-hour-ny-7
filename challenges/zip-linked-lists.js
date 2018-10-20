@@ -10,6 +10,10 @@ function Node(val) {
   this.next = null;
 }
 
+function createLink(){
+  
+}
+
 function zip(l1, l2) {
 };
 
