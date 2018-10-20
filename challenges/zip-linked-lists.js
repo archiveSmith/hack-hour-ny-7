@@ -11,6 +11,8 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  if (!l1) return l2;
+  if (!l2) return l1;
   let nodeCounter = 0;
   let headNode = new Node(l1[0]);
   let nodeZipped = headNode;
@@ -25,8 +27,6 @@ function zip(l1, l2) {
     nodeZipped = nodeZipped.next;
   }
   return headNode;
-};
-
-console.log(zip(["a", "b", "c", "d"], ["e", "f", "g", "h"]));
+}
 
 module.exports = {Node: Node, zip: zip};
