@@ -47,7 +47,7 @@ function zip(l1, l2) {
   /* Step 4. Continue this process until the end */ 
   /* return the sorted linked list */
   return l3.next;
-};
+}
 
 module.exports = {
   Node: Node,
