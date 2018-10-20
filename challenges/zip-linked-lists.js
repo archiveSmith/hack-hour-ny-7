@@ -22,21 +22,23 @@ function zip(l1, l2) {
     //save at beginning whether l2current has next
     let l2HasNext = l2Current.next ? true : false;
 
+    //deep copy to take care of pass by reference
     let copyNode = JSON.parse(JSON.stringify(l1Current));
 
-    //if l1 is longer than l2, then copyNode still keeps the remaining from l1
+    //if l2 doesn't have a next, should take all of l1current (aka copynode)'s children with it
     if(l2HasNext){
       copyNode.next = l2Current.next;
     }
 
+    //set l2current's next, and depending if it originally had children, move down or set to null
     l2Current.next = copyNode;
-
     l2Current = l2HasNext ? copyNode : null;
+
+    //move down l1current
     l1Current = l1Current.next;
   }
 
   return l2;
-  //if l2 is longer than l2, nothing needs to be done since the loop will end itself
 };
 
 module.exports = {Node: Node, zip: zip};
