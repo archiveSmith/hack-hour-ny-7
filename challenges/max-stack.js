@@ -25,16 +25,18 @@ Stack.prototype.pop = function() {
 }
 
 Stack.prototype.getMax = function() {
-  if (this.index = 0) { return undefined }
-  return this.storage.slice().sort((a, b) => b - a)[0];
+  if (this.index === 0) { return undefined }
+  const temp = this.storage.slice();
+  return temp.sort((a, b) => b - a)[0];
 }
 
-let st = new Stack();
-st.push(5);
-st.push(3);
-st.push(1);
-st.push(44)
-console.log(st.getMax());
-console.log(st);
+// let st = new Stack();
+// st.push(5);
+// st.push(3);
+// st.push(1);
+// st.push(44)
+// console.log(st.getMax());
+// st.pop();
+// console.log(st);
 
 module.exports = Stack;
