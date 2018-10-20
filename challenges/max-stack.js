@@ -8,6 +8,33 @@
 
 function Stack() {
   // body...
+  this.storage = {};
+  this.index = 0;
+}
+
+Stack.prototype.push = (value) => {
+  this.storage[this.index] = value;
+  this.index+= 1;
+
+  return this.storage;
+}
+
+Stack.prototype.pop = (value) => {
+  let popstorage = this.storage[this.index-1];
+  delete this.storage[this.index]
+  this.index-= 1;
+
+  return popstorage;
+}
+
+Stack.prototype.getMax = () => {
+  let currentStore = this.storage[this.index];
+  let compareArr = [];
+
+  compareArr.push(currentStore);
+
+  return Math.max(...compareArr)
+
 }
 
 module.exports = Stack;
