@@ -3,7 +3,6 @@
  */
 
 function highestProduct(array) {
-<<<<<<< HEAD
     if (array.length < 3) return 0;
     if (!array instanceof Array) return 0;
 
@@ -15,10 +14,5 @@ function highestProduct(array) {
 }
 
 console.log(highestProduct([5,6,7]));
-=======
-
-}
-
->>>>>>> b555d7dae25f468ce6afc2240f43e6181bedec5f
 
 module.exports = highestProduct;
