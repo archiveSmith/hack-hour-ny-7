@@ -15,6 +15,7 @@ function Node(value) {
 
 function reverseLinkedList(head) {
     let newList = [];
+    if (head.value === null) return null;
     let currNode = head;
     while (currNode.next !== null) {
         newList.push(currNode.value);
