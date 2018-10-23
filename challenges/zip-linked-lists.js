@@ -11,6 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+<<<<<<< HEAD
   if (!l1) return l2;
   if (!l2) return l1;
   let nodeCounter = 0;
@@ -28,5 +29,8 @@ function zip(l1, l2) {
   }
   return headNode;
 }
+=======
+};
+>>>>>>> 38ba289794530748974194fe56de1e247f3a1c96
 
 module.exports = {Node: Node, zip: zip};
