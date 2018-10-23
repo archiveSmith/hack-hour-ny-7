@@ -47,4 +47,18 @@ Stack.prototype.toString = function() {
   return JSON.stringify(this.stack);
 }
 
+let stack = new Stack();
+stack.push(5);
+console.log('max',stack.getMax());
+console.log(stack.toString());
+stack.push(7);
+console.log('max',stack.getMax());
+console.log(stack.toString());
+stack.push(9);
+console.log('max',stack.getMax());
+console.log(stack.toString());
+console.log('popped',stack.pop());
+console.log('max',stack.getMax());
+console.log(stack.toString());
+
 module.exports = Stack;
