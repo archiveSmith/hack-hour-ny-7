@@ -14,7 +14,9 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-    if (head.next === null) { return head; }
+    if (head === null) {return null;}
+    if (head.next === null) { return head;}
+    
     const queue = [];
     //push all nodes into queue until we reach the tail
     while (head.next !== null) {
@@ -24,7 +26,7 @@ function reverseLinkedList(head) {
     //At the end the head is set to the value of the tail
     head.next = queue[queue.length - 1];
 
-    while (queue.length === 0) {
+    while (queue.length !== 0) {
         let val = queue.pop();
         if (!queue[queue.length - 1]) {
             val.next = null;
@@ -36,4 +38,12 @@ function reverseLinkedList(head) {
     return head;
 }
 
+// const list = new Node(12);
+// const node2 = new Node(14);
+// const node3 = new Node(19);
+// list.next = node2;
+// node2.next = node3;
+
+
+// console.log(reverseLinkedList(list));
 module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
