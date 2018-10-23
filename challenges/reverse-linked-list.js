@@ -25,7 +25,9 @@ function reverseLinkedList(head) {
         prev = curr;
         curr = next;
     }
-
+    return prev;
 }
+
+
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
