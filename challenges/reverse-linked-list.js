@@ -14,7 +14,26 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    if (head.next === null) { return head; }
+    const queue = [];
+    //push all nodes into queue until we reach the tail
+    while (head.next !== null) {
+        queue.push(head);
+        head = head.next;
+    }
+    //At the end the head is set to the value of the tail
+    head.next = queue[queue.length - 1];
 
+    while (queue.length === 0) {
+        let val = queue.pop();
+        if (!queue[queue.length - 1]) {
+            val.next = null;
+        } else {
+            val.next = queue[queue.length - 1];
+        }
+    }
+
+    return head;
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node: Node, reverseLinkedList: reverseLinkedList };
