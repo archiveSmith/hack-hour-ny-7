@@ -14,7 +14,7 @@ function Node(value) {
 }
 
 function reverseLinkedList(node) {
-    if (!node) { return false; } 
+    if (!node) { return null; } 
 
     let result = reverseLinkedListRec(node, node.next);
     node.next = null;
