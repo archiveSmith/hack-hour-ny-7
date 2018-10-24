@@ -3,7 +3,7 @@
  * Write a function that converts the binary string to a decimal number
  *
  * Example:
-* 	console.log(binToDec('0')   // -> 0
+ * 	console.log(binToDec('0')   // -> 0
  * 	console.log(binToDec('11')  // -> 3
  * 	console.log(binToDec('100') // -> 4
  * 	console.log(binToDec('101') // -> 5
@@ -12,7 +12,6 @@
  * Extension:
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
-
 function binToDec(binary) {
     const binConverter = {
         8: 256,
@@ -30,15 +29,15 @@ function binToDec(binary) {
     let totalDec = 0;
     for (let i = 0; i < len; i++) {
         if (binStr[i] === "1") {
-            totalDec += binConverter[len-1-i]
+            totalDec += binConverter[len - 1 - i]
         }
     }
     return totalDec;
 
 }
 
-console.log(binToDec('0'));   // -> 0
-console.log(binToDec('11'));  // -> 3
+console.log(binToDec('0')); // -> 0
+console.log(binToDec('11')); // -> 3
 console.log(binToDec('100')); // -> 4
 console.log(binToDec('101')); // -> 5
 console.log(binToDec('0101')); // -> 5
