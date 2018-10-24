@@ -17,7 +17,7 @@ function reverseLinkedList(head) {
     if (head === null) {return null;}
     if (head.next === null) { return head;}
     
-    const queue = [];
+    const stack = [];
     //push all nodes into queue until we reach the tail
     while (head.next !== null) {
         queue.push(head);
