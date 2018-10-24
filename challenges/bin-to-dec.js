@@ -14,7 +14,9 @@
  */
 
 function binToDec(binary) {
-
+  return binary;
 }
+
+console.log(binToDec(1101));
 
 module.exports = binToDec;
