@@ -14,10 +14,9 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-    let prev = head;
-    let curr = head.next;
+    let prev = null;
+    let curr = head;
     let next;
-    prev.next = null;
 
     while (curr !== null) {
         next = curr.next;
