@@ -1,6 +1,10 @@
 /**
  * Write a function for reversing a linked list.
+<<<<<<< HEAD
  * Your function will have one input: the currNode of the list
+=======
+ * Your function will have one input: the head of the list
+>>>>>>> 232cbb6c6efe5ff4aa05170c96cb44e67451909a
  * Your function should return the new head of the list
  *
  * BONUS:
@@ -15,6 +19,7 @@ function Node(value) {
 
 function reverseLinkedList(head) {
     let newList = [];
+    if (head.value === null) return null;
     let currNode = head;
     while (currNode.next !== null) {
         newList.push(currNode.value);
