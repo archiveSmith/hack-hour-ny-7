@@ -13,7 +13,21 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  let arr = stock_prices_yesterday;
+  let max = Math.max.apply(Math, arr);
+  let maxInd = arr.indexOf(max);
+  
+  let min = Math.min.apply(Math, arr);
+  let minInd = arr.indexOf(min);
+  
+  if (minInd<maxInd) {
+    return max - min;
+  }
+  
+  //loop up to max number, get biggest difference
+  let newArr = arr.slice(0, maxInd);
+  let diff = newArr.map(x => max-x);
+  return Math.max.apply(Math, diff);
 }
 
 module.exports = bestProfit;
