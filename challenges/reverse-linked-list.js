@@ -26,4 +26,42 @@ function reverseLinkedList(head) {
   }
 }
 
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+//Jonathans solution
+function Node(value) {
+    this.value = value;
+    this.next = null;
+    this.previous = null;  //added in
+}
+
+function reverseLinkedList(head) {
+  let prev = null;
+  let curr = head;
+  let next;
+
+  while(curr) {
+    next = curr.next;
+    curr.next = prev;
+    curr = next;
+  }
+  head = prev;
+  return head;
+}
+
+// [prev]=null
+//[current]=head
+//[next]=undefined
+
+
+
+module.exports = {Node: Node, reverseLinkedList: reverseLinkedList}
+
+
+
+
+
+
+
+
+
+
+;
