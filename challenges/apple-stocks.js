@@ -13,7 +13,12 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  let startPrice = stock_prices_yesterday[0];
+  for(let i = 0; i <= stock_prices_yesterday.length; i++) {
+
+  }
 
 }
+
 
 module.exports = bestProfit;
