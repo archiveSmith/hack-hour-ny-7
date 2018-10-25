@@ -21,9 +21,11 @@ function mergeArrays(arr1, arr2) {
     let arrSecondIdx = 0;
     let mergedArr = [];
     let longest = 0;
+    let shortest = 0;
   
     (arr1Len > arr2Len) ? longest = arr1Len : longest = arr2Len;
-  
+    (arr1Len === arr2Len) ? longest = arr1Len : '';
+
     for (let i = 0; i < longest; i++) {
       if (arr1[arrFirstIdx] < arr2[arrSecondIdx]) {
         mergedArr.push(arr1[arrFirstIdx])
