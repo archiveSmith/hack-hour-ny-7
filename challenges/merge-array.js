@@ -6,16 +6,22 @@
  * var my_array = [3,4,6,10,11,15,21];
  * var another_array = [1,5,8,12,14,19];
  *
- * mergeArrays(my_array, another_array); -> [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
+ mergeArrays(my_array, another_array); -> [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
  * 
  * BONUS: 
  * Complete in O(n) time  
  *
  */
 
+var my_array = [3, 4, 6, 10, 11, 15, 21];
+var another_array = [1, 5, 8, 12, 14, 19];
+
 
 function mergeArrays(arr1, arr2) {
-  return newArray = my_array.concat(another_array).sort((a, b) => a - b);
+  let result = [...arr1, ...arr2];
+  return result.sort((a, b) => a - b);
 }
+
+mergeArrays(my_array, another_array);
 
 module.exports = mergeArrays;
