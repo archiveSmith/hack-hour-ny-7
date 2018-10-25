@@ -13,8 +13,28 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
 
-}
+function mergeArrays(arr1, arr2) {
+    let arr1Len = arr1.length;
+    let arr2Len = arr2.length;
+    let arrFirstIdx = 0;
+    let arrSecondIdx = 0;
+    let mergedArr = [];
+    let longest = 0;
+  
+    (arr1Len > arr2Len) ? longest = arr1Len : longest = arr2Len;
+  
+    for (let i = 0; i < longest; i++) {
+      if (arr1[arrFirstIdx] < arr2[arrSecondIdx]) {
+        mergedArr.push(arr1[arrFirstIdx])
+        arrFirstIdx++
+      } else {
+        mergedArr.push(arr2[arrSecondIdx])
+        arrSecondIdx++
+      }
+    }
+  
+    return mergedArr.concat(arr1.slice(arrFirstIdx)).concat(arr2.slice(arrSecondIdx))
+  }
 
 module.exports = mergeArrays;
