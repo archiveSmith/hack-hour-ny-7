@@ -13,7 +13,24 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    if(!Array.isArray(stock_prices_yesterday)) {
+        return 0
+    }
 
+    let stockLow = undefined;
+    let maxProfit = 0;
+
+    for (let i = 0; i < stock_prices_yesterday.length; i++) {
+      let currentStock = stock_prices_yesterday[i]
+      
+    if (currentStock < stockLow || stockLow === undefined) {
+        stockLow = currentStock
+    } else if (currentStock - stockLow > maxProfit) {
+        maxProfit = currentStock - stockLow
+    }
+    }
+    return maxProfit
 }
+    // while the index is less than the other index, return the 
 
 module.exports = bestProfit;
