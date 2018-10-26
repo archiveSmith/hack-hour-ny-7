@@ -41,6 +41,29 @@ function mergeArrays(arr1, arr2) {
   return merge;
 }
 
+
+function mergeArrays(arr1, arr2) {
+    // make new array
+    let merged = [];
+    let ind1 = 0, ind2 = 0;
+    while (arr1[ind1] !== undefined || arr2[ind2] !== undefined) {
+      if (arr1[ind1] < arr2[ind2]) {
+        merged.push(arr1[ind1++]);
+      } else if (arr1[ind1] >= arr2[ind2]) {
+        merged.push(arr2[ind2++]);
+      } else {
+        merged.push(arr1[ind1++] || arr2[ind2++]);
+      }
+    }
+    return merged;
+  }
+
+  let my_array = [3,4,6,10,11,15,21];
+  let another_array = [1,5,8,12,14,19];
+  console.log(mergeArrays(my_array, another_array));
+  //[1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19, 21]
+
+
 //log O(n) log
 function mergeArraYS(arr1, arr2) {
  let result = [...arr1, ...arr2];
