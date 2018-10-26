@@ -36,6 +36,9 @@ function stringRotation(s1, s2) {
   //llohe
   //llohellohe
   let str = s2.concat(s2);
-  return isSubstring(str, s1);
+  return ((s1.length === s2.length) && (isSubstring(str, s1)));
 }
-module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };
+module.exports = {
+  isSubstring: isSubstring,
+  stringRotation: stringRotation
+};
