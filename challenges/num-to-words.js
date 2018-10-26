@@ -11,9 +11,64 @@
  * numToWords(300525151340440) -> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty'
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
+console.log('Hello from num-to-words.js');
+ /** numToWords(main):
+  * -READ num = 0
+  * -SET word = emptyString
+  *
+  * 
+  * -SWITCH if (between(num, 0, 10))
+  *   -CASE if num is 0
+  *     -RESET word = "Zero"
+  *   -Case if num is 1
+  *     -RESET word = "One"
+  * -PRINT word
+  */
+
+  /** between(module):
+   * -READ x, min, max
+   * -RETURN true if x is >= min and x is <= max
+   */
 
 function numToWords(num) {
+  let word = '';
 
+  if (between(num, 0, 10)) {
+    switch (num) {
+      case 0:
+        word = 'Zero';
+        break;
+      case 1:
+        word = 'One';
+        break;
+      case 2:
+        word = 'Two';
+        break;
+      case 3:
+        word = 'Three';
+        break;
+      case 4:
+        word = 'Four';
+        break;
+      case 5:
+        word = 'Five';
+        break;
+    }
+  }
+
+  return word;
 }
 
+function between(x, min, max) {
+  return x >= min && x <= max; 
+}
+
+console.log(numToWords(0));
+console.log(numToWords(1));
+console.log(numToWords(2));
+console.log(numToWords(3));
+console.log(numToWords(4));
+console.log(numToWords(5));
+
 module.exports = numToWords;
+
