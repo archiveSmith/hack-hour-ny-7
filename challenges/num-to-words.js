@@ -27,7 +27,7 @@ function numToWords(num) {
 
   //REPLACE TWEENS
   resultString = tweensToWord(resultString);
-  
+
   return (resultString);
 }
 function threeDigitGroupingToWord(digitString,commaCount){
@@ -35,7 +35,7 @@ function threeDigitGroupingToWord(digitString,commaCount){
 
   //TAKING CARE OF THE DIGITS
   if(digitString.length===3){
-    resultString += digitToWord(Number.parseInt(digitString.split("")[0]))+'Hundred';
+    resultString += hundredsDigitToWord(Number.parseInt(digitString.split("")[0]));
     digitString=digitString.slice(1);
   }
 
@@ -49,12 +49,16 @@ function threeDigitGroupingToWord(digitString,commaCount){
   }
 
   //TAKING CARE OF THE COMMAS
-  resultString+=commaCountToWord(commaCount)
+  resultString+=commaCountToWord(resultString, commaCount)
 
   return resultString;
 }
 
-function commaCountToWord(commaCount){
+function commaCountToWord(resultString, commaCount){
+  if(resultString.split("").length===0) {
+    return "";
+  }
+
   switch(commaCount) {
     case 0:{
       return "";
@@ -79,6 +83,40 @@ function commaCountToWord(commaCount){
     }
     default:{
       throw Error('too big number');
+    }
+  }
+}
+function hundredsDigitToWord(digit){
+  switch(digit) {
+    case 0:{
+      return "";
+    }
+    case 1:{
+      return "OneHundred";
+    }
+    case 2:{
+      return "TwoHundred";
+    }
+    case 3:{
+      return "ThreeHundred";
+    }
+    case 4:{
+      return "FourHundred";
+    }
+    case 5:{
+      return "FiveHundred";
+    }
+    case 6:{
+      return "SixHundred";
+    }
+    case 7:{
+      return "SevenHundred";
+    }
+    case 8:{
+      return "EightHundred";
+    }
+    case 9:{
+      return "NineHundred";
     }
   }
 }
@@ -166,5 +204,5 @@ function tweensToWord(string){
   return string;
 }
 
-console.log(numToWords(987654311));
+console.log(numToWords(300525151340440));
 module.exports = numToWords;
