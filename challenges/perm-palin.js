@@ -10,12 +10,12 @@
  */
 
 function permPalin(str) {
+  if (typeof(str) !== 'string') return false;
   let arr = str.split('');
   arr = arr.sort();
   let count = 0;
 
   for (let i=0; i<arr.length; i++) {
-    console.log(arr[i+1])
     if (arr[i] !== arr[i+1]) {
       count++;
     } else if (arr[i] === arr[i+1]) {
@@ -25,6 +25,7 @@ function permPalin(str) {
   if (count <= 1) return true;
   else return false;
 }
+
 
 
 module.exports = permPalin;
