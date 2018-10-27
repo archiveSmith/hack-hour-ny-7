@@ -30,6 +30,31 @@ console.log('Hello from num-to-words.js');
    * -RETURN true if x is >= min and x is <= max
    */
 
+   /**
+    * -convert num param to string and assign it to numString
+    * -split numstring into threes and assign it to threesArr
+    * - return pasreThreeArray
+    */
+
+    /**splitToThree(numString)
+     * - SET 3Arr = []
+     * - for (i=0,i<length of numString, add 3 to i)
+     *  -SLICE numString starting at the current Element, and stop at the current Element plus 3
+     * -return 3Arr
+     */
+
+     /**parseThreesArr(array)
+      * 
+      * 
+      */
+
+      /**parseThreeNumbers(3String)
+       * 
+       * 
+       */
+
+    //  @param {} num 
+
 function numToWords(num) {
   let word = '';
 
