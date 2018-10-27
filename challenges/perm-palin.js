@@ -10,7 +10,7 @@
  */
 
 function permPalin(str) {
-	let s = str.split('').sort();
+	let s = str.toLowerCase().split('').sort();
   let obj = {};
   for (let i=0; i<s.length; i++) {
     if (!obj[s[i]]) {
@@ -24,6 +24,8 @@ function permPalin(str) {
   for (let x in obj) {
     if (obj[x] % 2 != 0) odds++
   }
+  
+  if (odds === 0 || odds === 1) return true;
   if (odds % 2 == 0) {
     return false
   } else {
