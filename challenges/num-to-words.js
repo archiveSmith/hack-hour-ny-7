@@ -13,6 +13,17 @@
  */
 
 function numToWords(num) {
+  const dig = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+  const tens = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eightteen', 'Nineteen'];
+  const th = ['Hundred', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+
+  let n = num.toString();
+
+  if (num != parseFloat(num)) return 'Not a Number';
+
+  
+
+
 
 }
 
