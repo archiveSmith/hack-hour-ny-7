@@ -11,30 +11,29 @@
 
 function permPalin(str) {
   if (!str) { return false }
-
-  let result = false;
-  permPalinRec("", str.split(""));
-  return result;
+  return permPalinRec("", str.split(""));
 
   function permPalinRec (resultString, arr) {
     //BASE CASE
-    if (arr.length === 0) {
-      return checkPalindrome(resultString);
-    }
+    if (arr.length === 0) { return checkPalindrome(resultString) }
 
     //RECURSIVE CALL
-    arr.forEach((char, index) => {
-      //copy result string and array
+    for (let i = 0; i < arr.length; i++){
       let resultStringCopy = JSON.parse(JSON.stringify(resultString));
       let arrCopy = JSON.parse(JSON.stringify(arr));
 
-      resultStringCopy+=arrCopy.splice(index, 1);
-      permPalinRec(resultStringCopy, arrCopy);
-    })
+      console.log(resultStringCopy, arrCopy);
+
+      resultStringCopy+=arrCopy.splice(i, 1);
+      if(permPalinRec(resultStringCopy, arrCopy)){
+        return true;
+      };
+    }
+    return false;
   }
 
   function checkPalindrome(string) {
-    return string == string.split("").reverse().join("") ? result = true : ""
+    return string == string.split("").reverse().join("")
   }
 }
 
