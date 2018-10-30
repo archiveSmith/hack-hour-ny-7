@@ -20,10 +20,7 @@ Stack.prototype.pop = function() {
 };
 
 
-/**
-* Queue Class
-*/
-
+// Queue Class
 
 function Queue() {
   this.stack1 = new Stack;
