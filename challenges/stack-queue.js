@@ -4,22 +4,9 @@
 
 
 function Stack() {
-  this.storage = [];
-  this.length = 0;
+
 }
 
-Stack.prototype.push = function(val) {
-  this.storage[this.length] = val;
-  this.length++;
-  return this.length;
-}
-
-Stack.prototype.pop = function(val) {
-  let poppedVal = this.storage[this.length-1];
-  this.storage = this.storage.slice(0, this.storage.length-1);
-  this.length--;
-  return poppedVal;
-}
 
 /**
 * Queue Class
@@ -27,6 +14,7 @@ Stack.prototype.pop = function(val) {
 
 
 function Queue() {
+<<<<<<< HEAD
   this.queue = new Stack();
 }
 
@@ -50,4 +38,9 @@ Queue.prototype.dequeue = function(val){
 let queue = new Queue();
 queue.stack.push(5);
 console.log(queue)
+=======
+
+}
+
+>>>>>>> 82a55f130a3a545b2973053ecc21466fba7b06ce
 module.exports = {Stack: Stack, Queue: Queue};
