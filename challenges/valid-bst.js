@@ -13,7 +13,30 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+  let queue = [this];
 
+  while (queue.length) {
+    let curNode = queue.shift();
+
+    if (curNode.left) {
+      queue.push(curNode.left)
+    }
+
+    if (curNode.right) {
+      queue.push(curNode.right)
+    }
+  }
+
+  for (let i = 0; i < queue.length; i++) {
+    let cur = queue[i];
+    let nex = queue[i + 1]
+    if (if cur >= nex) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
