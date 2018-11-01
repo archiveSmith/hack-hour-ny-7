@@ -13,50 +13,68 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+    let inOrderTraversal = [];
+    
+    validBSTRec(tree);
+    console.log(inOrderTraversal);
+
+    for (let i = 1; i < inOrderTraversal.length - 1; i++){
+        if(inOrderTraversal[i] <= inOrderTraversal[i-1]){
+            return false;
+        }
+    }
+    return true;
+
+    function validBSTRec(tree) {
+        if(tree.left){
+            validBSTRec(tree.left)
+        }
+        inOrderTraversal.push(tree.value);
+        if(tree.right){
+            validBSTRec(tree.right)
+        }
+    }
+
+}
+
+function validBSTIterative(tree) {
     //error checking
     if (!tree) {
         return true;
     }
 
-    //check both sides to meet constraint
-    let leftMeetConstraint = true;
-    if (tree.left) {
-        if (tree.left.value > tree.value) {
-            leftMeetConstraint = false;
+    let queue = [tree];
+    while (queue.length > 0){
+        let currentNode = queue.shift();
+        
+        //cut off immediately if left is larger than val or same on right
+        if(currentNode.left) {
+            if(currentNode.left.value > currentNode.value) {
+                return false;
+            }
         }
-    }
-    let rightMeetConstraint = true;
-    if (tree.right) {
-        if (tree.right.value < tree.value) {
-
-            rightMeetConstraint = false;
-        }
-    }
-
-    console.log(tree.value, leftMeetConstraint, rightMeetConstraint);
-    //if either is false, tree is not valid, no need for recursive call
-    if(leftMeetConstraint === false|| rightMeetConstraint === false) {
-        return false;
-    } 
-    //if both are true, need to do recursive call on both sides if they exist
-    else {
-        //initialize values as true, since its okay to not have children
-        let leftChildConstraint = true;
-        if(tree.left) {
-            leftChildConstraint = validBST(tree.left);
-        }
-        let rightChildConstraint = true;
-        if(tree.right) {
-            rightChildConstraint = validBST(tree.right);
+        if(currentNode.right) {
+            if(currentNode.right.value < currentNode.value) {
+                return false;
+            }
         }
 
-        return (leftChildConstraint && rightChildConstraint) ? true : false;
+        //if current node passes, add both children node if they exist to queue
+        if (currentNode.left) {
+            queue.push(currentNode.left);
+        }
+        if (currentNode.right) {
+            queue.push(currentNode.right);
+        }
     }
+    return true;
 }
+
+
 let bst = new BinaryTree(20);
 bst.right = new BinaryTree(30);
 bst.right.right = new BinaryTree(35);
-bst.right.left = new BinaryTree(34);
+bst.right.left = new BinaryTree(19);
 bst.left = new BinaryTree(10);
 
 console.log(bst);

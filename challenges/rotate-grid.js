@@ -47,7 +47,6 @@ function rotateGridInPlace(grid, n) {
     //loop defined as moving along the current 'top' of the square
     for(j = i; j < n - i - 1; j++) {
       console.log('i',i,'j',j);
-      let savedVar = 
     }
   }
 }

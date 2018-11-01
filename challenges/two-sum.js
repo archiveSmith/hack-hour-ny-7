@@ -3,7 +3,17 @@
  */
 
 function twoSum(arr, n) {
+  let cache = {};
+  for(let i = 0; i < arr.length - 1; i++) {
+    if(cache[arr[i]] == true) { return true; }
 
+    let difference = n - arr[i];
+    cache[difference] = true;
+  }
+  return false;
 }
+
+console.log(twoSum([1,2,3,4,5], 8));
+//[1,2,3,4,5] => 7
 
 module.exports = twoSum;
