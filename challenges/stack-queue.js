@@ -9,7 +9,7 @@ function Stack() {
 }
 Stack.prototype.push = function (element) {
   if (!element) {
-    return false;
+    return undefined;
   }
   this.stack.push(element);
   this.length++;
@@ -40,7 +40,7 @@ function Queue() {
 }
 Queue.prototype.enqueue = function (element) {
   if (!element) {
-    return false;
+    return undefined;
   }
   this.enqueueStack.push(element);
   this.length++;

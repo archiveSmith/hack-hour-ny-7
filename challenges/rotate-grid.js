@@ -1,3 +1,4 @@
+//STUDY MODIFY
 /* You are given a NxN grid of elements represented by a 2D array. The ith nested array represents 
  * the ith row in the grid.
  * 
@@ -57,6 +58,7 @@ function rotateGrid(grid, n) {
     console.log(grid);
     }
   }
+  return grid;
 }
 
 rotateGrid(

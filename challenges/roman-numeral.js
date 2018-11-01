@@ -16,83 +16,36 @@
  *      1000  ->    M
  * 
  */
+console.log(romanNumeral(1999));
+
 function romanNumeral(n) {
-    if(n <= 0){
-      return false;
-    }
+  let romanMapping = [
+    {1000 : "M"},
+    {900 : 'CM'},
+    {500 : 'D'},
+    {400 : 'CD'},
+    {100 : 'C'},
+    {90 : 'XC'},
+    {50 : 'L'},
+    {40 : 'XL'},
+    {10 : 'X'},
+    {9 : 'IX'},
+    {5 : 'V'},
+    {4 : 'IV'},
+    {1 : 'I'},
+  ];
 
-    numerals = [1000,500,100,50,10,5,1];
-    numeralChars = ['M','D','C','L','X','V','I'];
-    let numeralsResultObj = {}
+  let result = '';
+  romanMapping.forEach(mapping => {
+    let decimal = Object.keys(mapping)[0];
+    let roman = mapping[Object.keys(mapping)[0]];
+    
+    let numeralCount = Math.floor(n / decimal);
+    n -= numeralCount * decimal;
 
-    //populate numeralsResultObj
-    numerals.forEach(numeral => {
-      let numeralCounter = 0;
-      while(numeralCounter * numeral < n){
-          numeralCounter++;
-          console.log(numeralCounter*numeral);
-      }
-      //decrement due to the conditions of the while loop, need to remember to increment by one at the end.
-
-      numeralCounter--;
-      numeralsResultObj[numeral] = numeralCounter;
-
-      n-= (numeralCounter*numeral);
-
-    });
-    //take care of the final value
-    numeralsResultObj[1]++;
-
-    //go through numerals again, create string
-    let numeralsString = "";
-    numerals.forEach(numeral => {
-      let numeralChar;
-      switch (numeral){
-        case 1000:
-          numeralChar = 'M';
-          break;
-        case 500:
-          numeralChar = 'D';
-          break;
-        case 100:
-          numeralChar = 'C';
-          break;
-        case 50:
-          numeralChar = 'L';
-          break;
-        case 10:
-          numeralChar = 'X';
-          break;
-        case 5:
-          numeralChar = 'V';
-          break;
-        case 1:
-          numeralChar = 'I';
-          break;
-      }
-
-      numeralsString = numeralsString + numeralChar.repeat(numeralsResultObj[numeral]);
-    });
-
-    //reduce string with groupings of 4 ie XXXX = XL
-    for(let i = 0; i < numeralsString.length; i++){
-      if(numeralsString[i] !== 'M' && numeralsString[i] === numeralsString[i+1] && numeralsString[i+1] == numeralsString[i+2] && numeralsString[i+2] == numeralsString[i+3]){
-        let replacedChar = numeralsString[i]+numeralChars[numeralChars.indexOf(numeralsString[i])-1];
-        numeralsString = numeralsString.substring(0,i) + replacedChar + numeralsString.substring(i+4);
-      }
-    }
-
-    //reduce string with groupings of 3 ie VIV = IX
-    for(let i = 0; i < numeralsString.length; i++){
-      if(numeralsString[i] !== 'M' && numeralsString[i] == numeralsString[i+2]){
-        let replacedChar = numeralsString[i+1] + numeralChars[numeralChars.indexOf(numeralsString[i])-1];
-
-        numeralsString = numeralsString.substring(0,i) + replacedChar +numeralsString.substring(i+3);
-      }
-    }
-
-
-    return numeralsString;
+    result += roman.repeat(numeralCount);
+  })
+  return result;
+  
 }
-
 module.exports = romanNumeral;

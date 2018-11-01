@@ -24,51 +24,25 @@
  *
  */
 function balancedParens(input){
-    let squareArr = [];
-    let parenArr = [];
-    let curlyArr = []
-    for (char of input) {
-      console.log(char);
-        switch (char){
-            case '[':
-                squareArr.push('[');
-                break;
-            case ']':
-                if(squareArr.length === 0){
-                  return false;
-                }
-                squareArr.pop();
-                break;
-            case '(':
-                parenArr.push('(');
-                break;
-            case ')':
-                if(parenArr.length === 0){
-                  return false;
-                }
-                parenArr.pop();
-                break;
-            case '{':
-                curlyArr.push('{');
-                break;
-            case '}':
-                if(curlyArr.length === 0){
-                  return false;
-                }
-                curlyArr.pop();
-                break;
-            default:
-                break;
+    let parensStack = [];
+    input.split("").forEach(char => {
+        if(char === '(' || char === '[' || char === '{'){
+            parensStack.push(char);
         }
-    }
-    console.log(squareArr);
-    console.log(parenArr);
-    console.log(curlyArr);
-    if(squareArr.length === 0 && parenArr.length === 0 && curlyArr.length === 0) {
-        return true;
-    } else {
-        return false;
-    }
+        else if(char === ')' && parensStack[parensStack.length-1] === '('){
+            parensStack.pop();
+        }
+        else if(char === ']' && parensStack[parensStack.length-1] === '['){
+            parensStack.pop();
+        }
+        else if(char === '}' && parensStack[parensStack.length-1] === '{'){
+            parensStack.pop();
+        }
+    });
+
+    return parensStack.length === 0 ? true : false;
 }
+
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
 
 module.exports = balancedParens;
