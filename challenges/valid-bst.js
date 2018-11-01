@@ -20,7 +20,7 @@ function validBST(tree) {
 
     if (valid !== false && current.left) {
         if (valid !== false && current.value > current.left.value) {
-            validBST(current.left);
+            valid = validBST(current.left);
         } else {
             valid = false;
         }
@@ -28,7 +28,7 @@ function validBST(tree) {
 
     if (valid !== false && current.right) {
         if (valid !== false && current.value < current.right.value) {
-            validBST(current.right);
+            valid = validBST(current.right);
         } else {
             valid = false;
         }
