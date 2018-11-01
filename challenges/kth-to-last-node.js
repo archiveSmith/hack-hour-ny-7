@@ -22,7 +22,7 @@ function Node(val) {
 
 function kthToLastNode(k, head) {
   //return if head empty
-  if(!head || !head.value) {
+  if(!k || !head || !head.value) {
     return false;
   }
 

@@ -11,13 +11,23 @@
  * numToWords(300525151340440) -> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty'
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
+
+console.log(numToWords(43));
+
 function numToWords(num) {
   if(typeof num !== "number"){
     return;
   }
+  if(num === 0){
+    return 'Zero';
+  }
+
+
   let resultString = "";
 
-  let commaGroupingArr = (num.toString().match(/.{1,3}/g));
+  let commaGroupingArr = num.toString().split("").reverse().join('').match(/.{1,3}/g).map((grouping) => {
+    return grouping.split('').reverse().join('');
+  }).reverse();
   console.log(commaGroupingArr);
 
   for(let i = 0; i< commaGroupingArr.length; i++){
@@ -203,5 +213,5 @@ function tweensToWord(string){
   return string;
 }
 
-console.log(numToWords(300525151340440));
+
 module.exports = numToWords;
