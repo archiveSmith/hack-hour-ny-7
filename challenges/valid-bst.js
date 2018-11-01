@@ -18,7 +18,7 @@ function validBST(tree) {
     validBSTRec(tree);
     console.log(inOrderTraversal);
 
-    for (let i = 1; i < inOrderTraversal.length - 1; i++){
+    for (let i = 1; i < inOrderTraversal.length; i++){
         if(inOrderTraversal[i] <= inOrderTraversal[i-1]){
             return false;
         }
@@ -37,45 +37,13 @@ function validBST(tree) {
 
 }
 
-function validBSTIterative(tree) {
-    //error checking
-    if (!tree) {
-        return true;
-    }
-
-    let queue = [tree];
-    while (queue.length > 0){
-        let currentNode = queue.shift();
-        
-        //cut off immediately if left is larger than val or same on right
-        if(currentNode.left) {
-            if(currentNode.left.value > currentNode.value) {
-                return false;
-            }
-        }
-        if(currentNode.right) {
-            if(currentNode.right.value < currentNode.value) {
-                return false;
-            }
-        }
-
-        //if current node passes, add both children node if they exist to queue
-        if (currentNode.left) {
-            queue.push(currentNode.left);
-        }
-        if (currentNode.right) {
-            queue.push(currentNode.right);
-        }
-    }
-    return true;
-}
 
 
 let bst = new BinaryTree(20);
-bst.right = new BinaryTree(30);
-bst.right.right = new BinaryTree(35);
-bst.right.left = new BinaryTree(19);
-bst.left = new BinaryTree(10);
+bst.right = new BinaryTree(10);
+// bst.right.right = new BinaryTree(35);
+// bst.right.left = new BinaryTree(34);
+// bst.left = new BinaryTree(10);
 
 console.log(bst);
 console.log(validBST(bst));
