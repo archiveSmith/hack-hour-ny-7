@@ -12,19 +12,35 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree) {
-    if ((tree.left !== null && tree.left.value > tree.value) || (tree.right !== null && tree.right.value < tree.value) || tree.left !== null && tree.left.value > tree.right.value) { return false };
-    if (tree.left !== null && tree.left.value <= tree.value) { return validBST(tree.left) };
-    if (tree.right !== null && tree.right.value >= tree.value) { return validBST(tree.right) };
-    return true;
+// function validBST(tree) {
+//     if ((tree.left !== null && tree.left.value > tree.value) || 
+//         (tree.right !== null && tree.right.value < tree.value) || 
+//         (tree.left !== null && tree.left.value > tree.right.value) ||
+//         (tree.right !== null && tree.left.value > tree.right.value) ||
+//         tree.left !==  null && tree.left.value > tree.left.left.value
+//         ) { return false };
+
+//     if (tree.left !== null && tree.left.value <= tree.value) { return validBST(tree.left) };
+//     if (tree.right !== null && tree.right.value >= tree.value) { return validBST(tree.right) };
+//     return true;
+// }
+
+// function validBST(tree) {
+//     return isBST(tree, null, null);
+// }
+  
+function validBST(curNode, minval, maxval){
+    if (curNode == null) {
+        return true;
+    }
+    return (
+        (minval == null || minval <= curNode.value) &&
+        (maxval == null || maxval >= curNode.value) &&
+        validBST(curNode.left, minval, curNode.value) &&
+        validBST(curNode.right, curNode.value, maxval)
+    );
 }
+  
 
-// let tr = new BinaryTree(5);
-// tr.right = new BinaryTree(6);
-// tr.left = new BinaryTree(3)
-
-// console.log(tr.value > tr.right.value)
-
-// console.log(validBST(tr));
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
