@@ -35,7 +35,6 @@ function fizzbuzz(num) {
     else if(arr[i] % 5 === 0) {
       arr[i] = 'buzz'
     }
-    
   }
 
   arr.forEach((element) => {

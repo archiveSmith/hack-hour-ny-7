@@ -9,7 +9,6 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
-
 function zip(l1, l2) {
   if(!l1.head || !l2.head) return;
 

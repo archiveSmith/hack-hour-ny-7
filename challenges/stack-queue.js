@@ -17,7 +17,7 @@ Stack.prototype.push = function (element) {
 }
 Stack.prototype.pop = function () {
   if(this.length === 0) {
-    return false;
+    return undefined;
   } 
   let result = this.stack.pop();
   this.length--;
@@ -48,7 +48,7 @@ Queue.prototype.enqueue = function (element) {
 }
 Queue.prototype.dequeue = function () {
   if (this.length === 0){
-    return false;
+    return undefined;
   }
   while(this.enqueueStack.length != 0) {
     this.dequeueStack.push(this.enqueueStack.pop());

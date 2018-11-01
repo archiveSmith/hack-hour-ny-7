@@ -34,19 +34,6 @@ function validBST(tree) {
             validBSTRec(tree.right)
         }
     }
-
 }
-
-
-
-let bst = new BinaryTree(20);
-bst.right = new BinaryTree(10);
-// bst.right.right = new BinaryTree(35);
-// bst.right.left = new BinaryTree(34);
-// bst.left = new BinaryTree(10);
-
-console.log(bst);
-console.log(validBST(bst));
-
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};

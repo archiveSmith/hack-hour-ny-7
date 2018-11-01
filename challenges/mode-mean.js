@@ -9,7 +9,6 @@
  *
  */
 
-
 function modemean(array) {
     if(!Array.isArray(array)) return;
     else if (!array) return;

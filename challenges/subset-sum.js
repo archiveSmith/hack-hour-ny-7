@@ -1,3 +1,4 @@
+//STUDY MODIFY
 /* You are given an array of integers and a target number. Write a function that returns true if
  * there is a subset of the array that sums up to the target and returns false otherwise. A subset
  * can be any size and the elements do not have to appear consecutively in the array.
@@ -10,6 +11,7 @@
 
 function subsetSum(array, target) {
 
+    
     let result = false;
     subsetSumRec(array, target, 0);
     return result;
