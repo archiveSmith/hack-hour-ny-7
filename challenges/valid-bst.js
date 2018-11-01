@@ -37,15 +37,6 @@ function validBST(tree, grandparent = 0) {
     return valid;
 }
 
-const tree = new BinaryTree(25);
-tree.left = new BinaryTree(13);
-tree.right = new BinaryTree(28);
-tree.left.left = new BinaryTree(11);
-tree.left.right = new BinaryTree(15);
-tree.right.left = new BinaryTree(27);
-tree.right.right = new BinaryTree(29);
-
-
-console.log(validBST(tree));
+// s
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
