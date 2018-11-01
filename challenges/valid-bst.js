@@ -22,10 +22,11 @@ function validBST(tree, arr = [], top = 0) {
   if(this.right) validBST(tree.right, arr, top + 1);
   if(top === 0) {
       for(let i in arr) {
-          if(arr[i] > arr[i + 1]) return false
+          if(arr[i] > arr[i + 1]) return false;
       }
       return true;
   };
+  return arr;
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
