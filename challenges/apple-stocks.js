@@ -26,7 +26,6 @@ function bestProfit(stock_prices_yesterday) {
             min = price;
         }
     });
-
     return Math.max(0, (max-min));
 }
 

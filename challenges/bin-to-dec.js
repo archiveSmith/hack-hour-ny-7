@@ -13,6 +13,7 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
+ 
 function binToDec(binary) {
     let result = 0;
     let toBeAdded = 1;

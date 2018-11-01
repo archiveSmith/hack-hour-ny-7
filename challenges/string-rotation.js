@@ -15,6 +15,7 @@ function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
+
 function stringRotation(s1, s2) {
   //preliminary length check
  if (!s1 || !s2){

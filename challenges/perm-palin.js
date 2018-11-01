@@ -8,7 +8,6 @@
  * 	- permPalin('a') => true
  *
  */
-
 function permPalin(str) {
   if (!str) { return false }
   return permPalinRec("", str.split(""));

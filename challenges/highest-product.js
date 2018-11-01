@@ -11,6 +11,7 @@ function highestProduct(array) {
     let trial2 = sorted[sorted.length-1] * sorted[sorted.length-2] * sorted[sorted.length-3];
 
     return Math.max(trial1, trial2);
+    
 }
 
 console.log(highestProduct([5,6,7]));

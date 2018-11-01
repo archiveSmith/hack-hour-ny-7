@@ -2,7 +2,6 @@
  * Use recursion!
  */
 
-
 function pow(base, power, existingValue = 0, isNegative = null) {   
     if(!isNegative){
       isNegative = power < 0;
