@@ -12,23 +12,23 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree) {
+function validBST(tree, grandparent = 0) {
     if (!tree) { return false; }
     const current = tree;
     let valid = true;
-    console.log("----THIS IS THE TREE----", current.value);
+    // console.log("----THIS IS THE TREE----", current.value);
 
     if (valid !== false && current.left) {
-        if (valid !== false && current.value > current.left.value) {
-            valid = validBST(current.left);
+        if (valid !== false && current.value > current.left.value && grandparent > current.left.value) {
+            valid = validBST(current.left, current.value);
         } else {
             valid = false;
         }
     }
 
     if (valid !== false && current.right) {
-        if (valid !== false && current.value < current.right.value) {
-            valid = validBST(current.right);
+        if (valid !== false && current.value < current.right.value && grandparent < current.left.value) {
+            valid = validBST(current.right, current.value);
         } else {
             valid = false;
         }
@@ -37,15 +37,15 @@ function validBST(tree) {
     return valid;
 }
 
-// const tree = new BinaryTree(25);
-// tree.left = new BinaryTree(13);
-// tree.right = new BinaryTree(28);
-// tree.left.left = new BinaryTree(11);
-// tree.left.right = new BinaryTree(15);
-// tree.right.left = new BinaryTree(27);
-// tree.right.right = new BinaryTree(29);
+const tree = new BinaryTree(25);
+tree.left = new BinaryTree(13);
+tree.right = new BinaryTree(28);
+tree.left.left = new BinaryTree(11);
+tree.left.right = new BinaryTree(15);
+tree.right.left = new BinaryTree(27);
+tree.right.right = new BinaryTree(29);
 
 
-// console.log(validBST(tree));
+console.log(validBST(tree));
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
