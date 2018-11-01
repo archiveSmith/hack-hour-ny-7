@@ -37,6 +37,21 @@ function rotateGrid(grid, n) {
     console.log(newArr);
 }
 
-rotateGrid([[1,2,3],[4,5,6],[7,8,9]],3);
+function rotateGridInPlace(grid, n) {
+  if(!grid || !n) {
+    return undefined;
+  }
+
+  //loop defined as moving inside the square
+  for(i = 0; i < Math.floor(n/2); i++) {
+    //loop defined as moving along the current 'top' of the square
+    for(j = i; j < n - i - 1; j++) {
+      console.log('i',i,'j',j);
+      let savedVar = 
+    }
+  }
+}
+
+rotateGridInPlace([[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]], 4);
 
 module.exports = rotateGrid;
