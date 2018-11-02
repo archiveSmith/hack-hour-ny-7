@@ -26,8 +26,10 @@ function validBST(tree, binaryArr = []) {
         validBST(tree.right, binaryArr);
     }
 
+    console.log(binaryArr)
     for(let i = 0; i < binaryArr.length; i++){
         if(binaryArr[i] > binaryArr[i + 1]){
+            console.log(binaryArr[i])
             return false;
         }
     }
@@ -35,15 +37,15 @@ function validBST(tree, binaryArr = []) {
     return true;
 }
 
-const tree = new BinaryTree(25);
-tree.left = new BinaryTree(13);
-tree.right = new BinaryTree(28);
-tree.left.left = new BinaryTree(11);
-tree.left.right = new BinaryTree(20);
-tree.right.left = new BinaryTree(27);
-tree.right.right = new BinaryTree(29);
+// const tree = new BinaryTree(25);
+// tree.left = new BinaryTree(13);
+// tree.right = new BinaryTree(28);
+// tree.left.left = new BinaryTree(11);
+// tree.left.right = new BinaryTree(20);
+// tree.right.left = new BinaryTree(27);
+// tree.right.right = new BinaryTree(29);
 
 
-console.log(validBST(tree));
+// console.log(validBST(tree));
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
