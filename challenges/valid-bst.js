@@ -26,7 +26,7 @@ function validBST(tree, binaryArr = []) {
         validBST(tree.right, binaryArr);
     }
 
-    console.log(binaryArr)
+    // console.log(binaryArr)
     for(let i = 0; i < binaryArr.length; i++){
         if(binaryArr[i] > binaryArr[i + 1]){
             console.log(binaryArr[i])

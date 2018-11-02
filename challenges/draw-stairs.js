@@ -30,11 +30,11 @@ function drawStairs(n) {
         if (i !== n) {
             stairs += '\n';
         }
-    }
 
-    return stairs;
+    }
+    console.log(stairs);
 }
 
-// console.log(drawStairs(8));
+drawStairs(8);
 
 module.exports = drawStairs;
