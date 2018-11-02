@@ -10,11 +10,40 @@ function Node(val) {
   this.next = null;
 }
 
-function createLink(){
-  
-}
-
 function zip(l1, l2) {
+  if (!l1 || !l2){return false;}
+  let curr1 = l1;
+  let curr2 = l2;
+  let nextl1 = curr1.next;
+  let nextl2 = curr2.next;
+  let flag = curr1;
+
+  while(nextl1.next || nextl1.next){
+    if(flag === curr1){
+      curr1.next = curr2;
+      curr1 = nextl1;
+      nextl1 = nextl1.next;
+      flag = curr2;
+    }else{
+      curr2.next = curr1;
+      curr2 = nextl2; 
+      nextl2 = nextl2.next;
+      flag = curr1;
+    }
+  }
+
+  return l1;
 };
 
+// const l1 = new Node('a');
+// l1.next = new Node('c');
+// l1.next.next = new Node('e');
+// l1.next.next.next = new Node('g');
+
+// const l2 = new Node('b');
+// l2.next = new Node('d');
+// l2.next.next = new Node('f');
+// l2.next.next.next = new Node('h');
+
+// console.log(zip(l1, l2));
 module.exports = {Node: Node, zip: zip};
