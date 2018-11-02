@@ -11,7 +11,7 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  if (!l1 || !l2){return false;}
+  if (!l1 || !l2){return;}
   let curr1 = l1;
   let curr2 = l2;
   let nextl1 = curr1.next;
