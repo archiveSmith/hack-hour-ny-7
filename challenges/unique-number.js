@@ -10,7 +10,7 @@
  *
  */
 function uniqueNumber(array) {
- // test one two
+ // test one two bur bur
 }
 
 module.exports = uniqueNumber;
