@@ -12,11 +12,14 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree, arr = [], top = 0) {
-//   if(!test || (tree.left ? tree.left.value > tree.value : false) || (tree.right ? tree.right.value < tree.value : false)) return false;
-//   let left = tree.left ? validBST(tree.left, test) : true;
-//   let right = tree.right ? validBST(tree.right, test) : true;
+function validBST(tree) {
+//   if((tree.left ? tree.left.value > tree.value : false) || (tree.right ? tree.right.value < tree.value : false)) return false;
+//   let parentValue = tree.value;
+//   let left = tree.left ? validBST(tree.left, parentValue) : true;
+//   let right = tree.right ? validBST(tree.right, parentValue) : true;
 //   return left && right;
+  let nodeArr = [tree];
+
   if(this.left) validBST(tree.left, arr, top + 1);
   arr.push(tree.value);
   if(this.right) validBST(tree.right, arr, top + 1);
