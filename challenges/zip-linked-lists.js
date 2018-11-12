@@ -13,7 +13,7 @@ function Node(val) {
 function zip(l1, l2) {
   if (!l1){return l2;}
   if (!l2){return l1;}
-  
+
   let curr1 = l1;
   let curr2 = l2;
   let nextl1 = curr1.next;
@@ -41,15 +41,34 @@ function zip(l1, l2) {
   return l1;
 };
 
-const l1 = new Node('a');
-l1.next = new Node('c');
-l1.next.next = new Node('e');
-l1.next.next.next = new Node('g');
+// const l1 = new Node('a');
+// l1.next = new Node('c');
+// l1.next.next = new Node('e');
+// l1.next.next.next = new Node('g');
 
-const l2 = new Node('b');
-l2.next = new Node('d');
-l2.next.next = new Node('f');
-l2.next.next.next = new Node('h');
+// const l2 = new Node('b');
+// l2.next = new Node('d');
+// l2.next.next = new Node('f');
+// l2.next.next.next = new Node('h');
 
-console.log(zip(l1, l2));
+// console.log(zip(l1, l2));
 module.exports = {Node: Node, zip: zip};
+
+//* FELLOW SOLUTION
+
+// function Node(val) {
+//   this.value = val;
+//   this.next = null;
+// }
+// function zip(l1, l2) {
+//   if (!l1) return l2;
+//   if (!l2) return l1;
+
+//   let curr = new Node(l1.value);
+//   curr.next = zip(l2, l1.next);
+//   return curr;
+// }
+
+
+
+
