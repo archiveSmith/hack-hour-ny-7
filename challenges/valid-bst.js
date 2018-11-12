@@ -13,6 +13,8 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+let newTree = new BinaryTree(tree);
+
 
 }
 
