@@ -13,7 +13,36 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-
+    if (!tree) {
+        return true;
+    } 
+    if (tree.left !== null) {
+        if (tree.left.value > tree.value) {
+            return false;
+        }
+    } 
+    if (tree.right !== null) {
+        if (tree.right.value < tree.value) {
+            return false;
+        }
+    } 
+    const leftSide = validBST(tree.left);
+    const rightSide = validBST(tree.left);
+    return leftSide && rightSide;
 }
 
-module.exports = {BinaryTree: BinaryTree, validBST: validBST};
+// module.exports = {BinaryTree: BinaryTree, validBST: validBST};
+
+let tree = new BinaryTree(10);
+tree.left = new BinaryTree(8);
+tree.left.right = new BinaryTree(9);
+tree.left.right.right = new BinaryTree(14);
+tree.left.left = new BinaryTree(6);
+tree.right = new BinaryTree(15);
+tree.right.right = new BinaryTree(18);
+tree.right.left = new BinaryTree(16);
+tree.right.left.right = new BinaryTree(17);
+
+console.log(tree);
+
+console.log(validBST(tree));
