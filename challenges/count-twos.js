@@ -10,7 +10,22 @@
 
 
 function countTwos(num) {
+  if(!num) return num;
+  let counter = 0;
+  let numArray = [];
 
+  for(let i = 0; i <= num; i++){
+    if(i.toString().match(/2/g) !== null){
+      counter += i.toString().match(/2/g).length;
+    }
+  }
+
+  return counter;
 }
+
+console.log('---ONE---', countTwos(3));
+console.log('---ONE---', countTwos(13));
+console.log('---TWO---',countTwos(1000));
+console.log('---TWO---',countTwos(11420));
 
 module.exports = countTwos;
