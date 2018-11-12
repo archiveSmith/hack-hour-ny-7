@@ -17,7 +17,6 @@ function BinaryTree(val) {
 //         (tree.right !== null && tree.right.value < tree.value) || 
 //         (tree.left !== null && tree.left.value > tree.right.value) ||
 //         (tree.right !== null && tree.left.value > tree.right.value) ||
-//         tree.left !==  null && tree.left.value > tree.left.left.value
 //         ) { return false };
 
 //     if (tree.left !== null && tree.left.value <= tree.value) { return validBST(tree.left) };
@@ -29,15 +28,15 @@ function BinaryTree(val) {
 //     return isBST(tree, null, null);
 // }
   
-function validBST(curNode, minval, maxval){
-    if (curNode == null) {
+function validBST(tree, minval, maxval){
+    if (tree == null) {
         return true;
     }
     return (
-        (minval == null || minval <= curNode.value) &&
-        (maxval == null || maxval >= curNode.value) &&
-        validBST(curNode.left, minval, curNode.value) &&
-        validBST(curNode.right, curNode.value, maxval)
+        (minval == null || minval <= tree.value) &&
+        (maxval == null || maxval >= tree.value) &&
+        validBST(tree.left, minval, tree.value) &&
+        validBST(tree.right, tree.value, maxval)
     );
 }
   
