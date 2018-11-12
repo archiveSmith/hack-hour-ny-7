@@ -11,13 +11,11 @@
 
 function countTwos(num) {
     let count = 0;
-    let numString = '';
     for (let i=0; i<=num; i++) {
         let numString = i.toString()
         if (numString.match(/2/g)) {
           let cur = numString.match(/2/g)
-          count++
-          console.log(cur, i)
+          count+= cur.length
         }
     }
     return count
