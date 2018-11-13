@@ -10,7 +10,14 @@
 
 
 function countTwos(num) {
-
+  let counter = 0
+  for (let i=1; i<=num; i++) {
+    let str = i.toString();
+    if (str.includes('2')) {
+      counter += str.replace(/[^2]/g, "").length;
+    }
+  }
+  return counter;
 }
 
 module.exports = countTwos;
