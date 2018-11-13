@@ -18,6 +18,25 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  
+  if (l1.value + l2.value + carryover >= 10) {
+    carryover = 1;
+    const val = l1.value + l2.value - 10;
+
+    let curr = new Node(val);
+    if (l1.next !== null) {
+      curr.next = addLinkedList(l1.next, l2.next, carryover);
+     }
+    return curr; 
+  } else {
+    const val = l1.value + l2.value + carryover;
+    
+    let curr = new Node(val);
+    if (l1.next !== null) {
+      curr.next = addLinkedList(l1.next, l2.next);
+     }
+   return curr;
+  }
 
 }
 
