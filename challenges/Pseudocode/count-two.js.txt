@@ -1,0 +1,20 @@
+-create a function named 'countTwos' with parameter: num
+  -declare variable called 'count' and assign it 0
+  -convert num param to String, then convert to Array, and assign it to numArr
+  -declare a variable called 'position' and assig it the length of numArr plus 1
+
+  -start a reverse loop, while iterator is greater than 0
+    -delcare a variable called 'digit' and assign it current array value, then convert it to Number
+    -declare a variable called 'place' and assign it poition
+    -if place equals 1 then...
+      -if digit is greaten then or equal to 2 then...
+        -add 1 to count
+      -else
+        -add 0 to count.
+      -end conditional
+    -else
+      -
+    -end conditional
+  -end of reverse iteration
+
+-end of countTwo function

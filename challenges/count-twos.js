@@ -8,9 +8,32 @@
 // countTwos(1000);  -> 300
 // countTwos(11420);  -> 4483
 
+console.log('Hi from count-twos.js');
 
 function countTwos(num) {
+  let count = 0;
+  let numArr = num.toString().split('');
+  let position = numArr.length-1;
 
+  for (let i = position; i >= 0; i-=1) {
+    let place = position;
+    let digit = Number.parseInt(numArr[i]);
+    if (place === 1) {
+       if (digit >= 2) {
+         count += 1;
+       }
+       else {
+         count += 0;
+       }
+    }
+    else {
+
+    }
+
+  }
+  return count;
 }
+
+console.log(countTwos(13));
 
 module.exports = countTwos;
