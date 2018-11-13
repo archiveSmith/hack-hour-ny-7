@@ -8,19 +8,36 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
-  if (array.length === 0) return false;
+// function subsetSum(array, target) {
+//   if (array.length === 0) return false;
 
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0; j < array.length; j++) {
-      if (array[i] + array[j] === target && i !== j) { return true }
-    }
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array.length; j++) {
+//       if (array[i] + array[j] === target && i !== j) { return true }
+//     }
+//   }
+//   return false
+// }
+
+let arr = [3, 7, 4, 2]
+let n = 5
+
+function subsetSum(arr, n) {
+  const lookup = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+    const difference = n - num;
+    if (lookup[difference]) return true;
+    console.log(lookup)
+    lookup[num] = true;
   }
-  return false
+
+  return false;
 }
 
-console.log(subsetSum([3, 7, 4, 2], 5))
-console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))
+console.log(subsetSum(arr, n))
+// console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))
 // console.log(subsetSum([8, 2, 4, 12], 13))
 // console.log(subsetSum([8, -2, 1, -3], 6))
 
