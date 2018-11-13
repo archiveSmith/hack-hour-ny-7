@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/perm-palin.js"
+            "program": "${workspaceFolder}/challenges/zip-linked-lists.js"
         },
     ]
 }
