@@ -14,7 +14,38 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
+  var maxright = 0;
+  var maxleft = 0;
+  
+  function traverseRight(node, right = 0) {
+    if (node !== null) {
+      right++;
+      if (right > maxright) {
+        maxright = right;
+      }
+      traverseRight(node.right, right)
+    }
+  }
 
+  function traverseLeft(node, left = 0) {
+    if (node !== null) {
+      left++;
+      if (left > maxleft) {
+        maxleft = left;
+      }
+      traverseLeft(node.left, left)
+    }  
+  }
+
+  if (tree.value !== null) {
+    traverseLeft(tree.left);
+    traverseRight(tree.right);
+    console.log(maxleft, 'left')
+    console.log(maxright, 'right')
+    return (Math.abs(maxleft - maxright) <= 1 ? true : false) 
+  } else {
+    return true;
+  }
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
