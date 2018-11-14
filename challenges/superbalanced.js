@@ -15,7 +15,7 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
   if (typeof(tree) === 'undefined') { return undefined }
-  return (maxDepth(tree) - minDepth(tree) <= 1)
+  return ((maxDepth(tree) - minDepth(tree)) <= 1)
 }
 
 function minDepth(node) {
