@@ -15,9 +15,10 @@ function countTwos(num) {
     if (place === 1) {
       return digit >= 2 ? 1 : 0;
     } else {
+
       let logTerm = digit * index * Math.pow(10, index - 1);
       let greaterThanTwoTerm = digit > 2 ? Math.pow(10, index) : 0;
-      let EqualToTwoTerm = digit == 2 ? Number.parseInt(arr[index - 1]) + 1 : 0;
+      let EqualToTwoTerm = digit == 2 ? Number.parseInt(arr[index - 1]) * Math.pow(10, (index-1)) + (Number.parseInt(arr[index - 1]) == 0 ? 1 : 0) : 0;
       
       return logTerm + greaterThanTwoTerm + EqualToTwoTerm;
     }
