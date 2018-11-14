@@ -19,13 +19,19 @@ function superbalanced(tree) {
 }
 
 function minDepth(node) {
-  if (typeof(node) === 'undefined') { return 0 }
+  if (!node) { return 0 }
   return Math.min(minDepth(node.left), minDepth(node.right)) + 1;
 }
 
 function maxDepth(node) {
-  if (typeof(node) === 'undefined') { return 0 }
+  if (!node) { return 0 }
   return Math.max(maxDepth(node.left), maxDepth(node.right)) + 1;
 }
+
+// const bt = new BinaryTree(10);
+// bt.right = new BinaryTree(4);
+// bt.right = new BinaryTree(14);
+
+// console.log(superbalanced(bt));
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
