@@ -18,7 +18,60 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  if (!l1) return l2;
+  if (!l2) return l1;
 
+  let newLink;
+  let carriedNum = null;
+
+  while (l1 || l2) {
+    // console.log(l1, l2);
+    if (!l1 || !l2) {
+      if (!l1) {
+        newLink.next = new Node(l2);
+        l2 = l2.next;
+      } else {
+        newLink.next = new Node(l1);
+        l1 = l2.next;
+      }
+    } else {
+      if (!carriedNum) {
+        if (l1.value + l2.value > 9) {
+          let value = l1.value + l2.value;
+          carriedNum = Number(value.toString()[0]);
+          if (!newLink) {
+            newLink = new Node(Number(value.toString()[1]));
+          } else {
+            newLink.next = new Node(Number(value.toString()[1]));
+          }
+
+          l1 = l1.next;
+          l2 = l2.next;
+        }
+      } else {
+        if (l1.value + l2.value + carriedNum > 9) {
+          let value = Number(value.toString()[0]);
+          carriedNum = Number(value.toString()[0]);
+
+          newLink.next = new Node(Number(value.toString()[1]));
+
+          l1 = l1.next;
+          l2 = l2.next;
+        }
+      }
+    }
+  }
+
+  return newLink;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+const link1 = new Node(2);
+link1.next = new Node(1);
+link1.next.next = new Node(5);
+
+const link2 = new Node(5);
+link1.next = new Node(9);
+link1.next.next = new Node(2);
+
+console.log(addLinkedList(link1, link2));
+module.exports = { Node: Node, addLinkedList: addLinkedList };
