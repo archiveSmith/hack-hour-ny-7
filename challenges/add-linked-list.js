@@ -31,9 +31,9 @@ function addLinkedList(l1, l2) {
     b ? y = b.value : y = 0;
 
     const sum = x + y + carryover;
-    if (sum > 9) { carryover = 1 };
+    carryover = (sum > 9) ? 1 : 0;
+    // if (sum > 9) { carryover = 1 };
     // carryover = Math.floor(sum / 10);
-    console.log(carryover)
 
     const newNode = new Node(sum % 10);
     curr.next = newNode;
@@ -49,17 +49,17 @@ function addLinkedList(l1, l2) {
   return head.next;
 }
 
-const l1 = new Node(2);
-l1.next = new Node(4);
-// l1.next.next = new Node(3);
+// const l1 = new Node(2);
+// l1.next = new Node(4);
+// // l1.next.next = new Node(3);
 
+// // const l2 = new Node(5);
+// // l2.next = new Node(6);
+// // l2.next.next = new Node(4);
+
+// // const l1 = new Node(5);
 // const l2 = new Node(5);
-// l2.next = new Node(6);
-// l2.next.next = new Node(4);
 
-// const l1 = new Node(5);
-const l2 = new Node(5);
-
-console.log(addLinkedList(l1, l2));
+// console.log(addLinkedList(l1, l2));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
