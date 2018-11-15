@@ -42,9 +42,9 @@ function superbalanced(tree) {
 }
 
 let bst = new BinaryTree(10);
-// bst.left = new BinaryTree(5);
-// bst.right = new BinaryTree(15);
-// bst.left.left = new BinaryTree(3);
+bst.left = new BinaryTree(5);
+bst.right = new BinaryTree(15);
+bst.left.left = new BinaryTree(3);
 
 
 console.log(superbalanced(bst));

@@ -14,7 +14,6 @@ function gcd(a, b) {
   for(let i = 2; i <= min; i ++) {
     
     if (a % i === 0 && b % i === 0) {
-      console.log(i);
       gcdList.unshift(i);
 
       //get the highest multiple within gcd that is under min
@@ -31,6 +30,6 @@ function gcd(a, b) {
   return gcdList[0];
 }
 
-console.log(gcd(20, 60));
+console.log(gcd(44, 8));
 
 module.exports = gcd;
