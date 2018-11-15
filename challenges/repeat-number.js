@@ -11,10 +11,14 @@
  */
 
 function repeatNumbers(array) {
-  for (let i = 0; i < array.length - 1; i++)
-    if (array[i] === array[i + 1]) {
-      return array[i];
+  let output = {};
+  for (let i = 0; i < array.length; i++) {
+    let currNum = array[i].toString();
+    if (output[currNum] === true) {
+      return currNum;
     }
+    output[currNum] = true;
+  }
 }
 
 module.exports = repeatNumbers;
