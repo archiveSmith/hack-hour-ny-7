@@ -18,3 +18,14 @@
   -end of reverse iteration
 
 -end of countTwo function
+
+/*HH solution*/
+
+-declare numString adn assign it the num param converted to String
+-declare totalTwos and assign it 0
+-declare digitsPlace and assign it the length of numString
+
+-start iteration, while iterator is less then length of numString
+  -convert the current array value to a number and assign it to currentDigit
+  -
+-end of iteration

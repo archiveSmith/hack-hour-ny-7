@@ -12,13 +12,18 @@
  *
  */
 
+ console.log('Hello from add-linked-list.js');
+
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function addLinkedList(l1, l2) {
-
+  console.log('list 1:', l1);
+  console.log('list 2:', l2);
 }
+
+console.log(addLinkedList());
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
