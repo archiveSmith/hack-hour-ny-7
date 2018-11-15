@@ -18,7 +18,25 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-
+  let cur = new Node(null);
+  const head = curr;
+  let sum = 0;
+  while (l1 || l2 || sum) {
+    if (l1) {
+      sum += l1.value;
+      l1 = l1.next;
+    }
+    if (l2) {
+      sum += l2.value;
+      l2 = l2.next;
+    }
+    cur.next = new node(sum % 10);
+    cur = cur.next;
+    sum = sum > 9 ? 1 : 0;
+  }
+  return head.next;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+//recursive
+
+module.exports = { Node: Node, addLinkedList: addLinkedList };
