@@ -1,0 +1,24 @@
+-create a function named 'mergeRanges' with parameters: array
+  -declare a variable called 'collector' and assign it an empty array
+  -declare a variable called 'length' and assign it the length of the array param
+
+  -iterate through the array param
+    -declare a variable called 'condensed' and assign it an emptyArray
+
+    -declare a variable called 'currentArray' and assign it the current array being processed
+
+    -declare a variable called 'nextArray' and assign it the array after the currentArray
+    
+    -if the length of the array param is odd and the iterator equals 0 then...
+      -push the currentArray to collector
+      -continue to next array
+    -end if
+
+    -push the value at index 0 in the currentArray to condensed
+    -push the value at index 1 in the currentArray to condensed
+    -push condensed to collector
+  -end of iteration
+
+  -return collector
+
+-end of mergeRanges function
