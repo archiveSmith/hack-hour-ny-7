@@ -11,7 +11,17 @@
  */
 
 function repeatNumbers(array) {
-
+  array = array.sort((a, b) => a - b );
+  let prevNum = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if(prevNum === array[i])  {
+      return array[i]
+    } else {
+      prevNum = array[i];
+    }
+  }
 }
+
+console.log(repeatNumbers([1,2,5,3,2,8]))
 
 module.exports = repeatNumbers;
