@@ -23,9 +23,10 @@ function countTwos(num) {
   return counter;
 }
 
-console.log('---ONE---', countTwos(3));
-console.log('---ONE---', countTwos(13));
-console.log('---TWO---',countTwos(1000));
-console.log('---TWO---',countTwos(11420));
+// console.log('---ONE---', countTwos(3));
+// console.log('---ONE---', countTwos(13));
+// console.log('---TWO---',countTwos(1000));
+// console.log('---TWO---',countTwos(11420));
+// console.log('---TWO---',countTwos(1000000000));
 
 module.exports = countTwos;
