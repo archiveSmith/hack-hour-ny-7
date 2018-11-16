@@ -11,13 +11,16 @@
  */
 
 function repeatNumbers(array) {
+  if(!array){return array;}
+  const storeNum = {};
   for(let i = 0; i < array.length; i++){
-
+    if(storeNum[array[i]]){
+      return array[i]
+    }
+    storeNum[array[i]] = array[i]; 
   }
-
-  
 }
 
-repeatNumbers([2, 4, 5, 6, 1, 6, 23, 45, 65, 23, 43]);
+console.log(repeatNumbers([2, 4, 5, 6, 1, 23, 45, 65, 23, 43]));
 
 module.exports = repeatNumbers;
