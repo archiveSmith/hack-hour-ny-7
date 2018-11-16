@@ -20,8 +20,10 @@ function gcd(a, b) {
       for (let j = 1; j < gcdList.length; j++) {
         if (gcdList[j] * i <= min){
           //add back to the list;
-          gcdList.unshift(gcdList[j] * i);
-          i = gcdList[j] * i;
+          let res = gcdList[j] * i;
+          i = res
+          gcdList.unshift(res);
+          
           break;
         }
       }
@@ -32,4 +34,4 @@ function gcd(a, b) {
 
 console.log(gcd(44, 8));
 
-module.exports = gcd;
+module.exports = gcd;0 ^
