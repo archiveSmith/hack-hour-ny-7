@@ -34,4 +34,4 @@ function gcd(a, b) {
 
 console.log(gcd(44, 8));
 
-module.exports = gcd;0 ^
+module.exports = gcd;
