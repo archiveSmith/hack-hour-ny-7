@@ -18,7 +18,7 @@ function mergeRanges(array) {
     const len = output.length;
     if (array[i][0] > output[len-1][0] && array[i][1] < output[len-1][1]) {
       break;
-    }else if (output[len-1][0] === array[i][0]) {
+    } else if (output[len-1][0] === array[i][0]) {
       let bigger = output[len-1][1] < array[i][1] ? array[i][1] : output[len-1][1];
       output[len-1] = [output[len-1][0], bigger];
     } else if (array[i][0] < output[len-1][1]) {
