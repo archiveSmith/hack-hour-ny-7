@@ -21,7 +21,9 @@ function mergeRanges(array) {
     //loop through resultArr to find if meetingTime start point or end point falls in the middle of any of those in resultArr
     let overlapMeeting = resultArr.find(combinedMeetingTime => {
       return (combinedMeetingTime[0] <= meetingTime[0] && meetingTime[0] <= combinedMeetingTime[1]) 
-      || (combinedMeetingTime[0] <= meetingTime[1] && meetingTime[1] <= combinedMeetingTime[1]);
+      || (combinedMeetingTime[0] <= meetingTime[1] && meetingTime[1] <= combinedMeetingTime[1])
+      || (meetingTime[0] <= combinedMeetingTime[0] && combinedMeetingTime[0] <= meetingTime[1])
+      || (meetingTime[0] <= combinedMeetingTime[1] && combinedMeetingTime[1] <= meetingTime[1]);
     })
 
     if(!overlapMeeting) {
@@ -37,6 +39,6 @@ function mergeRanges(array) {
   return resultArr;
 };
 
-console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]));
+console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 13]]));
 
 module.exports = mergeRanges;
