@@ -17,7 +17,7 @@ function mergeRanges(array) {
   for(let i = 1; i < array.length; i++) {
     const len = output.length;
     if (array[i][0] > output[len-1][0] && array[i][1] < output[len-1][1]) {
-      break;
+      output[len-1] = output[len-1];
     } else if (output[len-1][0] === array[i][0]) {
       let bigger = output[len-1][1] < array[i][1] ? array[i][1] : output[len-1][1];
       output[len-1] = [output[len-1][0], bigger];
@@ -29,11 +29,11 @@ function mergeRanges(array) {
       output[len-1] = [output[len-1][0], array[i][1]]
     }
   }
-  console.log(array)
+  // console.log(array)
   return output;
 }
 
-// var times = [[0, 1], [3, 5], [4, 8], [9, 13], [10, 12]]
+// var times =  [ [ 1, 5 ], [ 2, 3 ], [ 6, 10 ], [ 7, 9 ] ]
 
 // console.log(mergeRanges(times));
 
