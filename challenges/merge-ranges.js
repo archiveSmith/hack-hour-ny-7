@@ -11,7 +11,6 @@
 
 
 function mergeRanges(array) {
-<<<<<<< HEAD
   let masterArr = [];
   array.sort((a, b) => a[0] - b[0])
   let currentArr = array[0];
@@ -24,9 +23,7 @@ function mergeRanges(array) {
     }
   }
   masterArr.push(currentArr)
-=======
 
->>>>>>> a1a2d3d6512240ad16cfd3108e1c3e741304c812
 }
 
 module.exports = mergeRanges;
