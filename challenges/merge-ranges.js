@@ -10,7 +10,7 @@
  */
 
 
-function mergeRanges(array) {
+function mergeRangesOld(array) {
   array.sort((a, b) => a[0] - b[0])
   let output = [array[0]]
 
@@ -32,6 +32,23 @@ function mergeRanges(array) {
   // console.log(array)
   return output;
 }
+
+function mergeRanges(array) {
+  array.sort((a, b) => a[0] - b[0]);
+
+  const result = [array[0]];
+  for (let i = 1; i < array.length; i++) {
+    const curr = array[i];
+    const last = result[result.length - 1];
+    if (curr[0] > last[1]) {
+      result.push(curr);
+    } else if (curr[1] > last[1]) {
+      last[1] = curr[1];
+    }
+  }
+  return result;
+}
+
 
 // var times =  [ [ 1, 5 ], [ 2, 3 ], [ 6, 10 ], [ 7, 9 ] ]
 
