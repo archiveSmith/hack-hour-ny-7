@@ -61,7 +61,7 @@ function hasCycleOld(head) {
 //challenge 1 and 2
 function hasCycle(head) {
   if(!head || !head.value) {
-    return null;
+    return false;
   }
 
   let isCyclical = false;
