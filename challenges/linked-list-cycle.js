@@ -33,9 +33,8 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
-  if (!head) return false;
   let curr = head;
-
+  if (!head) return false;
   while (curr.next !== null) {
     if (curr.seen) return  true;
     curr.seen = true;
@@ -54,6 +53,6 @@ function hasCycle(head) {
 //  // => false
 // // node5.next = node2;
 // // hasCycle(node1);
-console.log(hasCycle(node1)); // => true
+// console.log(hasCycle(node1)); // => true
 
 module.exports = {Node: Node, hasCycle: hasCycle}
