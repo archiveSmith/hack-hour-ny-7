@@ -27,6 +27,8 @@
  *
  */
 
+//leave breadcrumb pinn letting you know you've been here before.
+//create a cache array, and store all refernces of node.
 var Node = function(value) {
   this.value = value;
   this.next = null;
@@ -34,6 +36,29 @@ var Node = function(value) {
 
 function hasCycle(head) {
 
+
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
