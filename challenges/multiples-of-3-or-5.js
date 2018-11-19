@@ -6,14 +6,19 @@
 // below 1000 and return that sum.
 
 function sumMultiples3Or5Below1000() {
-  let sum = 0;
-
+  let sum = 1;
+  for (let i = 0; i < 100; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+    sum += i}
+  }
   return sum;
 }
 
+sumMultiples3Or5Below1000() 
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z
+
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
 
@@ -22,7 +27,7 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
-  sumMultiplesXOrYBelowZ,
+  sumMultiplesXOrYBelowZ
 };
 
 module.exports = objectToExport;
