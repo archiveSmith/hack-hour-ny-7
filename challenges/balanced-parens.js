@@ -61,7 +61,7 @@ function balancedParens2(input) {
   const parens = {
     '{': '}',
     '(': ')',
-    '{': '}'
+    '[': ']'
   }
 
   const stack = [];
@@ -71,6 +71,7 @@ function balancedParens2(input) {
       stack.push(input[i]);
     } else if (input[i] === '}' || input[i] === ']' || input[i] === ')') {
       if (input[i] === parens[stack[stack.length - 1]]) stack.pop()
+      else stack.push(input[i])
     }
   }
   return !stack.length;
@@ -88,12 +89,14 @@ function balancedParens2(input) {
 // // //  * Example:
 // console.log(balancedParens('[](){}'))
 // console.log(balancedParens('[({})]'))  
-console.log(balancedParens('[(]{)}'))
+console.log(balancedParens2('}'))
 
 // // // Step 3:
 // // // ignore non-bracket characters
 // console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'))
 // console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
+
+
 
 
 module.exports = balancedParens;
