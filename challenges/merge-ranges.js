@@ -23,6 +23,7 @@ function mergeRanges(array) {
     }
   }
   masterArr.push(currentArr)
+
 }
 
 module.exports = mergeRanges;
