@@ -8,7 +8,37 @@
  */
 
 function maxSubarray(arr) {
+  let curMax = 0;
+  let curSum;
 
+function lessThanZero(num) {
+return num < 0
+}
+
+  if (arr.every(lessThanZero)) {
+    for (let i = -1; i < arr.length; i++) {
+        let curArr = [];
+      for (let j = i+1; j < arr.length; j++) {
+          curArr.push(arr[j]);
+          curSum = curArr.reduce((a,b) => a + b, 0)
+          if (curSum<curMax) {
+              curMax = curSum
+          }
+      }
+    }
+  }
+
+  for (let i = -1; i < arr.length; i++) {
+      let curArr = [];
+    for (let j = i+1; j < arr.length; j++) {
+        curArr.push(arr[j]);
+        curSum = curArr.reduce((a,b) => a + b, 0)
+        if (curSum>curMax) {
+            curMax = curSum
+        }
+    }
+  }
+  return curMax
 }
 
 module.exports = maxSubarray;
