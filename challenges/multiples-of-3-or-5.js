@@ -10,13 +10,12 @@ function sumMultiples3Or5Below1000() {
   let arr = [];
   for(let i = 1; i < 1000; i++) {
     if(i % 3 === 0 || i % 5 === 0) {
-      arr.push(i);
-      console.log(arr, 'array')
+      sum += i;
     }
   }
-
   return sum;
 }
+
 
 
 // extension make it dynamic function that takes input x,y,z
