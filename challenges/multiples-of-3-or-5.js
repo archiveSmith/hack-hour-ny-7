@@ -23,17 +23,20 @@ console.log(sumMultiples3Or5Below1000());
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
   for (let i = 1; i < z; i++) {
-    if (i % x === 0 || i % z === 0) {
+    if (i % x === 0 || i % y === 0) {
       sum += i;
     }
   }
-
   return sum;
 }
+
+console.log(sumMultiplesXOrYBelowZ(3, 5, 1000))
 
 const objectToExport = {
   sumMultiples3Or5Below1000,
   sumMultiplesXOrYBelowZ,
 };
+
+
 
 module.exports = objectToExport;
