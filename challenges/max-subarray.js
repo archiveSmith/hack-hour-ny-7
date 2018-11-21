@@ -12,7 +12,6 @@ function maxSubarray(arr) {
   let currMax = Math.min(...arr);
   console.log(currMax);
   for (let k = 0; k < arr.length; k++) {
-    
     currInner = 0;
     for (let i = k; i < arr.length; i++) {
       currInner += arr[i];

@@ -13,6 +13,7 @@
 function mergeRanges(array) {
   let masterArr = [];
   array.sort((a, b) => a[0] - b[0])
+  console.log(array);
   let currentArr = array[0];
   for (let i = 1; i < array.length; i++) {
     if (array[i][0] >= currentArr[0] && array[i][0] <= currentArr[1]){
@@ -23,7 +24,7 @@ function mergeRanges(array) {
     }
   }
   masterArr.push(currentArr)
-
+  return masterArr;
 }
 
 module.exports = mergeRanges;
