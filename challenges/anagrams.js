@@ -50,7 +50,6 @@ function anagrams(string) {
   return results
 }
 
-getAllPermutations('abcd')
 
 
 module.exports = anagrams;
