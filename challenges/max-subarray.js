@@ -13,4 +13,4 @@ function maxSubarray(arr) {
 
 }
 
-module.exports = maxSubarray;
+module.exports = maxSubarray
