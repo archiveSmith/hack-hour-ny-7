@@ -19,7 +19,7 @@ function findInOrderedSet(arr, target) {
   let guess;
 
   while(max > min){
-    guess = (min + max)/2;
+    guess = Math.floor((min + max)/2);
     // console.log('---guess---', guess, arr[guess]);
 
     if(arr[guess] === target){
