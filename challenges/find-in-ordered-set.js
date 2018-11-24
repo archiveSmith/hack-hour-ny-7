@@ -19,7 +19,7 @@ function findInOrderedSet(arr, target) {
     //if last index 24, we want 12 and check if target is in there. if not, ending number + 1 and start at 13 to 24. if not half again.
     guess = Math.floor((max + min) / 2);
     //if 12th index is target. return
-    if(array[guess] === target) {return array[guess]}
+    if(array[guess] === target) {return true;}
     else if (array[guess] < target) {
       min = guess + 1; //+ 1 and start next index half.
     }
@@ -27,7 +27,7 @@ function findInOrderedSet(arr, target) {
       max = guess - 1;
     }
   }
-  return -1;
+  return false;
 }
 
 
