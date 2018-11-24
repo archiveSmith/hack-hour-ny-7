@@ -11,8 +11,31 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+  if(arr[0] === target){return arr[0];}
+  if(arr[arr.length - 1] === target){return arr[arr.length - 1];}
 
+  let min = 0;
+  let max = arr.length - 1;
+  let guess;
+
+  while(max > min){
+    guess = (min + max)/2;
+    // console.log('---guess---', guess, arr[guess]);
+
+    if(arr[guess] === target){
+      return true;
+    }else if(arr[guess] < target){
+      min = guess + 1;
+    }else{
+      max = guess - 1;
+    }
+  }
+
+  return false;
 }
 
+// var nums = [1, 4, 6, 7, 9, 17, 45]
+// console.log(findInOrderedSet(nums, 4));  
+// console.log(findInOrderedSet(nums, 2)); 
 
 module.exports = findInOrderedSet;
