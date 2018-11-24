@@ -11,8 +11,8 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
-  if(arr[0] === target){return arr[0];}
-  if(arr[arr.length - 1] === target){return arr[arr.length - 1];}
+  if(arr[0] === target){return true}
+  if(arr[arr.length - 1] === target){return true}
 
   let min = 0;
   let max = arr.length - 1;
