@@ -22,7 +22,7 @@ function findInOrderedSet(arr, target) {
     guess = (min + max)/2;
     // console.log('---guess---', guess, arr[guess]);
 
-    if(arr[guess] === target || arr[guess + 1] === target || arr[guess - 1] === target){
+    if(arr[guess] === target){
       return true;
     }else if(arr[guess] < target){
       min = guess + 1;
