@@ -13,7 +13,7 @@ function insertionSort(array) {
     array[j + 1] = value
   }
 
-  return list
+  return array
 }
 
 module.exports = insertionSort;
