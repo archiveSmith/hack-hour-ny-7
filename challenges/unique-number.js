@@ -10,7 +10,15 @@
  *
  */
 function uniqueNumber(array) {
-
+  const sorted = array.sort((a, b) => a - b);
+  for (let i = 0; i < sorted.length; i+=2) {
+    if (sorted[i] !== sorted[i+1]) {
+      return sorted[i];
+    }
+  }
+  return null;
 }
+
+console.log(uniqueNumber([1,2,1,3,3,2,5,4,4]))
 
 module.exports = uniqueNumber;
