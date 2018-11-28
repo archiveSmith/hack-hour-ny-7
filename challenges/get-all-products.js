@@ -10,7 +10,13 @@
  */
 
 function getAllProducts(array) {
+  const productArr = [];
 
+  for(let i = 0; i < array.length; i++){
+    
+  }
+
+  return productArr;
 }
 
 module.exports = getAllProducts;
