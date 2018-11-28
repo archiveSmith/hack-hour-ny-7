@@ -8,9 +8,18 @@
  *
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
+// 1, 7, 3, 4
 
 function getAllProducts(array) {
+productArray = [];
 
+for (let i =0; i<array.length; i++) {
+    let tempArr = array;
+    curVal = tempArr.splice(i, 1)
+    productArray.push(tempArr.reduce((a,b) => a * b))
+    tempArr.splice(i,0,curVal)
+}
+return productArray
 }
 
 module.exports = getAllProducts;
