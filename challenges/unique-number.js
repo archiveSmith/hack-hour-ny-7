@@ -10,7 +10,21 @@
  *
  */
 function uniqueNumber(array) {
+  let numObj = {};
 
+  for(let i = 0; i < array.length; i++){
+    if(!numObj[array[i]]){
+      numObj[array[i]] = true;
+    }else{
+      numObj[array[i]] = false;
+    }
+  }
+
+  for(let num in numObj){
+    if(numObj[num] === true){
+      return numObj[num];
+    }
+  }
 }
 
 module.exports = uniqueNumber;
