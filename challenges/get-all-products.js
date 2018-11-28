@@ -10,7 +10,17 @@
  */
 
 function getAllProducts(array) {
-
+  const prodArr = [];
+  for(let i = 0; i < array.length; i++) {
+    let prod = 1;
+    for (let j = 0; j < array.length; j++) {
+      i === j ? prod = prod : prod = prod * array[j];
+    }
+    prodArr.push(prod);
+  }
+  return prodArr;
 }
+
+// console.log(getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
