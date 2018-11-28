@@ -18,4 +18,20 @@ function insertionSort(array) {
   return list;
 }
 
+function insertionSort(array) {
+  //1. iterate over all numbers
+  for (let i = 1; i < array.length; i++) {
+    //2. take out a current number to compare it with other numbers
+    let temp = array[i];
+    let j = i;
+    //3. start moving move backwards from the index of current number, but move only as long as current number is greater than
+    while (j > 0 && temp < array[j - 1]) {
+      array[j] = array[j - 1];
+      j--;
+    }
+    //4. when the swaps are done that means this is the place to insert the number
+    array[j] = temp;
+  }
+  return array;
+}
 module.exports = insertionSort;
