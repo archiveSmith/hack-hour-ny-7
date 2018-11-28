@@ -22,9 +22,11 @@ function uniqueNumber(array) {
 
   for(let num in numObj){
     if(numObj[num] === true){
-      return numObj[num];
+      return num;
     }
   }
 }
+
+// console.log(uniqueNumber([2, 4, 3 , 9, 2, 4, 3]))
 
 module.exports = uniqueNumber;
