@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/challenges/max-subarray.js"
+            "program": "${workspaceFolder}/challenges/find-in-ordered-set.js"
         },
     ]
 }
