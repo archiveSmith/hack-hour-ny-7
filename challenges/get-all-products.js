@@ -25,7 +25,6 @@ function getAllProducts(array) {
     for (let i = 0; i < arrayCopy.length - 1; i++) {
       product *= arrayCopy[i];
     }
-    console.log(product);
     productsArr.push(product);
     arrayCopy.push(arrayCopy.shift());
   }
