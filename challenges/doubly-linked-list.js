@@ -24,6 +24,7 @@ LinkedList.prototype.add = function(val) {
   } else {
     newNode.prev = this.tail;
     this.tail.next = newNode;
+    this.tail = newNode;
   }
 };
 
@@ -56,5 +57,11 @@ LinkedList.prototype.remove = function(val) {
   return output
   
 };
+
+const list = new LinkedList();
+list.add(1);
+list.add(2);
+
+console.log(list)
 
 module.exports = LinkedList;
