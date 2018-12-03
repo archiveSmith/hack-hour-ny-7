@@ -26,17 +26,37 @@
 
 //  return the number associated with the name in the jazbook
 function findName(jazbook, name) {
+  return jazbook[name] ? jazbook[name] : false;
+}
 
+function removeName(jazbook, name) {
+  return jazbook[name] ? delete jazbook[name] : false;
+}
+function addName(jazbook, newName) {
+  let added = jazbook.concat([newName]);
+  added.sort((a, b) => {
+    return a > b;
+  });
+  jazbook = added;
+  console.log(jazbook);
+  return makePhoneBookObject(jazbook);
 }
 
 // return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
-
+function makePhoneBookObject(jazbook) {
+  let sortedBook = jazbook.sort((a, b) => {
+    return a > b;
+  });
+  let phonebook = sortedBook.reduce((acc, curr) => {
+    acc[curr[0]] = curr[1];
+    return acc;
+  }, {});
+  return phonebook;
 }
 
 const objectToExport = {
   findName,
-  makePhoneBookObject,
+  makePhoneBookObject
 };
 
 module.exports = objectToExport;
