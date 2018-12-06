@@ -115,7 +115,7 @@ function newIntersections(x, y){
   return foundCoordinates.length;
 }
 
-console.log(newIntersections([2, 3, 6, 1, 2, 3, 2, 1] , [0, 0, 1, 1, 2, 3,4,3]));
+console.log(newIntersections([2.1, 3.1, 2.1, 1.1] , [1.1, 2.1, 3.1, 2.1]));
 
 // 2, 3, 2, 1
 // 1, 2, 3, 2
