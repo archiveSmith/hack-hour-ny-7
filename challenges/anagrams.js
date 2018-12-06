@@ -96,7 +96,7 @@ function anagrams(string) {
     });
   }
 
-  return resultQueue;
+  return Array.from(new Set(resultQueue));
 }
 
 
