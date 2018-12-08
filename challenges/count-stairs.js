@@ -15,15 +15,16 @@
  */
 
 function countStairs(n) {
-  const isOdd = n % 2;
-  let reps = Math.ceil(n/2) - 1;
-  let count = 1;
-  let poss = n - 1;
-  for (let i = 0; i < reps; i++) {
-    count += poss--
+  let curr = 0;
+  let next = 1;
+  for (let i = 0; i <= n; i++) {
+    let temp = curr;
+    curr = next;
+    next = temp + next;
   }
-  if (!isOdd) count += 1;
-  return count;
+  return curr;
 }
+
+console.log(countStairs(7))
 
 module.exports = countStairs;
