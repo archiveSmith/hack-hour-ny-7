@@ -11,6 +11,7 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+    
 
 }
 
