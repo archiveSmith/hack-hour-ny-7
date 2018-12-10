@@ -17,7 +17,8 @@
 function countStairs(n) {
   let curr = 0;
   let next = 1;
-  for (let i = 0; i <= n; i++) {
+  // fibonacci(n+1)
+  for (let i = 0; i < n + 1; i++) {
     let temp = curr;
     curr = next;
     next = temp + next;
