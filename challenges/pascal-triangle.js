@@ -34,7 +34,7 @@
 
 function pascalTriangle(numRows) {
   if (numRows <= 0) {
-    return [];
+    return undefined;
   }
 
   let rowArr = [];
