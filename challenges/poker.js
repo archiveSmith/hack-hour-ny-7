@@ -40,8 +40,6 @@ function poker(hand1, hand2) {
   }
   const h1 = evaluateHand(hand1);
   const h2 = evaluateHand(hand2);
-  console.log(h2.order.length)
-  console.log(h2)
 
   if (h1.score < h2.score) return "Player 2 wins";
   else if (h1.score > h2.score) return "Player 1 wins";
