@@ -21,6 +21,39 @@
  */
 function poker(hand1, hand2) {
 
+  function evaluateHand(hand) {
+    let obj = {};
+    hand.forEach(card => {
+      if (!obj[card]) obj[card] = 1;
+      else obj[card] += 1;
+    })
+    obj.counts = Object.values(obj).sort((a, b) => b - a);
+    obj.order = Object.keys(obj).sort((a, b) => b - a);
+    if (obj.counts[0] === 4) obj.score = 7;
+    else if (obj.counts[0] === 3 && obj.counts[1] === 2) obj.score = 6;
+    else if (obj.order.length === 6 && (Number(obj.order[0]) - Number(obj.order[4]) === 4)) obj.score = 5;
+    else if (obj.counts[0] === 3) obj.score = 4;
+    else if (obj.counts[0] === 2 && obj.counts[1] === 2) obj.score = 3;
+    else if (obj.counts[0] === 2) obj.score = 2;
+    else obj.score = 1;
+    return obj;
+  }
+  const h1 = evaluateHand(hand1);
+  const h2 = evaluateHand(hand2);
+  console.log(h2.order.length)
+  console.log(h2)
+
+  if (h1.score < h2.score) return "Player 2 wins";
+  else if (h1.score > h2.score) return "Player 1 wins";
+  else {
+    for(let i = 0; i < h1.order.length - 1; i++) {
+      if (h1.order[0] > h2.order[0]) return "Player 1 wins";
+      else if (h1.order[0] < h2.order[0]) return "Player 2 wins";
+    }
+    return "Draw"
+  }
 }
+
+console.log(poker([3,5,5,5,2], [2,3,4,5,6]))
 
 module.exports = poker;
