@@ -20,6 +20,29 @@
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
 function poker(hand1, hand2) {
+  let obj1 = buildcache(hand1);
+  let obj2 = buildcache(hand2);
+  if (Object.values(obj1).includes(4)) {
+    if (!Object.values(obj2).includes(4)) {
+      return "Player 1 wins"
+    } else {
+      
+    }
+  }
+}
+
+function buildcache(hand) {
+  let obj = {};
+  for (let i=0; i<hand.length; i++) {
+    (obj[hand[i]]=== undefined) ? obj[hand[i]] = 1 : obj[hand[i]]++;
+  }
+  return obj;
+}
+
+function fourofakind(hand) {
+  
+}
+function fullhouse(hand) {
 
 }
 
