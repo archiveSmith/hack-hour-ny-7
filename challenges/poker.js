@@ -21,6 +21,36 @@
  */
 function poker(hand1, hand2) {
 
+    const checkHand = {
+        fourOfAKind : (hand) => {
+            const cardCache = {};
+            let starVal = 0;
+            hand.forEach((cur, indx) => {
+                carchCahce[cur] = startVal++; 
+            })
+        },
+        fullHouse : (hand) => {
+
+        },
+        straight : (hand) => {
+
+        },
+        threeOfAKind : (hand) => {
+
+        },
+        twoPair : (hand) => {
+
+        },
+        onePair : (hand) => {
+
+        },
+        highCard : (hand) => {
+
+        }
+    }
+
+
+
 }
 
 module.exports = poker;
