@@ -23,7 +23,7 @@ function commonElements(array1, array2, array3, array4) {
     }
   }
 
-  if (commonArr.length === 0) { return 'Nothing in Common' }
+  if (commonArr.length === 0) { return 'Nothing in Common!' }
 
   return commonArr;
 }
