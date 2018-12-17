@@ -16,12 +16,12 @@ function commonElements(array1, array2, array3, array4){
   const output = [];
   array1.forEach(el => {
     if (array2.includes(el) && array3.includes(el) && array4.includes(el) && !output.includes(el)) {
-      output.push(el)
+      output.unshift(el);
     }
   })
   return output.length > 0 ? output : 'Nothing in Common!';
 }
 
-// console.log(commonElements(array1, array2, array3, array4));
+console.log(commonElements(array1, array2, array3, array4));
 
 module.exports = commonElements;
