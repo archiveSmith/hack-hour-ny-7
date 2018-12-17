@@ -52,6 +52,6 @@ function poker(hand1, hand2) {
   }
 }
 
-console.log(poker([3,5,5,5,2], [2,3,4,5,6]))
+// console.log(poker([3,5,5,5,2], [2,5,5,5,6]))
 
 module.exports = poker;
