@@ -9,6 +9,9 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
+
+
+ //*********************************fellow solution *********************************
 function getAllProducts(array) {
   if (!array || !array.length) {
     return [0];

@@ -29,4 +29,46 @@ function rotateGrid(grid, n) {
   return result;
 }
 
+//*********************************fellow solution *********************************
+// O(n ^ 2) time, O(n ^ 2) space
+function rotateGrid(grid, n) {
+  const newGrid = [];
+
+  for (let col = 0; col < n; col++) {
+    const newRow = [];
+
+    for (let row = n - 1; row >= 0; row--) {
+      newRow.push(grid[row][col]);
+    }
+
+    newGrid.push(newRow);
+  }
+}
+
+// O(n ^ 2) time, O(1) space
+function rotateGrid(grid, n) {
+  for (let i = 0; i < Math.floor(n / 2); i++) {
+    let first = i;
+    const last = n - 1 - i;
+
+    for (let j = first; j < last; j++) {
+      const adjust = j - first;
+      const top = grid[first][j];
+
+      // left -> top
+      grid[first][j] = grid[last - adjust][first];
+
+      // bottom -> left
+      grid[last - adjust][first] = grid[last][last - adjust];
+
+      // right -> bottom
+      grid[last][last - adjust] = grid[j][last];
+
+      // top -> right
+      grid[j][last] = top;
+    }
+  }
+  return grid;
+}
+
 module.exports = rotateGrid;

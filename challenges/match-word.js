@@ -10,6 +10,7 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+//*********************************fellow solution *********************************
 function matchWord(str) {
   if (str.length === 0) return true;
 

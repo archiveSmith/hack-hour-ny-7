@@ -33,6 +33,8 @@ function permPalin(str) {
   }
 }
 
+//*********************************fellow solution *********************************
+
 function permPalin(str) {
   const stack = [];
   const charArray = str.split('').sort();

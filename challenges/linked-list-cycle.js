@@ -44,6 +44,11 @@ function hasCycle(head) {
   return false;
 }
 
+
+
+
+
+//*********************************fellow solution *********************************
 // O(n^2) time - O(n) space
 function hasCycle(head) {
   const cache = [];

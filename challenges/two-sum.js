@@ -6,4 +6,19 @@ function twoSum(arr, n) {
 
 }
 
+
+//*********************************fellow solution *********************************
+function twoSum(arr, n) {
+  const lookup = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+    const difference = n - num;
+    if (lookup[difference]) return true;
+    lookup[num] = true;
+  }
+
+  return false;
+}
+
 module.exports = twoSum;
