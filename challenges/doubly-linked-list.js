@@ -18,9 +18,9 @@ Adds a node to the end of the list
  */
 LinkedList.prototype.add = function(val) {
   //base case
-  if (!head) {
+  if (!this.head) {
     this.head = new Node(val);
-    this.tail = head;
+    this.tail = this.head;
     return;
   }
   
@@ -33,7 +33,7 @@ LinkedList.prototype.add = function(val) {
 Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function(val) {
-  if (!head) {
+  if (!this.head) {
     return false;
   }
 
@@ -59,14 +59,36 @@ LinkedList.prototype.remove = function(val) {
   //first check if head is the value;
   if (current.val === val) {
     returnNode = this.head;
-    this.head.next.prev = null;
+    currentNext.prev = null;
     this.head = this.head.next;
+    return returnNode.val;
   }
   while (currentNext) {
-    
+    if (currentNext.val === val) {
+      returnNode = currentNext;
+      current.next = currentNext.next;
+      currentNext.next.prev = current;
+      return returnNode.val;
+    }
+    current = currentNext;
+    currentNext = currentNext.next;
   }
+  //if nothing is round after while
+  return false;
 };
 
+let list = new LinkedList();
+list.add(3);
+list.add(5);
+list.add(7);
+list.add(9);
+list.remove(5);
+list.remove(5);
+list.remove(3);
+list.remove(7);
+list.remove(9);
+list.remove(10);
+console.log(list);
 
 
 module.exports = LinkedList;

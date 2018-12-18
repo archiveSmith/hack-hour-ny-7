@@ -10,6 +10,10 @@
  */
 
 function getAllProducts(array) {
+  if(!array || array.length ===0) {
+    return [0];
+  }
+  
   let resultArr = [];
   for (let i = 0; i < array.length; i ++) {
     let sum;
@@ -20,7 +24,7 @@ function getAllProducts(array) {
     }
     resultArr.push(sum);
   }
-  return resultArr
+  return resultArr;
 }
 
 console.log(getAllProducts([1, 7, 3, 4]));

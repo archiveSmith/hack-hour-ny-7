@@ -9,7 +9,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/challenges/find-in-ordered-set.js"
+            "program": "${workspaceFolder}/challenges/new-intersections"
         },
     ]
 }
