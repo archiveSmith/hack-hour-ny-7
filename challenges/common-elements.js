@@ -3,10 +3,10 @@
 // duplicates are only counted once;
 // for example == given the following input
 
-  var array1 = [1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000];
-  var array2  = [15,9,9,'ferret',9,26,12,12,'dog'];
-  var array3 = [23,12,12,77,'ferret',9,88,100,'dog'];
-  var array4 = ['ferret',12,12,45,9,66,77,78,2000];
+  var array1 = ['dog', 'Ferret', 3, 4];
+  var array2  = [56,75,'dog','Ferret'];
+  var array3 = [1,2,'dog', 'Ferret'];
+  var array4 = [4,6,7,'dog', 'Ferret'];
 
 // your output would be [ 12, 'ferret']
 
@@ -23,5 +23,6 @@ function commonElements(array1, array2, array3, array4){
 }
 
 console.log(commonElements(array1, array2, array3, array4));
+
 
 module.exports = commonElements;
