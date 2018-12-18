@@ -16,4 +16,32 @@ function commonElements(array1, array2, array3, array4){
 
 }
 
+/*
+function reduceByUniqueValues(acc, curr) {
+  //filter is a lot slower than set.
+  const uniques = curr.filter((value, index, array) => array.indexOf(value) === index);
+  const uniques = [...new Set(curr)]
+  return acc.concat(uniques)
+}
+
+function reduceByCount(acc, curr, index, array) {
+  if (curr in acc) {
+    acc[curr].count += 1;
+  } else {
+    acc[curr] = { count: 1, value: curr };
+  }
+  return acc;
+}
+
+function reduceByArguments(length) {
+  return function
+}
+
+function commonElements(array1, array2, array3, array4){
+  const elements = [...arguments]
+    .reduce(reduceByUniqueValues, [])
+    .reduce(reduceByCount, {})
+}
+*/
+
 module.exports = commonElements;
