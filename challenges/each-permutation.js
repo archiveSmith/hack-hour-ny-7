@@ -20,8 +20,34 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+const eachPermutation = (arr, callback) => {
+  let len = arr.length;
 
+  let swap = (array, pos1, pos2) => {
+    let temp = array[pos1];
+    array[pos1] = array[pos2];
+    array[pos2] = temp;
+  };
+
+  let heapsPerm = (arr, callback, len) => {
+    if (len === 1) {
+      callback(arr)
+    }
+    else {
+      for (let i = 1; i <= len; i += 1) {
+        heapsPerm(arr, callback, len - 1);
+        let j;
+        if (len % 2) {
+          j = 1;
+        } else {
+          j = i;
+        }
+        swap(arr, j - 1, len - 1);
+      }
+    }
+  };
+
+  heapsPerm(arr, callback, len)
 }
 
 
