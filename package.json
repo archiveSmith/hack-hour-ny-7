@@ -2,7 +2,7 @@
   "name": "hack-hour-ny-7",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "engines": {
     "node": ">= 5.5.0"
   },
