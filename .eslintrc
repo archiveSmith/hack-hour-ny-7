@@ -1,4 +1,7 @@
 {
-  "extends": "airbnb",
-  "root": true
+	"extends": "airbnb",
+	"parser": "babel-eslint",
+	"plugins": [
+		"import"
+	]
 }

@@ -10,16 +10,11 @@
     "test": "test"
   },
   "scripts": {
-    "test": "export COHORT=ny-7; node test/run-tests.js",
-    "start": "export COHORT=ny-7; node test/index.js"
+    "test": "mocha || exit 0",
+    "start": "nodemon server/server.js"
   },
   "dependencies": {
-    "async": "^1.4.2",
-    "aws-sdk": "^2.2.24",
     "ejs": "^2.3.4",
-    "expect.js": "^0.3.1",
-    "mocha": "^2.2.5",
-    "mocha-email-reporter": "1.0.2",
     "request": "^2.65.0",
     "sendgrid": "^3.0.8",
     "config": "^1.30.0",
@@ -29,5 +24,12 @@
     "type": "git",
     "url": "git+https://github.com/CodesmithLLC/hack-hour-ny-7.git"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^5.2.0"
+  }
 }
