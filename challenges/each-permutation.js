@@ -20,10 +20,28 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+function getAllPerms(string) {
+  let results = [];
   
+  if (string.length === 1) {
+    results.push(string);
+    return results;
+  }
+
+  for (let i = 0; i < string.length; ) {
+    let firstChar = string[i];
+    let charsLeft = string.substring(0, i) + string.substring(i + 1);
+    
+  }
+
 }
 
+function eachPermutation(arr, callback) {
+  for (let i = 0; i < arr.length; i+=1) {
+    callback(arr[i]);
+  }
+}
 
+eachPermutation([1,2,3], perm => console.log(perm));
 
 module.exports = eachPermutation;
