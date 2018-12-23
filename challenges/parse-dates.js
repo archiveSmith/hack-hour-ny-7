@@ -45,7 +45,7 @@ function parseDates(str) {
   const splitStr = str.toLowerCase().split(' ');
   const currentDate = new Date();
   let resultDate = '';
-  let time = splitStr[splitStr.length - 2].split(':');;
+  let time = splitStr[splitStr.length - 2] ? splitStr[splitStr.length - 2].split(':') : '';
   let day;
 
   if(!time[0] || !time[1]){
@@ -129,6 +129,6 @@ function parseDates(str) {
 }
 
 // console.log(parseDates('Jan 12th 1:09 AM'));
-console.log(parseDates('Sunday 12:59 PM'));
+// console.log(parseDates('hello'));
 
 module.exports = parseDates;
