@@ -109,7 +109,7 @@ function parseDates(str) {
     return currentDate;
   }
 
-  if(splitStr[0] === 'Today'){
+  if(splitStr[0] === 'today'){
     if(splitStr[splitStr.length - 1] === 'pm'){
       currentDate.setMinutes(time[1]);
       time = Number(time[0]) + 12;
