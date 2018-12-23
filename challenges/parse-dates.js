@@ -54,7 +54,7 @@ function parseDates(str) {
 
   if(days.indexOf(splitStr[0]) !== -1){
     if(days[currentDate.getDay()] === splitStr[0]){
-      currentDate.setDate(currentDate.getDate() - 7);
+      currentDate.setDate(currentDate.getDate() - 8);
 
       if(splitStr[splitStr.length - 1] === 'pm'){
         currentDate.setMinutes(time[1]);
@@ -129,6 +129,6 @@ function parseDates(str) {
 }
 
 // console.log(parseDates('Jan 12th 1:09 AM'));
-// console.log(parseDates('Today 1:09 AM'));
+console.log(parseDates('Sunday 12:59 PM'));
 
 module.exports = parseDates;
