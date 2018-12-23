@@ -11,7 +11,7 @@
   },
   "scripts": {
     "test": "mocha || exit 0",
-    "start": "nodemon server/server.js"
+    "node-server": "nodemon server/node-server.js"
   },
   "dependencies": {
     "ejs": "^2.3.4",
@@ -27,9 +27,11 @@
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.10.0",
+    "eslint": "^5.11.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "mocha": "^5.2.0"
+    "express": "^4.16.4",
+    "mocha": "^5.2.0",
+    "path": "^0.12.7"
   }
 }
