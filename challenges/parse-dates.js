@@ -48,43 +48,42 @@ function parseDates(str) {
   let time = splitStr[splitStr.length - 2] ? splitStr[splitStr.length - 2].split(':') : '';
   let day;
 
-  if(!time[0] || !time[1]){
+  if (!time[0] || !time[1]) {
     return currentDate;
   }
 
   console.log(splitStr);
 
-  if(days.indexOf(splitStr[0]) !== -1){
-    if(days[currentDate.getDay()] === splitStr[0]){
-      currentDate.setDate(currentDate.getDate() - 8);
+  if (days.indexOf(splitStr[0]) !== -1) {
+    if (days[currentDate.getDay()] === splitStr[0]) {
+      currentDate.setDate(currentDate.getDate() - 7);
 
-      if(splitStr[splitStr.length - 1] === 'pm' && time[0] < '12'){
+      if (splitStr[splitStr.length - 1] === 'pm' && time[0] < '12') {
         currentDate.setMinutes(Number(time[1]));
         time = Number(time[0]) + 12;
         currentDate.setHours(time);
 
-      }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+      } else if (splitStr[splitStr.length - 1] === 'am' && time[0] === '12') {
         currentDate.setMinutes(Number(time[1]));
         currentDate.setHours(0);
-      }else{
+      } else {
         currentDate.setMinutes(Number(time[1]));
         currentDate.setHours(Number(time[0]));
       }
-    }else{
-      while(currentDate.getDay() !== days.indexOf(splitStr[0])){
+    } else {
+      while (currentDate.getDay() !== days.indexOf(splitStr[0])) {
         currentDate.setDate(currentDate.getDate() - 1);
       }
-      currentDate.setDate(currentDate.getDate() - 1);
 
-      if(splitStr[splitStr.length - 1] === 'pm' && time[0] < '12'){
+      if (splitStr[splitStr.length - 1] === 'pm' && time[0] < '12') {
         currentDate.setMinutes(Number(time[1]));
         time = Number(time[0]) + 12;
         currentDate.setHours(time);
 
-      }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+      } else if (splitStr[splitStr.length - 1] === 'am' && time[0] === '12') {
         currentDate.setMinutes(Number(time[1]));
         currentDate.setHours(0);
-      }else{
+      } else {
         currentDate.setMinutes(Number(time[1]));
         currentDate.setHours(Number(time[0]));
       }
@@ -92,35 +91,35 @@ function parseDates(str) {
     return currentDate;
   }
 
-  if(months.indexOf(splitStr[0]) !== -1){
+  if (months.indexOf(splitStr[0]) !== -1) {
     currentDate.setMonth(months.indexOf(splitStr[0]));
     currentDate.setDate(Number(splitStr[1].replace(/\D/g, '')));
 
-    if(splitStr[splitStr.length - 1] === 'pm' && time[0] < '12'){
+    if (splitStr[splitStr.length - 1] === 'pm' && time[0] < '12') {
       currentDate.setMinutes(Number(time[1]));
       time = Number(time[0]) + 12;
       currentDate.setHours(time);
 
-    }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+    } else if (splitStr[splitStr.length - 1] === 'am' && time[0] === '12') {
       currentDate.setMinutes(Number(time[1]));
       currentDate.setHours(0);
-    }else{
+    } else {
       currentDate.setMinutes(Number(time[1]));
       currentDate.setHours(Number(time[0]));
     }
     return currentDate;
   }
 
-  if(splitStr[0] === 'today'){
-    if(splitStr[splitStr.length - 1] === 'pm' && time[0] < '12'){
+  if (splitStr[0] === 'today') {
+    if (splitStr[splitStr.length - 1] === 'pm' && time[0] < '12') {
       currentDate.setMinutes(Number(time[1]));
       time = Number(time[0]) + 12;
       currentDate.setHours(time);
 
-    }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+    } else if (splitStr[splitStr.length - 1] === 'am' && time[0] === '12') {
       currentDate.setMinutes(Number(time[1]));
       currentDate.setHours(0);
-    }else{
+    } else {
       currentDate.setMinutes(Number(time[1]));
       currentDate.setHours(Number(time[0]));
     }
@@ -131,6 +130,6 @@ function parseDates(str) {
 }
 
 // console.log(parseDates('Jan 12th 1:09 AM'));
-console.log(parseDates('Sunday 12:50 PM'));
+console.log(parseDates('Wednesday 12:50 PM'));
 
 module.exports = parseDates;
