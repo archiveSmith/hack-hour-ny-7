@@ -38,9 +38,97 @@
 // - you can assume the provided day of month will be valid if it's a month string
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
+const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 
 function parseDates(str) {
-  
+  const splitStr = str.toLowerCase().split(' ');
+  const currentDate = new Date();
+  let resultDate = '';
+  let time = splitStr[splitStr.length - 2].split(':');;
+  let day;
+
+  if(!time[0] || !time[1]){
+    return currentDate;
+  }
+
+  if(days.indexOf(splitStr[0]) !== -1){
+    if(days[currentDate.getDay()] === splitStr[0]){
+      currentDate.setDate(currentDate.getDate() - 7);
+
+      if(splitStr[splitStr.length - 1] === 'pm'){
+        currentDate.setMinutes(time[1]);
+        time = Number(time[0]) + 12;
+        currentDate.setHours(time);
+
+      }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+        currentDate.setMinutes(time[1]);
+        currentDate.setHours(00);
+      }else{
+        currentDate.setMinutes(time[1]);
+        currentDate.setHours(time[0]);
+      }
+    }else{
+      while(currentDate.getDay() !== days.indexOf(splitStr[0])){
+        currentDate.setDate(currentDate.getDate() - 1);
+      }
+      currentDate.setDate(currentDate.getDate() - 1);
+
+      if(splitStr[splitStr.length - 1] === 'pm'){
+        currentDate.setMinutes(time[1]);
+        time = Number(time[0]) + 12;
+        currentDate.setHours(time);
+
+      }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+        currentDate.setMinutes(time[1]);
+        currentDate.setHours(00);
+      }else{
+        currentDate.setMinutes(time[1]);
+        currentDate.setHours(time[0]);
+      }
+    }
+    return currentDate;
+  }
+
+  if(months.indexOf(splitStr[0]) !== -1){
+    currentDate.setMonth(months.indexOf(splitStr[0]));
+    currentDate.setDate(Number(splitStr[1].replace(/\D/g, '')));
+
+    if(splitStr[splitStr.length - 1] === 'pm'){
+      currentDate.setMinutes(time[1]);
+      time = Number(time[0]) + 12;
+      currentDate.setHours(time);
+
+    }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+      currentDate.setMinutes(time[1]);
+      currentDate.setHours(00);
+    }else{
+      currentDate.setMinutes(time[1]);
+      currentDate.setHours(time[0]);
+    }
+    return currentDate;
+  }
+
+  if(splitStr[0] === 'Today'){
+    if(splitStr[splitStr.length - 1] === 'pm'){
+      currentDate.setMinutes(time[1]);
+      time = Number(time[0]) + 12;
+      currentDate.setHours(time);
+
+    }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
+      currentDate.setMinutes(time[1]);
+      currentDate.setHours(00);
+    }else{
+      currentDate.setMinutes(time[1]);
+      currentDate.setHours(time[0]);
+    }
+    return currentDate;
+  }
+
+  return currentDate;
 }
+
+// console.log(parseDates('Jan 12th 1:09 AM'));
+// console.log(parseDates('Today 1:09 AM'));
 
 module.exports = parseDates;
