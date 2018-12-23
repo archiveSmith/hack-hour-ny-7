@@ -76,17 +76,17 @@ function parseDates(str) {
       }
       currentDate.setDate(currentDate.getDate() - 1);
 
-      if(splitStr[splitStr.length - 1] === 'pm'){
-        currentDate.setMinutes(time[1]);
+      if(splitStr[splitStr.length - 1] === 'pm' && time[0] < '12'){
+        currentDate.setMinutes(Number(time[1]));
         time = Number(time[0]) + 12;
         currentDate.setHours(time);
 
       }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
-        currentDate.setMinutes(time[1]);
-        currentDate.setHours(00);
+        currentDate.setMinutes(Number(time[1]));
+        currentDate.setHours(0);
       }else{
-        currentDate.setMinutes(time[1]);
-        currentDate.setHours(time[0]);
+        currentDate.setMinutes(Number(time[1]));
+        currentDate.setHours(Number(time[0]));
       }
     }
     return currentDate;
@@ -96,33 +96,33 @@ function parseDates(str) {
     currentDate.setMonth(months.indexOf(splitStr[0]));
     currentDate.setDate(Number(splitStr[1].replace(/\D/g, '')));
 
-    if(splitStr[splitStr.length - 1] === 'pm'){
-      currentDate.setMinutes(time[1]);
+    if(splitStr[splitStr.length - 1] === 'pm' && time[0] < '12'){
+      currentDate.setMinutes(Number(time[1]));
       time = Number(time[0]) + 12;
       currentDate.setHours(time);
 
     }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
-      currentDate.setMinutes(time[1]);
-      currentDate.setHours(00);
+      currentDate.setMinutes(Number(time[1]));
+      currentDate.setHours(0);
     }else{
-      currentDate.setMinutes(time[1]);
-      currentDate.setHours(time[0]);
+      currentDate.setMinutes(Number(time[1]));
+      currentDate.setHours(Number(time[0]));
     }
     return currentDate;
   }
 
   if(splitStr[0] === 'today'){
-    if(splitStr[splitStr.length - 1] === 'pm'){
-      currentDate.setMinutes(time[1]);
+    if(splitStr[splitStr.length - 1] === 'pm' && time[0] < '12'){
+      currentDate.setMinutes(Number(time[1]));
       time = Number(time[0]) + 12;
       currentDate.setHours(time);
 
     }else if(splitStr[splitStr.length - 1] === 'am' && time[0] === '12'){
-      currentDate.setMinutes(time[1]);
-      currentDate.setHours(00);
+      currentDate.setMinutes(Number(time[1]));
+      currentDate.setHours(0);
     }else{
-      currentDate.setMinutes(time[1]);
-      currentDate.setHours(time[0]);
+      currentDate.setMinutes(Number(time[1]));
+      currentDate.setHours(Number(time[0]));
     }
     return currentDate;
   }
