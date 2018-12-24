@@ -11,7 +11,8 @@
   },
   "scripts": {
     "test": "mocha || exit 0",
-    "node-server": "nodemon server/node-server.js"
+    "node-server": "nodemon server/node-server.js",
+    "express-server": "nodemon server/express-server.js"
   },
   "dependencies": {
     "ejs": "^2.3.4",
