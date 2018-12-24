@@ -25,43 +25,47 @@ const mimeType = {
 
 const server = http.createServer((req, res) => {
   console.log(`${req.method} & ${req.url}`);
-  
-  const parsedUrl = url.parse(req.url);
-  const sanitizePath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '');
-  let pathname = path.join(__dirname, sanitizePath);
-
-  fs.exists(pathname, exist => {
-    if (!exist) {
-      res.statusCode = 404;
-      res.end(`File ${pathname} was not found!`);
-      return;
-    }
-    
-    if (fs.statSync(pathname).isDirectory()) {
-      pathname = 'public/index.html';
-    }
-
-    fs.readFile(pathname, (err, data) => {
-      if (err) {
-        res.statusCode = 500;
-        res.end(`Error getting file: ${err}.`);
-      }
-      else {
-        const ext = path.parse(pathname).ext;
-        res.statusCode = 200;
-        res.setHeader('Content-type', mimeType[ext] || text/plain);
-        res.end(data);
-      }
-    }); // End of fs.readFile
-  }); // End of fs.exists
+  res.writeHead(200, {'Content-type': 'text/html'});
+  fs.readFile('public/index.html', 'utf8', (err, data) => {
+    if (err) return res.end(err);
+    res.end(data);
+  });
 }); // End of server
 
 server.listen(port, hostname, () => {
   console.log(`Node server running at http://${hostname}:${port}/`);
 });
 
-  // res.writeHead(200, {'Content-type': 'text/html'});
-  // fs.readFile('public/index.html', 'utf8', (err, data) => {
-  //   if (err) return res.end(err);
-  //   res.end(data);
-  // });
+    // // Convert the url string in the req object into a new object with url information
+  // const parsedUrl = url.parse(req.url);
+  // // Cleaning up pathname in parsedUrl object
+  // const sanitizedPath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '');
+  // // Joining the current directory with the sanitizedPath and assigning it to variable named pathname
+  // let pathname = path.join(__dirname, sanitizedPath);
+  // console.log('pathname >>>', pathname);
+  // // Check to see if pathname variable exist in File System
+  // fs.exists(pathname, exist => {
+  //   // If the pathname does not exist then change status code to 404 and end the response
+  //   if (!exist) {
+  //     res.statusCode = 404;
+  //     res.end(`File ${pathname} was not found!`);
+  //     return;
+  //   }
+  //   // Check to see if the pathname is in the Directory
+  //   if (fs.statSync(pathname).isDirectory()) {
+  //     pathname = 'public/index.html';
+  //   }
+  //   // Serve the pathname variable
+  //   fs.readFile(pathname, (err, data) => {
+  //     if (err) {
+  //       res.statusCode = 500;
+  //       res.end(`Error getting file: ${err}.`);
+  //     }
+  //     else {
+  //       const ext = path.parse(pathname).ext;
+  //       res.statusCode = 200;
+  //       res.setHeader('Content-type', mimeType[ext] || text/plain);
+  //       res.end(data);
+  //     }
+  //   }); // End of fs.readFile
+  // }); // End of fs.exists
