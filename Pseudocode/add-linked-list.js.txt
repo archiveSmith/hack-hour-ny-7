@@ -1,0 +1,3 @@
+-create a function named 'addLinkedList' with parameters: list1, list2
+  -
+-end of addLinkedList function

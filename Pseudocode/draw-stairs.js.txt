@@ -1,0 +1,12 @@
+/********************************** Start ***********************************/
+-create a function named "drawStairs" with parameters: number
+  -iterate from 1 to the number parameter
+    -repeat a blank string(not empty) by the evaluation of the number param
+     minus the iterator and assign it to the "space" variable
+    -repeat a asterisk string by the iterator and assign it to the "splat" variable
+    -log to the console space concatenated with splat
+  -end of iterator
+-end of "drawStairs" funciton
+
+-call "drawStairs" with arguments: 6
+/*********************************** End ***********************************/
