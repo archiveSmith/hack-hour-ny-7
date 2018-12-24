@@ -20,10 +20,12 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  console.log('list 1:', l1);
-  console.log('list 2:', l2);
+  const obj = {};
+  obj.item1 = l1;
+  obj.item2 = l2;
+  return obj;
 }
 
-console.log(addLinkedList());
+console.log(addLinkedList(3, 'value'));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
