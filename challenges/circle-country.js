@@ -23,7 +23,24 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  let borderCount = 0;
 
+  // * start by looping though array X. We can do this because we know all three will hold the same amount of elements
+  for (let i = 0; i < x.length; i++) {
+    const curr_x = x[i];
+    const curr_y = y[i];
+    const curr_r = r[i];
+    // * we get the distance for both the starting point and end point from the current circle 
+    const startDistance = Math.sqrt((curr_x - start_x) ** 2 + (curr_y - start_y) ** 2);
+    const endDistance = Math.sqrt((curr_x - end_x) ** 2 + (curr_y - end_y) ** 2);
+
+    // * If the condition meets than we know that it has to cross the border
+    if ((startDistance < curr_r && endDistance > curr_r) || (startDistance > curr_r && endDistance < curr_r)) {
+      borderCount++;
+    }
+  }
+
+  return borderCount;
 }
 
 module.exports = circleCountry;
