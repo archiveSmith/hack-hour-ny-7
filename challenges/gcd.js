@@ -21,6 +21,6 @@ function gcd(a, b) {
   return greatest;
 }
 
-console.log(gcd(10, 5));//2
-console.log(gcd(10, 9));//1
+// console.log(gcd(10, 5));//2
+// console.log(gcd(10, 9));//1
 module.exports = gcd;
