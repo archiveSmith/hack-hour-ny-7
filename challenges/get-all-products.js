@@ -23,6 +23,7 @@ function multiply(array){
 }
 
 function getAllProducts(array) {
+  if(array.length === 0) return [0];
   const productArr = [];
   let newArr;
 

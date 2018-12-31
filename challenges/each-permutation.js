@@ -43,8 +43,8 @@ function eachPermutation(array, callback) {
   }
 }
 
-console.log(eachPermutation([1, 2, 3], function(perm) {
-  console.log('PERM: ', perm)
-}));
+// console.log(eachPermutation([1, 2, 3], function(perm) {
+//   console.log('PERM: ', perm)
+// }));
 
 module.exports = eachPermutation;
