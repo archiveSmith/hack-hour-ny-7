@@ -12,7 +12,7 @@
 var items = [{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}];
 
 function solveKnapsack(items, weightAvailable) {
-  let results = genCombosRecursive([], items, [])
+  let results = genCombosRecursive([], items, []);
   //to remove the empty arr, slice
   .slice(1)
   .map(result => {

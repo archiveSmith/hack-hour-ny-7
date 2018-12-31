@@ -1,6 +1,4 @@
 //a2[b2[c]2[d]]5[e] = abccddbccddee
-//
-
 function parseBracketString (bracketString, repeatTimes = 1) {
   let resultString = '';
   let repeatString = '';
