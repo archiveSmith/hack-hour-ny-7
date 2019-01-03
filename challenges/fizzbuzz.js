@@ -15,9 +15,33 @@
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
+console.log('Hello from fizzbuzz');
 
 function fizzbuzz(num) {
+  let array = [];
 
+  for (let i = 1; i <= num; i += 1) {
+    if ( i % 3 === 0 && i % 5 === 0) {
+      array.push('fizzbuzz');
+      continue;
+    }
+
+    if ( i % 5 === 0) {
+      array.push('buzz');
+      continue;
+    }
+
+    if ( i % 3 === 0) {
+      array.push('fizz');
+      continue;
+    }
+    array.push(i);
+  }
+  return array;
 }
 
-module.exports = fizzbuzz;
+console.log(fizzbuzz(16));
+
+module.exports = {
+  fizzbuzz
+};
