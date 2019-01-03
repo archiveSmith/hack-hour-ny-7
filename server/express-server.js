@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const hackHourModule = require('../challenges/add-linked-list');
+const hackHourModule = require('../challenges/fizzbuzz');
 
 const app = express();
 
