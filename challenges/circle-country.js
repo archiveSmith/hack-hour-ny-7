@@ -22,11 +22,11 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+// function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
-}
+// }
 
-/*
+
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   let borderCount = 0;
 
@@ -44,6 +44,6 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
   return borderCount;
 }
-*/
+
 
 module.exports = circleCountry;
