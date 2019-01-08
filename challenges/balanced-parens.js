@@ -25,7 +25,37 @@
  */
 
 function balancedParens(input){
-
+  input = input.split('');
+  let stack = [];
+  let brackets = ['(',')','{','}','[',']']
+  for(let char of input) {
+    if(brackets.includes(char)) {
+      switch(char) {
+        case '(':
+          stack.push(char);
+          break;
+        case ')':
+          if(stack.pop() !== '(') return false;
+          break;
+        case '{':
+          stack.push(char);
+          break;
+        case '}':
+          if(stack.pop() !== '{') return false;
+          break;
+        case '[':
+          stack.push(char);
+          break;
+        case ']':
+          if(stack.pop() !== '[') return false;
+          break;
+        default: 
+          console.log('invalid character');
+          return;
+      }
+    }
+  }
+  return true;
 }
 
 module.exports = balancedParens;
