@@ -16,4 +16,48 @@ function commonElements(array1, array2, array3, array4){
 
 }
 
+
+
+
+
+
+//*********************************fellow solution *********************************
+function reduceByUniqueValues(acc, curr){
+  const uniques = [...new Set(curr)];
+  return acc.concat(uniques);
+};
+
+function reduceByCount(acc, curr, index, array){
+  if (curr in acc){
+    if(typeof curr === typeof acc[curr][0].value) {
+      acc[curr][0].count++
+    } else if (acc[curr][1]){
+      acc[curr][1].count++;
+    } else {
+      acc[curr] = acc[curr].concat([{ count: 1, value: curr }]);
+    }
+  } else {
+    acc[curr] = [{ count: 1, value: curr }];
+  }
+  return acc;
+};
+
+function reduceByArguments(length){
+  return function(acc, curr){
+    return acc.concat(curr.filter(obj => obj.count === length));
+  }
+};
+
+function commonElements(){
+  const elements = [...arguments]
+    .reduce(reduceByUniqueValues, [])
+    .reduce(reduceByCount,{});
+
+  const commons = Object.values(elements)
+    .reduce(reduceByArguments(arguments.length),[])
+    .map(common => common.value);
+
+  return commons.length ? commons : "Nothing in Common!";
+};
+
 module.exports = commonElements;
