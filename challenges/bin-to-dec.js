@@ -15,15 +15,19 @@
 
 function binToDec(binary) {
   let sum = 0;
-  let index = 1;
+  let poweroftwo = 1;
   for (let i = binary.length - 1; i >= 0; i--) {
-    //console.log((binary[i]))
     if (parseInt(binary[i]) === 1) {
-      sum += index;
+      sum += poweroftwo;
+      console.log('sum', sum)
     }
-    index *= 2;
+    poweroftwo *= 2; //prepare for next iteration
   }
   return sum;
 }
-
+// binToDec('0')   // 0
+// binToDec('11')  // 3
+// binToDec('100') // 4
+// binToDec('101') // 5
+// binToDec('0101') // 5
 module.exports = binToDec;
