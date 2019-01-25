@@ -5,9 +5,9 @@
 
 
 function insertionSort(array) {
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 1; i < array.length; i++) {
     let value = array[i]
-    for (var j = i - 1; j > -1 && array[j] > value; j--) {
+    for (let j = i - 1; j > -1 && array[j] > value; j--) {
       array[j + 1] = array[j]
     }
     array[j + 1] = value
