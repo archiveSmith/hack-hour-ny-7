@@ -2,7 +2,7 @@
 
 // https://en.wikipedia.org/wiki/Insertion_sort
 
-
+//*********************************fellow solution *********************************
 function insertionSort(array) {
   for (let i = 1; i < array.length; i++) {
     let curr = array[i];

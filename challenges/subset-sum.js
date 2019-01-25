@@ -20,6 +20,7 @@ function subsetSum(array, target) {
   return false;
 }
 
+//*********************************fellow solution *********************************
 function subsetSum(array, target) {
   const sets = powerSet(array);
 
@@ -38,6 +39,13 @@ function powerSet(array) {
   const right = left.map(e => e.concat(array[0]));
 
   return left.concat(right);
+}
+//*********************************fellow solution 2*********************************
+function subsetSum(array, target) {
+  if (!target) return true;
+  if (!array.length) return false;
+  
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 }
 
 console.log(subsetSum([3, 7, 4, 2], 5)) // - > true, 3 + 2 = 5

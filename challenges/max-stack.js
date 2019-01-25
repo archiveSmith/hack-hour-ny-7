@@ -6,6 +6,8 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
+
+ //*********************************fellow solution *********************************
 function Stack() {
   this.items = [];
   this.max;

@@ -74,6 +74,8 @@ result += eng[num];
 return result;
 }
 
+//*********************************fellow solution *********************************
+
 function numToWords(num) {
   // convert number to a string
   // 2123 -> '2123'

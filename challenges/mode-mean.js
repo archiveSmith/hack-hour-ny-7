@@ -45,4 +45,58 @@ function modemean(array) {
 let test = [1, 1, 2, 2, 0, 0]
 console.log(modemean(test))
 
+//fellow solution:
+
+function modemean(array) {
+  return (mean(array) === mode(array));
+}
+
+function mean(array) {
+  let sum = array.reduce((sum, next) => sum + next)
+  return Math.floor(sum / array.length);
+
+}
+
+function mode(array) {
+  const reference = {};
+  const modes = [];
+  let maxCounts = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (reference[array[i]]) {
+      reference[array[i]]++
+      if (reference[array[i]] > maxCounts) maxCounts = reference[array[i]];
+    }
+    else {
+      reference[array[i]] = 1;
+    }
+  }
+  for (let key in reference) {
+    if (reference[key] === maxCounts) modes.push(key);
+  }
+  if (modes.length === 1) return parseInt(modes[0])
+  return parseInt(modes.sort((a, b) => a < b)[0]);
+}
+/////alternate mode approach 
+// function mode2(array) {
+//   var count = {};
+//   array.forEach(function(num) {
+//     if (num in count) {
+//       return count[num]++;
+//     }
+//     count[num] = 1;
+//   });
+//   var max = -Infinity;
+//   var modeCandidates;
+//   for (var num in count) {
+//     if (count[num] > max) {
+//       modeCandidates = [num];
+//       max = count[num];
+//     } else if (count[num] === max) {
+//       modeCandidates.push(num);
+//     }
+//   }
+//   return Math.max.apply(this, modeCandidates);
+// }
+
+
 module.exports = modemean;

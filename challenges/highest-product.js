@@ -13,4 +13,17 @@ function highestProduct(array) {
   }
 }
 
+//*********************************fellow solution *********************************
+function highestProduct(array) {
+  if (!Array.isArray(array) || array.length < 3) return 0;
+
+  array.sort((a, b) => a - b);
+
+  const { length } = array;
+  const productOfThreeLargest = array[length - 1] * array[length - 2] * array[length - 3];
+  const productOfTwoSmallestAndLargest = array[0] * array[1] * array[length - 1];
+
+  return Math.max(productOfThreeLargest, productOfTwoSmallestAndLargest);
+}
+
 module.exports = highestProduct;

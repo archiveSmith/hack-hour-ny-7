@@ -30,6 +30,7 @@ function mergeArrays(arr1, arr2) {
   return result; 
 }
 
+//*********************************fellow solution *********************************
 function mergeArrays(arr1, arr2) {
   // make new array
   let merged = [];
