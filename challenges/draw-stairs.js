@@ -27,5 +27,14 @@ function drawStairs(n) {
     }
 }
 
+function drawStairs2(n) {
+    for (let i = 1; i <= n; i++) {
+      const spaces = ' '.repeat(n - i);
+      const stars = '*'.repeat(i);
+      console.log(spaces + stars);
+    }
+  }
+
+console.log(drawStairs2(7))
 
 module.exports = drawStairs;
