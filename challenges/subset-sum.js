@@ -8,27 +8,37 @@
  subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
+// function subsetSum(array, target) {
+
+//   const sets = [[]];
+
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0, length = sets.length; j < length; j++) {
+//       let temp = sets[j].concat(array[i]);
+//       sets.push(temp);
+//       let sum = temp.reduce((p,c) => { return p + c });
+//       if (sum === target) { return true }
+//     }
+//   }
+//   return "false";
+// };
+
 function subsetSum(array, target) {
+  if (!target) return true;
+  if (!array.length) return false;
+  
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 
-  const sets = [[]];
+}
 
-  for (let i = 0; i < array.length; i++) {
-    for (let j = 0, length = sets.length; j < length; j++) {
-      let temp = sets[j].concat(array[i]);
-      sets.push(temp);
-      let sum = temp.reduce((p,c) => { return p + c });
-      if (sum === target) { return true }
-    }
-  }
-  return "false";
-};
+// const arr = [1,2,3].slice(1);
+// console.log(arr)
 
+// console.log(subsetSum([3, 7, 4, 2], 5))
+// console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))
+// console.log(subsetSum([8, 2, 4, 12], 13))
+// console.log(subsetSum([8, -2, 1, -3], 6))
 
-console.log(subsetSum([3, 7, 4, 2], 5))
-console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))
-console.log(subsetSum([8, 2, 4, 12], 13))
-console.log(subsetSum([8, -2, 1, -3], 6))
-
-console.log((subsetSum([1, 2, 3], 5)))
+// console.log((subsetSum([1, 2, 3], 5)))
 
 module.exports = subsetSum;
