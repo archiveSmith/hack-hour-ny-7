@@ -31,14 +31,49 @@ function subsetSumRecursive(array, target) {
 
 }
 
+function subsetSumDynamic(array, target) {
+  const matrix = [];
+  for (let i = 0; i <= array.length; i++) {
+    matrix[i] = new Array(target + 1);
+    matrix[i][0] = true;
+  }
+
+  for (let i = 1; i <= array.length; i++) { 
+    for (let j = 1; j <= target; j++) {
+      if (j < array[i - 1]) {
+        matrix[i][j] = matrix[i-1][j];
+      } else {
+        matrix[i][j] = matrix[i - 1][j] || matrix[i - 1][j - array[i - 1]];
+      }
+    }
+    if (matrix[i][target]) {
+      const output = [];
+      let currX = target;
+      let currY = i; 
+      while (currX) {
+        if (!matrix[currY-1][currX]) {
+          output.push(array[currY - 1]);
+          currX = currX - array[currY - 1];
+          currY--;
+        } else {
+          currY--
+        }
+      }
+      return output;
+    }
+  }
+  return false;
+}
+
+
 // const arr = [1,2,3].slice(1);
 // console.log(arr)
-
+// console.log(subsetSum([1, 3, 4, 5], 6))
 // console.log(subsetSum([11, 4, -4, 2, -3], 9))
-// console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))
-// console.log(subsetSum([8, 2, 4, 12], 13))
+// console.log(subsetSum([3, 34, 4, 5, 12, 15], 43))
+// // console.log(subsetSumDynamic([8, 2, 4, 12], 13))
 // console.log(subsetSum([8, -2, 1, -3], 6))
 
-console.log(typeof (subsetSum([1], 2)))
+// console.log(subsetSumDynamic([3, 34, 4, 12, 5, 12], 32))
 
 module.exports = subsetSum;
