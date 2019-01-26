@@ -9,7 +9,9 @@
  */
 
 function subsetSum(array, target) {
-
+  if (!array || !array.length) return false;
+  (array.length === 1 && array[0] === target) ? true : false;
+  
   const sets = [[]];
 
   for (let i = 0; i < array.length; i++) {
@@ -34,7 +36,7 @@ function subsetSumRecursive(array, target) {
 // const arr = [1,2,3].slice(1);
 // console.log(arr)
 
-// console.log(subsetSum([3, 7, 4, 2], 5))
+console.log(subsetSum([5], 5))
 // console.log(subsetSum([3, 34, 4, 12, 5, 12], 32))
 // console.log(subsetSum([8, 2, 4, 12], 13))
 // console.log(subsetSum([8, -2, 1, -3], 6))
