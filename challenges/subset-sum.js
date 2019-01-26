@@ -9,7 +9,8 @@
  */
 
 function subsetSum(array, target) {
-
+  if (!array || !array.length) return false;
+  if (array.length === 1 && array[0] === target) return true;
   const sets = [[]];
 
   for (let i = 0; i < array.length; i++) {
