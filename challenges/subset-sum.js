@@ -22,7 +22,7 @@ function subsetSum(array, target) {
   }
   return "false";
 };
-
+ 
 // function subsetSumRecursive(array, target) {
 //   if (!target) return true;
 //   if (!array.length) return false;
