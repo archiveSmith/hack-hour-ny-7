@@ -20,16 +20,16 @@ function subsetSum(array, target) {
       if (sum === target) { return true }
     }
   }
-  return "false";
+  return false;
 };
  
-// function subsetSumRecursive(array, target) {
-//   if (!target) return true;
-//   if (!array.length) return false;
+function subsetSumRecursive(array, target) {
+  if (!target) return true;
+  if (!array.length) return false;
   
-//   return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 
-// }
+}
 
 // const arr = [1,2,3].slice(1);
 // console.log(arr)
@@ -39,6 +39,6 @@ function subsetSum(array, target) {
 // console.log(subsetSum([8, 2, 4, 12], 13))
 // console.log(subsetSum([8, -2, 1, -3], 6))
 
-// console.log((subsetSum([1, 2, 3], 5)))
+console.log(typeof (subsetSum([1], 2)))
 
 module.exports = subsetSum;
