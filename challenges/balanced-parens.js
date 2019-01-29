@@ -24,8 +24,32 @@
  *
  */
 
+console.log('Hello from balanced-parens!!');
+
 function balancedParens(input){
+//   -if the length of input param equals 1 then return false...
+  if (input.length === 1) {
+      return false;
+  }
+
+//   -if the first char in the input param equals to the right parens and the input param is greater than 1 then...
+  if (input[0] === ')' && input.length > 1) {
+    return false;
+  }
+
+//   -if the first char in the input param equals the left parens and the second char equals the right parens and the length of the input param equals 2 then...
+  if (input[0] === '(' && input[1] === ')' && input.length === 2) {
+    return true;
+  }
+
+//   -start iterating through string param 
+//     -declare a variable named 'cache' and assing it the current char being processed  = '('
+//   -end of string iteration
 
 }
 
-module.exports = balancedParens;
+console.log('result of balancedParens >>>', balancedParens('('));
+
+module.exports = {
+  balancedParens
+};
