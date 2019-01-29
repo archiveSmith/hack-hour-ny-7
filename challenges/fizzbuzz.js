@@ -15,7 +15,7 @@
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
-console.log('Hello from fizzbuzz');
+// console.log('Hello from fizzbuzz');
 
 function fizzbuzz(num) {
   let array = [];
@@ -40,7 +40,7 @@ function fizzbuzz(num) {
   return array;
 }
 
-console.log(fizzbuzz(16));
+// console.log(fizzbuzz(16));
 
 module.exports = {
   fizzbuzz
