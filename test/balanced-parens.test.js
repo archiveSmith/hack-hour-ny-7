@@ -10,7 +10,7 @@ describe('balancedParens()', () => {
     assert.equal(balancedParens('()'), true);
   });
 
-  it('should return false if the right parenthesis (")") is found first', () => {
+  it('should return false if the right parenthesis ")" is found first', () => {
     assert.equal(balancedParens(')('), false);
   });
 
