@@ -26,29 +26,48 @@
 
 console.log('Hello from balanced-parens!!');
 
-function balancedParens(input){
-//   -if the length of input param equals 1 then return false...
-  if (input.length === 1) {
+function balancedParens(input) {
+  const openParens = ['(', '[', '{'];
+  const closedParens = [')', ']', '}'];
+
+  let cache = []; // cache to remember previous parens
+  let parensContainer= []; // array to collect the parens from input string
+  let matchOpenParens, char;
+
+  // Loop is meant to fill the parensContainer array with existing brackets from the input string
+  for (let i = 0; i < input.length; i += 1) {
+    if (openParens.indexOf(input[i]) > -1) {
+      parensContainer.push(input[i]);
+    }
+    else if (closedParens.indexOf(input[i]) > -1) {
+      parensContainer.push(input[i]);
+    }
+  }
+
+  if (parensContainer.length <= 1) {
       return false;
   }
 
-//   -if the first char in the input param equals to the right parens and the input param is greater than 1 then...
-  if (input[0] === ')' && input.length > 1) {
-    return false;
-  }
+  for (let i = 0; i < parensContainer.length; i += 1) {
+    char = parensContainer[i];
 
-//   -if the first char in the input param equals the left parens and the second char equals the right parens and the length of the input param equals 2 then...
-  if (input[0] === '(' && input[1] === ')' && input.length === 2) {
-    return true;
-  }
+    if (closedParens.indexOf(char) > -1) {
+      matchOpenParens = openParens[closedParens.indexOf(char)];
+      if (cache.length === 0 || (cache.pop() !== matchOpenParens)) {
+        return false;
+      }
+    }
 
-//   -start iterating through string param 
-//     -declare a variable named 'cache' and assing it the current char being processed  = '('
-//   -end of string iteration
+    else {
+      cache.push(char);
+    } 
+
+  }
+  return (cache.length === 0);
 
 }
 
-console.log('result of balancedParens >>>', balancedParens('('));
+console.log('result of balancedParens >>>', balancedParens('function(), object {}, [array]'));
 
 module.exports = {
   balancedParens
