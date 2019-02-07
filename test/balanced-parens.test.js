@@ -14,7 +14,21 @@ describe('balancedParens()', () => {
     assert.equal(balancedParens(')('), false);
   });
 
-  it('should return true if a nested parenthesis is found and the is balanced', () => {
+  it('should return true if a nested parenthesis is found and balanced', () => {
     assert.equal(balancedParens('(())'), true);
+  });
+
+  it('should return false if the length of the input string is odd', () => {
+    assert.equal(balancedParens('(()))'), false);
+  });
+
+  describe('Extensions:', () => {
+    it('should work with all bracket types "() [] {}"', () => {
+      assert.equal(balancedParens('()[]{}'), true);
+    })
+
+    it('should work with all strings', () => {
+      assert.equal(balancedParens('running a function with (), and creating an object with {}'), true);
+    });
   });
 });
