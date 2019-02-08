@@ -25,8 +25,17 @@ Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
-  return ((Array.length + 1)*(Array.length + 2)/2) - Array.reduce((acc, curr) => acc + curr);
+function missingNum(array) {
+  return ((array.length + 1)*(array.length + 2)/2) - array.reduce((acc, curr) => acc + curr);
+}
+
+
+function missingNum(array) {
+  for (var i = 0; i <= array.length; i++) {
+    if(array.indexOf(i+1) === -1) {
+      return i+1;
+    }
+  }
 }
 
 
