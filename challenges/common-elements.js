@@ -15,7 +15,7 @@
 function commonElements(array1, array2, array3, array4){
   const output = [];
   array1.forEach(el => {
-    if (array2.includes(el) && array3.includes(el) && array4.includes(el) && !output.includes(el)) {
+    if (!output.includes(el) && array2.includes(el) && array3.includes(el) && array4.includes(el)) {
       output.unshift(el);
     }
   })
