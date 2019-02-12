@@ -35,7 +35,7 @@ eachPermutation([1, 2, 3], function(perm) {
 //   }
 // }
 
-function eachPermutation(arr, callback) {
+function eachPermutation3(arr, callback) {
   function getPermutations(arr) {
     if (arr.length <= 1) return [arr];
 
@@ -83,6 +83,29 @@ function eachPermutation2(array, callback) {
   }
 }
 
+
+
+function eachPermutation(arr, callback) {
+  return heaps(0);
+
+  function heaps(index) {
+    for (let j = index; j < arr.length; j++) {
+      swap(arr, j, index);
+      heaps(index + 1);
+      swap(arr, index, j);
+    }
+
+    if (index === arr.length - 1) {
+      callback(arr);
+    }
+  }
+
+  function swap(arr, index1, index2) {
+    const temp = arr[index1];
+    arr[index1] = arr[index2];
+    arr[index2] = temp;
+  }
+}
 
 
 console.log(eachPermutation([1, 2, 3], function(perm) {
