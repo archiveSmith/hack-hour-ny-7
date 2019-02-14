@@ -11,22 +11,6 @@ function BinaryTree(val) {
     this.left = null;
     this.right = null;
 }
-
-// function validBST(tree) {
-//     if ((tree.left !== null && tree.left.value > tree.value) || 
-//         (tree.right !== null && tree.right.value < tree.value) || 
-//         (tree.left !== null && tree.left.value > tree.right.value) ||
-//         (tree.right !== null && tree.left.value > tree.right.value) ||
-//         ) { return false };
-
-//     if (tree.left !== null && tree.left.value <= tree.value) { return validBST(tree.left) };
-//     if (tree.right !== null && tree.right.value >= tree.value) { return validBST(tree.right) };
-//     return true;
-// }
-
-// function validBST(tree) {
-//     return isBST(tree, null, null);
-// }
   
 function validBST(tree, minval, maxval){
     if (tree == null) {
