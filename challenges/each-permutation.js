@@ -86,12 +86,11 @@ function eachPermutation2(array, callback) {
 
 
 function eachPermutation(arr, callback) {
-  return heaps(0);
-
-  function heaps(index) {
+  
+  function perms(index) {
     for (let j = index; j < arr.length; j++) {
       swap(arr, j, index);
-      heaps(index + 1);
+      perms(index + 1);
       swap(arr, index, j);
     }
 
@@ -105,6 +104,8 @@ function eachPermutation(arr, callback) {
     arr[index1] = arr[index2];
     arr[index2] = temp;
   }
+
+  return perms(0);
 }
 
 
