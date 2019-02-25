@@ -109,6 +109,7 @@ function eachPermutation(arr, callback) {
 }
 
 
+
 console.log(eachPermutation([1, 2, 3], function(perm) {
   console.log(perm)
 }));

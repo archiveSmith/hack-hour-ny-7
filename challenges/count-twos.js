@@ -17,5 +17,5 @@ function countTwos(num) {
   }
   return count;
 }
-
+ 
 module.exports = countTwos;
