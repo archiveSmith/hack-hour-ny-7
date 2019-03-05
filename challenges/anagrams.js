@@ -13,7 +13,12 @@
   */
 
 function anagrams(string) {
-  
+  const result = [];
+
+  return result;
 }
 
+console.log(anagrams('abc'));
+
 module.exports = anagrams;
+
