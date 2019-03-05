@@ -7,18 +7,32 @@
  *
  */
 
+// function maxSubarray(arr) {
+//   let max = arr[0];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     let curr = arr[i];
+//     if (curr >  max) { max = curr };
+//     for (let j = i + 1; j < arr.length; j++) {
+//       curr = curr + arr[j];
+//       if (curr > max) { max = curr }
+//     }
+//   }
+//   return max;
+// }
+
 function maxSubarray(arr) {
-  let max = arr[0];
+  let maxSum = -Infinity;
+  let currSum = 0
 
   for (let i = 0; i < arr.length; i++) {
-    let curr = arr[i];
-    if (curr >  max) { max = curr };
-    for (let j = i + 1; j < arr.length; j++) {
-      curr = curr + arr[j];
-      if (curr > max) { max = curr }
-    }
+    currSum = currSum + arr[i];
+    if (currSum > maxSum) maxSum = currSum;
+    if (currSum < 0 && currSum < arr[i+1]) currSum = 0;
   }
-  return max;
+  return maxSum;
 }
+
+// console.log(maxSubarray([-15, 1000, -20, -5]))
 
 module.exports = maxSubarray;

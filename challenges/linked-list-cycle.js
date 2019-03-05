@@ -57,6 +57,30 @@ function hasCycleFast(head) {
   return false;
 }
 
+function detectCycle(head) {
+  let slow = head;
+  let fast = head;
+  let start = head;
+
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) {
+      // The distance between the head and cycle beginning is the same as the distance between
+      // the collision point and cycle beginning. Therefore, pointers starting at the head and
+      // collision point will reach the cycle beginning at the same time.
+      while (slow !== start) {
+        slow = slow.next;
+        start = head.next;
+      }
+      return start;
+    }
+  }
+  return null;
+}
+
+
 // var node1 = new Node('1');
 // var node2 = node1.next = new Node('2');
 // var node3 = node2.next = new Node('3');
