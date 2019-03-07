@@ -13,7 +13,7 @@
   */
 
 function anagrams(string) {
-  if (string.length < 2) return string; // This is our break condition
+  if (string.length < 2) return string; // This is our break condition (base case)
 
   var permutations = []; // This array will hold our permutations
 
@@ -28,14 +28,14 @@ function anagrams(string) {
 
       const subPerms = anagrams(remainingString)
 
+      // iterate through subperms to concatenate them to 
+      // your current char and push into permutations array
       for (let subPermutation of subPerms)
           permutations.push(char + subPermutation)
 
   }
-  return permutations;
+  return permutations; // make sure you return your permutations!
 }
-
-console.log(permut('aabc'));
 
 module.exports = anagrams;
 
