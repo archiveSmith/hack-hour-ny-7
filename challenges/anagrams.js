@@ -13,7 +13,7 @@
   */
 
 function anagrams(string) {
-  if (string.length < 2) return string; // This is our break condition (base case)
+  if (string.length < 2) return [string]; // This is our break condition (base case)
 
   var permutations = []; // This array will hold our permutations
 
