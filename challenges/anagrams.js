@@ -13,12 +13,29 @@
   */
 
 function anagrams(string) {
-  const result = [];
+  if (string.length < 2) return string; // This is our break condition
 
-  return result;
+  var permutations = []; // This array will hold our permutations
+
+  for (let i=0; i<string.length; i++) {
+      const char = string[i];
+
+      // Cause we don't want any duplicates:
+      if (string.indexOf(char) !== i) // if char was used already
+          continue;           // skip it this time
+
+      const remainingString = string.slice(0,i) + string.slice(i+1,string.length);
+
+      const subPerms = anagrams(remainingString)
+
+      for (let subPermutation of subPerms)
+          permutations.push(char + subPermutation)
+
+  }
+  return permutations;
 }
 
-console.log(anagrams('abc'));
+console.log(permut('aabc'));
 
 module.exports = anagrams;
 
