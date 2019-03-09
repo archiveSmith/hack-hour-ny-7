@@ -44,7 +44,7 @@ function stringRotation(s1, s2) {
   return false;
 }
 
-function stringRotation2(s1, s2) {
+function stringRotation(s1, s2) {
   let stringToCheck = s1 + s1;
   return (s1.length === s2.length) && isSubstring(stringToCheck, s2);
 }
