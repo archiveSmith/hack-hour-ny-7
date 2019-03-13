@@ -22,6 +22,34 @@ function getAllProducts(array) {
   return prodArr;
 }
 
-// console.log(getAllProducts([1, 7, 3, 4]));
+function getAllProducts(array) {
+  if (!array || !array.length) {
+    return [0];
+  }
+
+  let front = [];
+  let back = [];
+  let result = [];
+
+  let productSoFar = 1;
+  for (let i = 0; i < array.length; ++i) {
+    front[i] = productSoFar;
+    productSoFar *= array[i];
+  }
+
+  productSoFar = 1;
+  for (let j = array.length - 1; j >= 0; --j) {
+    back[j] = productSoFar;
+    productSoFar *= array[j];
+  }
+
+  for (let k = 0; k < array.length; k++) {
+    result[k] = front[k] * back[k];
+  }
+  console.log(front, back, result)
+  return result;
+}
+
+console.log(getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
