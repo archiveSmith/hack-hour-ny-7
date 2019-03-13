@@ -17,7 +17,7 @@
  * 
  */
 
-function romanNumeral(n) {
+function romanNumeralLong(n) {
   let num = n;
   let output = [];
   if (num >= 1000) {
@@ -134,6 +134,22 @@ function fromRoman(rom){
     if(arr[i] === 'I') { output+= 1 }
   }
   return output;
+}
+
+function romanNumeral(n) {
+  const map = [
+    [1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'],
+    [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']
+  ];
+
+  let value = '';
+  for (let i = 0; n > 0 && i < map.length; i++) {
+    while (n >= map[i][0]) {
+      value += map[i][1];
+      n -= map[i][0];
+    }
+  }
+  return value;
 }
 
 console.log(fromRoman('MDCLXIX'));
