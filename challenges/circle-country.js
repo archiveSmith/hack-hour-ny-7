@@ -20,7 +20,7 @@
  *    - (start_x, start_y) and (end_x, end_y) will never lie on a circle's border
  *    - no circle borders intersect/touch (but they can be nested)
  *
- */
+ **/
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   let borderCount = 0;
@@ -36,6 +36,7 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
     borderCount++;
    }
   }
+  return borderCount;
 }
 
 module.exports = circleCountry;
