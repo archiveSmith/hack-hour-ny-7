@@ -31,7 +31,6 @@ function binToDec(binary) {
 function binToDec(binary) {
   const arr = binary.toString().split('')
   const len = arr.length;
-
   return arr.reduce((acc, curr, i) => acc += curr * Math.pow(2, len - 1 - i), 0);
 }
 
