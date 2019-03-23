@@ -33,21 +33,28 @@
 */
 
 function pascalTriangle(numRows) {
-  if (!numRows) { return [] };
+  if (numRows < 0) return undefined;
+  if (!numRows) return [];
+  // initialize triangle array with 1 row array
   const output = [[1]];
-  for (let i = 1; i < numRows; i++) {
-    let row = []
-    for (let j = 0; j <= i; j++) {
-      if (output[i-1][j-1] && output[i-1][j]) {
-        let total = output[i-1][j] + output[i-1][j-1]
-        row.push(total)
-      } else { row.push(1) }
+  for (let i = 0; i < numRows - 1; i++) {
+    // initialize each new row array with 1
+    const row = [1]
+    // start @ 1 because each previous row's first value is always 1
+    // iterate over the previous row, adding the current value and adjacent value
+    for (let j = 1; j < output[i].length; j++) {
+      row[j] = output[i][j] + output[i][j-1]
     }
+    // end each row with 1
+    row.push(1)
+    // push the new row array to the triangle array
     output.push(row);
   }
   return output;
 }
 
-console.log(pascalTriangle(5));
+
+
+console.log(pascalTriangle(6));
 
 module.exports = pascalTriangle;
