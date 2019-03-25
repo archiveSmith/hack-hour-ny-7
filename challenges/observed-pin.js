@@ -54,21 +54,19 @@ function getPINs(observed) {
   }
 
   if (!observed) return [];
-  const array = observed.split('')
-  console.log(array)
   
-  function makePerms(arr, output = ['']) {
-    if (!arr.length) return output;
-    const newArr = [];
-    output.forEach(str => {
-      dict[arr[0]].forEach(num => {
-        newArr.push(str + num);
+  function makePerms(str, output = ['']) {
+    if (!str.length) return output;
+    const newOutput = [];
+    output.forEach(numStr => {
+      dict[str[0]].forEach(num => {
+        newOutput.push(numStr + num);
       })
     })
-    return makePerms(arr.slice(1), newArr);
+    return makePerms(str.slice(1), newOutput);
   }
 
-  return makePerms(array)
+  return makePerms(observed)
 }
 
 // console.log(getPINs('11'))
