@@ -69,7 +69,7 @@ function getPINs(observed) {
   return makePerms(observed)
 }
 
-// console.log(getPINs('11'))
+console.log(getPINs('1'))
 
 
 module.exports = getPINs
