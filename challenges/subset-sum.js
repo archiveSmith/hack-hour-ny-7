@@ -46,6 +46,26 @@ function subsetSumDynamic(array, target) {
         matrix[i][j] = matrix[i - 1][j] || matrix[i - 1][j - array[i - 1]];
       }
     }
+    if (matrix[i][target]) return true;
+  }
+  return false;
+}
+
+function subsetSumDynamicPlus(array, target) {
+  const matrix = [];
+  for (let i = 0; i <= array.length; i++) {
+    matrix[i] = new Array(target + 1);
+    matrix[i][0] = true;
+  }
+
+  for (let i = 1; i <= array.length; i++) { 
+    for (let j = 1; j <= target; j++) {
+      if (j < array[i - 1]) {
+        matrix[i][j] = matrix[i-1][j];
+      } else {
+        matrix[i][j] = matrix[i - 1][j] || matrix[i - 1][j - array[i - 1]];
+      }
+    }
     if (matrix[i][target]) {
       const output = [];
       let currX = target;
@@ -76,4 +96,4 @@ function subsetSumDynamic(array, target) {
 
 // console.log(subsetSumDynamic([3, 34, 4, 12, 5, 12], 32))
 
-module.exports = subsetSum;
+module.exports = subsetSumDynamic;
