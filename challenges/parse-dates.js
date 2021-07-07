@@ -43,4 +43,19 @@ function parseDates(str) {
   
 }
 
+/*
+
+let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+let days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Today']
+
+function parseDates() {
+var today = new Date();
+console.log(today)
+var str = today.toGMTString()
+console.log(str)
+}
+
+parseDates();
+*/
+
 module.exports = parseDates;

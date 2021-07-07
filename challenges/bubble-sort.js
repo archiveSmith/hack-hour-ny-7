@@ -3,7 +3,7 @@
 // https://en.wikipedia.org/wiki/Bubble_sort
 
 
-
+//
 function bubbleSort(array) {
 
 }

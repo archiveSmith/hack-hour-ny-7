@@ -13,7 +13,32 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  let startPrice = stock_prices_yesterday[0];
+  for(let i = 0; i <= stock_prices_yesterday.length; i++) {
+
+  }
 
 }
+/*
+function bestProfit(stock_prices_yesterday) {
+  if (!Array.isArray(stock_prices_yesterday)) return 0;
+
+  let lowestPrice = Infinity;
+  let maxProfit = 0;
+
+  for (let i = 0; i < stock_prices_yesterday.length; i++) {
+    const currentPrice = stock_prices_yesterday[i];
+
+    if (currentPrice < lowestPrice) {
+      lowestPrice = currentPrice;
+    } else if (currentPrice - lowestPrice > maxProfit) {
+      maxProfit = currentPrice - lowestPrice;
+    }
+  }
+
+  return maxProfit;
+}
+*/
+
 
 module.exports = bestProfit;

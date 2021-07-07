@@ -7,8 +7,10 @@
  *
  */
 
+//example is slicing certain number of elements to add to max value
+//https://rohan-paul.github.io/javascript/2017/07/23/Maximum_Sum_of_Subarray_Javascript_Implementation/
 function maxSubarray(arr) {
 
 }
 
-module.exports = maxSubarray;
+module.exports = maxSubarray
