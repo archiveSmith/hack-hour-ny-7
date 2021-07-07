@@ -15,6 +15,38 @@ function BinaryTree(value) {
 
 function superbalanced(tree) {
 
+  if(!tree) {
+    return undefined;
+  }
+
+  let balanced = true;
+  superbalancedRec(tree);
+  return balanced;
+
+  function superbalancedRec(tree) {
+
+    if(!tree.left && !tree.right) {
+      return 0;
+    }
+
+    let rightHeight = tree.right ? superbalancedRec(tree.right) + 1 : 0;
+    let leftHeight = tree.left ? superbalancedRec(tree.left) + 1 : 0;
+
+    let difference = Math.abs(rightHeight - leftHeight);
+    if (difference > 1) {
+      balanced = false;
+    }
+
+    return Math.max(rightHeight, leftHeight);
+  }
 }
+
+let bst = new BinaryTree(10);
+bst.left = new BinaryTree(5);
+bst.right = new BinaryTree(15);
+bst.left.left = new BinaryTree(3);
+
+
+console.log(superbalanced(bst));
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};

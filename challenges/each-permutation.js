@@ -21,8 +21,31 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  let permArr = [];
+  generatePerms([], arr)
 
+  permArr.forEach(perm => callback(perm));
+
+  function generatePerms (finishedChars, unFinishedChars) {
+    //base case
+    if (unFinishedChars.length === 0) {
+      permArr.push(finishedChars);
+      return;
+    };
+
+    for (let i = 0; i < unFinishedChars.length; i++) {
+      let finishedCharCopy = finishedChars.slice();
+      let unFinishedCharCopy = unFinishedChars.slice();
+
+      finishedCharCopy.push(unFinishedCharCopy.splice(i,1)[0]);
+      generatePerms(finishedCharCopy, unFinishedCharCopy);
+    };
+  }
 }
+
+console.log(eachPermutation([1,2,3], (perm) => {
+  console.log(perm.map(el => el*2));
+}));
 
 
 

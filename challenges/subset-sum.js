@@ -1,3 +1,4 @@
+//STUDY MODIFY
 /* You are given an array of integers and a target number. Write a function that returns true if
  * there is a subset of the array that sums up to the target and returns false otherwise. A subset
  * can be any size and the elements do not have to appear consecutively in the array.
@@ -10,6 +11,33 @@
 
 function subsetSum(array, target) {
 
+    
+    let result = false;
+    subsetSumRec(array, target, 0);
+    return result;
+
+    function subsetSumRec(array, target, currentSum){
+        //base cases
+        if(currentSum === target) {
+            result = true;
+        }
+        if(array.length === 0){
+            return;
+        }
+
+        //go through each element of array, add to current sum and remove from array.
+        //if new currentsum is equal to target, return true at any point.
+        for (let i = 0; i < array.length; i++) {
+            let deepCopyCurrentSum = JSON.parse(JSON.stringify(currentSum));
+            let deepCopyArr = JSON.parse(JSON.stringify(array));
+          
+            let spliced = deepCopyArr.splice(i,1)[0];
+            deepCopyCurrentSum += spliced;
+            
+            //else, recursive call again with the spliced array
+            subsetSumRec (deepCopyArr, target, deepCopyCurrentSum);
+        }
+    }  
 }
 
 module.exports = subsetSum;

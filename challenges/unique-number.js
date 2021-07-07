@@ -10,7 +10,28 @@
  *
  */
 function uniqueNumber(array) {
+  if (!array) {
+    return false;
+  }
 
+
+  let countingObject = array.reduce((acc, cur) => {
+    if(acc[cur]) {
+      acc[cur]++;
+    } else {
+      acc[cur] = 1;
+    }
+    return acc;
+  },{});
+
+
+  for(let key in countingObject) {
+    if (countingObject[key] === 1){
+      return Number(key);
+    }
+  }
 }
+
+console.log(uniqueNumber([1,2,1,3,3]));
 
 module.exports = uniqueNumber;

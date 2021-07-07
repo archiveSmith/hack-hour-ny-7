@@ -8,9 +8,18 @@
 function sumMultiples3Or5Below1000() {
   let sum = 0;
 
+  let three = 3;
+  let five = 5;
+
+  for (let i = three; i < 1000; i += three) {
+    console.log(i);
+  }
+  
+
   return sum;
 }
 
+console.log(sumMultiples3Or5Below1000());
 
 // extension make it dynamic function that takes input x,y,z
 // and returns the sum of multiples of x and y below z

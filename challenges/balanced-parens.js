@@ -23,9 +23,26 @@
  *
  *
  */
-
 function balancedParens(input){
+    let parensStack = [];
+    input.split("").forEach(char => {
+        if(char === '(' || char === '[' || char === '{'){
+            parensStack.push(char);
+        }
+        else if(char === ')' && parensStack[parensStack.length-1] === '('){
+            parensStack.pop();
+        }
+        else if(char === ']' && parensStack[parensStack.length-1] === '['){
+            parensStack.pop();
+        }
+        else if(char === '}' && parensStack[parensStack.length-1] === '{'){
+            parensStack.pop();
+        }
+    });
 
+    return parensStack.length === 0 ? true : false;
 }
+
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
 
 module.exports = balancedParens;

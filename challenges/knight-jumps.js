@@ -11,7 +11,19 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let x = parseInt(str.charAt(1));
+  let y = parseInt(str.charAt(3));
 
+  let counter = 0;
+  //8 moves
+  
+  if (checkIfXYValid(x + 1, y + 2)){
+    counter++;
+  }
+
+  function checkIfXYValid(x, y){
+    return (x >=1 || x <= 8 || y >= 1 || y <=8) ? true : false;
+  }
 }
 
 module.exports = knightjumps;

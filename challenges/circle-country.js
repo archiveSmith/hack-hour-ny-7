@@ -23,7 +23,47 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  //loop through each circle
+  
+  //if it surrounds either but not the other, count it
+  let circleArr = x.map((x, index) => {
+    return {
+      x : x,
+      y : y[index],
+      r : r[index],
+    };
+  });
 
+  let resultCount = 0;
+  circleArr.forEach(circle => {
+    //count circles that surround start or end, but not both
+    if (
+      (doesCircleSurroundPoint(circle.x, circle.y, circle.r, start_x, start_y) && !doesCircleSurroundPoint(circle.x, circle.y, circle.r, end_x, end_y)) 
+      || 
+      (!doesCircleSurroundPoint(circle.x, circle.y, circle.r, start_x, start_y) && doesCircleSurroundPoint(circle.x, circle.y, circle.r, end_x, end_y)
+      )){
+      resultCount++;
+    }
+  });
+
+  return resultCount;
 }
+
+function doesCircleSurroundPoint(xCenter, yCenter, radius, xPoint, yPoint) {
+  let yDiff = yCenter - yPoint;
+  let xDiff = xCenter - xPoint;
+  let distanceBetween = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2))
+  return radius > distanceBetween ? true : false;
+}
+
+// let x = [3,3];
+// let y = [3,3];
+// let r = [3,5];
+// let startX = 0;
+// let startY = 10;
+// let endX = 3;
+// let endY = 3;
+
+// console.log(circleCountry(x, y , r, startX, startY, endX, endY))
 
 module.exports = circleCountry;

@@ -13,7 +13,27 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
+    let inOrderTraversal = [];
+    
+    validBSTRec(tree);
+    console.log(inOrderTraversal);
 
+    for (let i = 1; i < inOrderTraversal.length; i++){
+        if(inOrderTraversal[i] <= inOrderTraversal[i-1]){
+            return false;
+        }
+    }
+    return true;
+
+    function validBSTRec(tree) {
+        if(tree.left){
+            validBSTRec(tree.left)
+        }
+        inOrderTraversal.push(tree.value);
+        if(tree.right){
+            validBSTRec(tree.right)
+        }
+    }
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};

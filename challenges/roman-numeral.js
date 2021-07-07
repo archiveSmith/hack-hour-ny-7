@@ -16,9 +16,36 @@
  *      1000  ->    M
  * 
  */
+console.log(romanNumeral(1999));
 
 function romanNumeral(n) {
+  let romanMapping = [
+    {1000 : "M"},
+    {900 : 'CM'},
+    {500 : 'D'},
+    {400 : 'CD'},
+    {100 : 'C'},
+    {90 : 'XC'},
+    {50 : 'L'},
+    {40 : 'XL'},
+    {10 : 'X'},
+    {9 : 'IX'},
+    {5 : 'V'},
+    {4 : 'IV'},
+    {1 : 'I'},
+  ];
 
+  let result = '';
+  romanMapping.forEach(mapping => {
+    let decimal = Object.keys(mapping)[0];
+    let roman = mapping[Object.keys(mapping)[0]];
+    
+    let numeralCount = Math.floor(n / decimal);
+    n -= numeralCount * decimal;
+
+    result += roman.repeat(numeralCount);
+  })
+  return result;
+  
 }
-
 module.exports = romanNumeral;

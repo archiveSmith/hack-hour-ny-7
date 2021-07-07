@@ -10,8 +10,20 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
-function matchWord(str) {
 
+function matchWord(str) {
+    let wordStack = [];
+
+    str.split(/[^a-z|^A-Z]+/)
+    .map(word => word.toLowerCase())
+    .filter(word => word !== "")
+    .forEach(word => {
+       wordStack[wordStack.length-1] === word.split('').reverse().join('') ? wordStack.pop() : wordStack.push(word);
+    });
+
+    return wordStack.length === 0;
 }
+
+console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'));
 
 module.exports = matchWord;

@@ -4,7 +4,27 @@
 
 
 function Stack() {
-
+  this.stack = [];
+  this.length = 0;
+}
+Stack.prototype.push = function (element) {
+  if (!element) {
+    return undefined;
+  }
+  this.stack.push(element);
+  this.length++;
+  return element;
+}
+Stack.prototype.pop = function () {
+  if(this.length === 0) {
+    return undefined;
+  } 
+  let result = this.stack.pop();
+  this.length--;
+  return result;
+}
+Stack.prototype.toString = function () {
+  return this.stack;
 }
 
 
@@ -14,7 +34,35 @@ function Stack() {
 
 
 function Queue() {
-
+  this.enqueueStack = new Stack;
+  this.dequeueStack = new Stack;
+  this.length = 0;
 }
+Queue.prototype.enqueue = function (element) {
+  if (!element) {
+    return undefined;
+  }
+  this.enqueueStack.push(element);
+  this.length++;
+  return element;
+}
+Queue.prototype.dequeue = function () {
+  if (this.length === 0){
+    return undefined;
+  }
+  while(this.enqueueStack.length != 0) {
+    this.dequeueStack.push(this.enqueueStack.pop());
+  }
+  let result = this.dequeueStack.pop();
+  while (this.dequeueStack.length != 0) {
+    this.enqueueStack.push(this.dequeueStack.pop());
+  }
+  this.length--;
+  return result;
+}
+Queue.prototype.toString = function () {
+  return (this.enqueueStack.stack + ", " + this.length);
+}
+
 
 module.exports = {Stack: Stack, Queue: Queue};

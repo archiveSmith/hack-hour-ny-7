@@ -6,8 +6,60 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
+ 
 function Stack() {
-  // body...
+  this.max;
+  this.length = 0;
+  this.stack = {};
 }
+Stack.prototype.push = function(element) {
+  this.stack[this.length] = element;
+  this.length++;
+
+  if(!this.max || element >= this.max) {
+    this.max = element;
+  }
+
+  return this.length;
+}
+Stack.prototype.pop = function() {
+  if(this.length === 0) return false;
+
+  let popped = this.stack[--this.length];
+  delete this.stack[this.length];
+
+  if (this.length === 0) {
+    this.max = undefined;
+  } 
+  else if (this.max === popped) {
+    let newMax = this.stack[0];
+    for (let i = 1; i < this.length; i ++){
+      if (this.stack[i] > newMax) newMax = this.stack[i];
+    }
+    this.max = newMax;
+  }
+
+  return popped;
+}
+Stack.prototype.getMax = function() {
+  return this.max;
+}
+Stack.prototype.toString = function() {
+  return JSON.stringify(this.stack);
+}
+
+let stack = new Stack();
+stack.push(5);
+console.log('max',stack.getMax());
+console.log(stack.toString());
+stack.push(7);
+console.log('max',stack.getMax());
+console.log(stack.toString());
+stack.push(9);
+console.log('max',stack.getMax());
+console.log(stack.toString());
+console.log('popped',stack.pop());
+console.log('max',stack.getMax());
+console.log(stack.toString());
 
 module.exports = Stack;

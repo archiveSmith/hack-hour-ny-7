@@ -20,7 +20,38 @@
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
 function poker(hand1, hand2) {
-
+  hand1.sort((a, b) => {return a - b});
+  hand2.sort((a, b ) => {return a - b});
+  
+  const isFourOfKind = (hand) => {
+    if ((hand[0] === hand[1] && hand[1] === hand[2] && hand[2] === hand[3]) || (hand[1] === hand[2] && hand[2] === hand[3] && hand[3] === hand[4])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  const isFullHouse = (hand) => {
+    if ((hand[0] === hand[1] && hand[1] === hand[2] && hand[3] === hand[4]) || (hand[0] === hand[1] && hand[2] === hand[3] && hand[3] === hand[4])) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  const isStraight = (hand) => {
+    if ((hand[0] === hand[1] - 1) && (hand[0] === hand[2] - 2) && (hand[0] === hand[3] - 3) && (hand[0] === hand[4] - 4)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  const isTriple = (hand) => {
+    if ((hand[0] === hand[1] && hand[1] === hand[2]) || (hand[1] === hand[2] && hand[2] === hand[3]) || (hand[2] === hand[3] && hand[3] === hand[4])) {
+      return true;
+    } else{
+      return false;
+    }
+  }
 }
 
+console.log(poker([4,5,3,2,1], [10,9,8,7,6]));
 module.exports = poker;
